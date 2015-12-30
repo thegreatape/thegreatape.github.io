@@ -1,0 +1,99 @@
+---
+layout: post
+title: 2015 Year End Notes
+---
+
+Even if New Year's resolutions are a terrible way to make lasting habit changes, I like using the end of the year as a reminder to take stock of how I did with respect to [last year's goals](http://thegreata.pe/2014-year-end-notes/) and see what I want to change.
+
+## Reading
+
+This was the first year in four years that I missed my [50 book reading challenge](https://www.goodreads.com/challenges/3082-2015-reading-challenge), having only read 44 books in 2015. 
+
+What happened? Mostly, life. My wife and I bought a house in August and for those that haven't gone through that process, it will happily hoover up all your free time and then some. I also changed jobs in April, resulting in a shorter commute from then til we moved into the new place in August. I do a significant chunk of my reading on the bus and subway, and even a commute just three stops shorter made a difference in my reading twice when compounded twice a day, five times a week.
+
+That's not to say that 44 books in a year isn't respectable; I'm still pleased by how I've maintained my rebuilt reading habit. I just need to make sure I stay on track at this point.
+
+The breakdown of what I read by genre:
+
+| Genre / Subject    | Count |
+|:---------------    |:----- |
+| Fantasy            | 19    |
+| Science Fiction    | 12    |
+| Technical/Business |  4    |
+| Fitness            |  3    |
+| Other Non-Fiction  |  6    |
+
+I also set two specific reading goals last year:
+
+_Read more books by women_: Last year, only 5 out of the 53 books I read were by women. This year, it was 14 out of 44—from 9% to 30% is a improvement, but this is still something I need to pay more attention to.
+
+_Read 8 technical books_: This was an outright fail: I read 4 technical books, of which 3 could be more accurately described as books on tech cultural/business/careers.
+
+_2015 Notable List_:
+
+- [The Half-Made World](https://www.goodreads.com/book/show/8198773-the-half-made-world) by Felix Gilman:
+- [Nemesis Games](https://www.goodreads.com/book/show/22886612-nemesis-games) by James S.A. Corey:
+- [The Traitor Baru Cormorant](https://www.goodreads.com/book/show/23444482-the-traitor-baru-cormorant) by Seth Dickison:
+- [The Internet of Garbage](https://www.goodreads.com/book/show/25910719-the-internet-of-garbage) by Sarah Jeong:
+
+#### 2016 Plans
+
+- Try for 50 books / year again. Commute reading from the new place seems to put me roughly on track for this by itself, so I don't think I'll be stretching for this one.
+
+## Lifting
+
+After having failed to hit any of my lifting goals for 2014, I set what I thought were a set of more conversative and balanced goals for 2015.
+
+_Last Year's Goals_:
+
+| Lift             | Goal 1RM                   |
+|:---------------- |:-------------------------- |
+| Deadlift         | 405 lbs                    |
+| Overhead Press   | 170 lbs                    |
+| Kettlebell Swing | 200 x 53 lbs in 10 minutes |
+
+How'd I do?
+
+_Deadlift_: Nailed it. Hit a 415lbs pull in October. Might have had more in the tank—that at the tail end of a workout, after the regular working sets.
+
+_Overhead Press_: Remember how I moved? Now I've got a squat rack and bar in my basement! It's great—except that the ceilings are too low for me to overhead press a loaded barbell. I didn't move my OHP max from 160 before I moved, and I'm now focusing on rebuilding my bench press instead (which I'd neglected to focus on overhead. sigh.)
+
+_Kettlebell Swing_: In retrospect, this was a misguided goal. I wanted a goal that'd encourage me to improve my cardiovascular conditioning, but this proved very challenging to try and improve at the same time as improving my deadlift. Both are the same kind of fundamental human movement (hinge) and both are super taxing to the same parts of the body. I'd consistently feel beat up and underrecovered when trying to improve the swing and the deadlift concurrently. I got to 150 swings in 7:30 sometime in early November, but have since decided to back off pushing the swings. More on this in next year's goals.
+
+But!
+
+_Bringing Back Squatting Back_
+
+An unexpected bit of awesome this year is that I've resumed back squatting, pain-free! A couple things contributed to this: 
+
+- Consistent mobility work on my hips and ankles have slowly had lasting effects.
+- I got a pair of Olympic lifting shoes: the stable, raised heel helps compensate for some of the missing dorsiflexion in my ankles.
+- Getting a lifting belt helped teach me to brace my core correctly.
+
+#### 2016 Goals
+
+Strength is my main focus, and I'm going to set my goals accordingly. Here's what my powerlifting total looks like right now:
+
+| Lift        | Current 1RM                |
+|:------------|:-------------------------- |
+| Deadlift    | 415 lbs                    |
+| Squat       | 300 lbs (est)              |
+| Bench Press | 230 lbs (est)              |
+| *Total*       | *945 lbs (est)*              |
+
+By next year, I want to total over 1000 lbs. That's 20 lbs on each lift, on average. I think that's doable if I'm focused on strength and avoid getting hurt.
+
+I don't want to neglect conditioning while doing this, but I want to train it in a way that's more complimentary to the strength side of things. I want to be in good shape cardio-wise for general health, improved recovery, and to avoid going completely bearmode in the winter. So I'm just going to shoot for consistency: I want to average 2 cardio-centric workouts a week. If I'm feeling great, this can be HITT-style swings, complexes, burpees, whatever. If I'm beat up or low on recovery budget, it'll be LISS-style running or stationary bike. Hopefully the freedom to adjust the style and intensity of my conditioning will make this easier to run along a serious strength training program.
+
+## Programming
+
+- Lyeberry (and ring-raygun as a result)
+- Conway
+- Fling with Emacs
+
+#### 2016 Plans
+
+- Elixir / OPT
+- Elm
+- Varsity-level SQL
+
