@@ -1,0 +1,91 @@
+---
+layout: post
+title: 2016 Year End Notes
+---
+
+I almost didn't write this; after this year's US election and the steady global rise of nationalism, well, my usual inward-looking year end review feels a bit trite. But this is the stuff that helps keep me functional and able to take any action at all, so. Here we go.
+
+I am going to try and set looser goals for next year—more of a direction than concrete goals. Maybe it'll help me adapt to changes more easily, maybe it'll just make me lazy. We'll see.
+
+## Reading
+
+I read 50 books this year. Hey, I did hit at least one of my goals from last year! Broken down by genre:
+
+| Genre / Subject    | Count |
+|:------------------ |:----- |
+| Fantasy            | 27    |
+| Science Fiction    | 9     |
+| Technical          | 5     |
+| Other Non-Fiction  | 5     |
+| Fitness            | 4     |
+
+I've joked before that you could probably plot my chronic stress levels over time by looking at the split of fiction and non-fiction I read. This year, reading over fantasy tells the same story: election and post-election stress combined with probably not taking enough vacation tipped me towards reading things that gave my brain a break and good story, instead of challenging it. I'd like to push the ratio a little more towards things that make me grow next year, but I don't regret this year's choices that helped me be less of a rolling emotional breakdown.
+
+One thing I do regret: I only read 12 books by women, actually doing worse gender ratio-wise than last year. Deciding to start an epic re-read of the Dresden Files after the election accounts for some of the skew here, but not all. I can and should do better next year.
+
+On a better note, while I'm historically bad at not finishing books even when I'm really disliking them, this year I put down four books before the end. That's almost more than I managed to put down in the previous three years combined!
+
+_Favorite Books This Year_:
+
+- The Fifth Season / The Obelisk Gate by N.K. Jemisin — Absolutely the most powerful works of fiction I read this year. Heartbreaking and mindblowing with great characters, an amazingly realized world, unflinching exploration of empire and oppression, all with brilliantly technically executed storytelling. I can't wait for The Stone Sky next year.
+
+- Too Like The Lightning by Ada Palmer — A wonderful book that I still struggle to *describe* well; "far-future genderqueer Enlightenmentpunk sci-fi" is the closest I can get to an elevator pitch.
+
+- Children of Time by Adrain Tchaikovsky — A great Big Idea sci-fi novel told across the deep time of near-lightspeed travel and the rise and fall of civilizations. Recommended for fans of Vernor Vinge and Charles Stross; NOT recommended for the arachnophobic.
+
+- Babylon's Ashes by James S.A. Corey — I truly love when a series I like keeps gets better over time, and The Expanse's latest entry certainly qualifies. Smart, human-driven space opera.
+
+- Deep Work by Cal Newport — A book on the economic and life-statisfaction benefits of developing the ability to deeply focus on hard work for long periods of time. I feel like I've been both turning this one over in my head and failing to heed its advice since I read it this January.
+
+Not sure yet whether I won't set a numeric goal at all for next year or just set a lower one. Either way, I want nudge my brain father away from finishing a meh book because it'll mess up my number if I don't, and more towards challenging reads that'll take longer to digest and work through.
+
+## Fitness
+
+A very mixed bag this year.
+
+*First, the bad:* My goal to hit a 1000-pound squat / bench / deadlift total got derailed by injuries in October. I managed to both develop golfer's elbow and strain an adductor within a week of each other, which sidelined me from training entirely for about a month and a half. Both injuries are slowly improving and I'm back to doing a limited set of movements. High reps and slowly increasing weight seems to be going ok, but these were my first serious injuries in about four years of lifting. A bit scary!
+
+*But, the good:* I think this was the year I figured out how to make nutrition work for me. Picking a macro split that'd fuel my training well and actually tracking what I ate (via MyFitnessPal) worked really really well: I was able to control my weight as I wanted, and had much more consistent energy levels. The key here is that I'm just fine cooking 95% percent of what I eat, and doing so mostly in advance. My wife and I were already in the habit of pre-making dinner ingredients for the week on Sundays (a strategy we picked up from the wonderful Well Fed cookbook series), so we expanded our cookup sessions to include lunches as well, and I dropped the daily takeout lunch at work (I still make a habit of walking with co-workers as they're going out to grab food, so I leave the building and get to chat with people). Side effect of making most of my meals: not only is it much easier (possible?) to know what's in them, but making the same thing for lunch a week running makes tracking much easier too (you can just copy previous meals in MFP). 
+
+Using those strategies, I did my first real cut / bulk cycle, dropping down to about ~14% bodyfat before starting a slow bulk back up. Only downside is that I managed to get hurt right at the peak of said bulk, so I'm carrying a little more body fat than I'd prefer until my weights are back to challenging enough that a cut won't drop muscle along with fat. So it goes; it bothers me a lot less since I know I've got perfectly workable strategies for getting back to where I want to be once I can train again.
+
+Also, I *did* get stronger. I'd last tested each of the powerlifts in August, winding up with a 425 deadlift, 320 squat and 230 bench, all at a lighter bodyweight than I started the year with. I suspect I'd improved beyond those later, but since I got hurt before I tested again, who knows?
+
+*Lessons for 2017:* Really happy with my nutritional strategy; I noted that even when I'd go through periods of not tracking as stringently, the habits I'd developed kept things from going way off the rails. That's the hallmark of something sustainable, so small adjustments aside, I think batch cooking and calorie tracking are here to stay.
+
+As far as lifting, getting injured and having to take time off has gotten me to step back a bit and think about what I want out of lifting and how it squares with how I've been training. Generally, I want to feel good, look good, and be strong, in that order. I trained most of last year using programming tailored towards powerlifters; that is, programming designed to specifically increase your one-rep max in the competition lifts: squat, bench, and deadlift. This wasn't totally unreasonable: performance in those lifts correlates with all of my stated goals, which is why I'd set the 1000-pound total goal in the first place. But I'm not a powerlifter and have no desire to ever actually enter a competition, so while I *can* use powerlifting programs to work towards my goals, they might not be the optimal set of risk/reward tradeoffs for them.
+
+What I'm thinking will be inspiring my training next year:
+
+* Dan John is always right. focus on the fundamental human movements under load: squat, hinge, push, pull, loaded carry. Emphasize hypertrophy and joint mobility.
+
+* Greg Nuckols agrees that even competitive lifters should get most of their lifting volume from bodybuilding-style hypertrophy training, because hypertrophy is one of the main predictors of absolute strength (that's under our control) and it is a remarkable low injury risk style of training.
+
+* Brian Alsruhe's YouTube channel has been getting a lot more attention lately and while I'm not interested in training for strongman competitions either, the way they're structured leaves a lot more emphasis on overall strength and conditioning. I'd very much like to try out his Giant Sets idea as a way of cramming more work into shorter time periods and getting some conditioning in to boot. That'll be a... gradual process.
+
+## Programming
+
+*Personal:* I didn't do a great deal of programming in my spare time this year, outside of:
+
+- a toy Clojurescript app
+- some upkeep on Literate Minuteman / lyeberry
+- several fizzled attempts at a lifting tracker
+- a deeper dive into Vimscript
+
+Been thinking about this, and I think there's two things going on, neither of which is really a bad thing. 
+
+One, I simply had a challenging year at work (in a good way). Spending most of the day five days a week pushing my brain and abilities on one things means I'm not going to have as many cycles for the same-ish things in my personal time. This is normal.
+
+Two, for the last decade or so, my model of learning new things tech-wise is to go sideways: I seek out a new spin on something I already know a bit about. This usually manifests itself as learning a new language or framework: a new way to do frontend development, a new high-level concurrency model, a new way to interact with a relational database, and so on. This year, that started to feel a bit flat. It took me a while to realize that I'm feeling a lot more in going deep on areas where my knowledge is scattered and ad-hoc: learning about the internals of stuff like operating systems and networking. Less learning of new tools and more studying of areas I lack depth in. Planning to start with nand2tetris and we'll see how it goes from there.
+
+*Professional*: I can add Clojure to the list of technologies I'm allowed to complain about, because my team shipped our first production Clojure app this year. Some jumbled thoughts:
+
+  - Clojure turned out to be a great choice for what we used it for: an API service that had concurrency needs beyond what you could easily do in Ruby (our default language at work). But I'm not sure I want to use it for the kind of everyday web development where I'd normally default to Rails. Particularly, I want something more ORM-y for database access than the Clojure community likes (Korma seems clossest) and a better story for full-stack, real-browser web testing (a la Poltergeist/Capybara).
+
+- If we were using ClojureScript, that'd probably change the calculus a bit, though the JS community seems to be absorbing a lot of the good ideas that ClojureScript trailblazed (immutable global state atoms, live-reloading workflows).
+
+- core.async is a beautiful way to model concurrency and communication between different parts of a program. It absolutely is in need of a deeper, complete writeup on how to use it, however; the CFTBAT chapter on it is great, but you also need to read the entire API docs to really get how to use it.
+
+- I still miss having a debugger.
+
+- The error messages and stacktraces are still way harder to read than they should be. It's great to see communities like Elixir and Elm making this a priority and it makes me sad that the Cognitect crew don't seem to share that view.
