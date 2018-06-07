@@ -1,0 +1,252 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Defusing Distracting Defaults: An Experiment In Automating Better Habits &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Defusing Distracting Defaults: An Experiment In Automating Better Habits">
+<meta name="twitter:description" content="Ever have one of those moments where you’re browsing Instagram/Facebook/Twitter/whatever, realize you’ve burned an ho...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Defusing Distracting Defaults: An Experiment In Automating Better Habits">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Defusing Distracting Defaults: An Experiment In Automating Better Habits</h1>
+      <time datetime="2016-08-28T00:00:00-04:00" itemprop="datePublished">August 28, 2016</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>Ever have one of those moments where you’re browsing Instagram/Facebook/Twitter/whatever, realize you’ve burned an hour you meant to use working on something else, close the tab in disgust… then realize you’ve reopened the same site without even thinking about it?</p>
+
+<p>Yeah. Long, uninterrupted blocks of focus are incredibly important for creative work. But for me, good intentions alone ain’t gonna get me there.</p>
+
+<p>There are plenty of distracting things blockers for OS X out there: StayFocusd, Freedom, Focus, and I’m sure tons more. But none that I tried quite worked for me, and I’ve been trying to think about why:</p>
+
+<ol>
+  <li>
+    <p><em>Permanently blocking distractions</em>: Absolute blocking works for things that I actually get no value out of (Hacker News, I’m looking at you). But the most insidious stuff are sites that I sometimes get value from: keeping up with friends on Twitter, the good parts of Reddit, and so on. I still want to use them, just… deliberately and not instead of what I mean to be working on.</p>
+  </li>
+  <li>
+    <p><em>Fixed amount of time per day</em>: A fixed time allowance for distraction sounds good in theory, but it doesn’t prevent me from absent-mindedly opening distractions at the start of the day, which is typically when I have the most energy I’d like to spend on something else.</p>
+  </li>
+  <li>
+    <p><em>Scheduled blocking</em>: I could never figure out the right schedule that wound up helping, to be honest.</p>
+  </li>
+</ol>
+
+<p>Upon reflection, I think what I wanted was a mindfulness aid. Ideally, I’d have all distractions blocked by default when I open my laptop, and have a command that I run to be able to access distractions for a set period of time, reverting to blocking everything when done: a break with an enforced time limit. I could run as many of these as I want, but each time has to be a deliberate decision.</p>
+
+<p>None of the existing tools quite did this, but I was able to wire up something that did. Here’s how:</p>
+
+<h2 id="1-install-focus">1. Install Focus</h2>
+
+<p><a href="https://heyfocus.com/">Focus</a> is a great distraction blocking app for OS X and well worth your money. It has two modes: scheduled blocking or manually enabled periods of blocking, neither of which are quite what I was after.</p>
+
+<p>Luckily, it’s scriptable.</p>
+
+<h2 id="2-install-hammerspoon-and-start-focus-on-wake">2. Install Hammerspoon and start Focus on wake</h2>
+
+<p><a href="http://www.hammerspoon.org/">Hammerspoon</a> is an automation tool for OS X that can watch for events and run Lua scripts in response. It’s quite powerful and the APIs are pretty extensive. I set it up to start Focus upon system wake, so even if I’ve disabled Focus earlier or closed my laptop in the middle of a break, when I come back, Focus is running.</p>
+
+<figure class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="c1">--</span>
+<span class="c1">-- ~/.hammerspoon/init.lua</span>
+<span class="c1">-- start Focus.app on wake</span>
+<span class="c1">--</span>
+<span class="kd">local</span> <span class="n">wakeCallback</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="k">function</span> <span class="nf">wakeCallback</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">event</span> <span class="o">==</span> <span class="n">hs</span><span class="p">.</span><span class="n">caffeinate</span><span class="p">.</span><span class="n">watcher</span><span class="p">.</span><span class="n">systemDidWake</span><span class="p">)</span> <span class="k">then</span>
+    <span class="n">hs</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">'open focus://focus'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">wakeWatcher</span> <span class="o">=</span> <span class="n">hs</span><span class="p">.</span><span class="n">caffeinate</span><span class="p">.</span><span class="n">watcher</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">wakeCallback</span><span class="p">)</span>
+<span class="n">wakeWatcher</span><span class="p">:</span><span class="n">start</span><span class="p">()</span></code></pre></figure>
+
+<h2 id="3-set-up-unfocus-break-script">3. Set up unfocus break script</h2>
+
+<p>The final piece is a script I wrote myself—it turns off blocking for a fixed period, then re-enables it at the end, keeping me from turning what I meant to be 5 minutes of break into a lost hour or two.</p>
+
+<p>Put the following somewhere on your path and make it executable:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#!/usr/bin/env ruby</span>
+
+<span class="k">def</span> <span class="nf">unfocus</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span>
+  <span class="sb">`open focus://unfocus`</span>
+  <span class="k">while</span> <span class="n">remaining</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="nb">print</span> <span class="s2">"&gt;&gt; Unfocused, refocusing in </span><span class="si">#{</span><span class="n">format_time</span> <span class="n">remaining</span><span class="si">}</span><span class="s2">     </span><span class="se">\r</span><span class="s2">"</span>
+    <span class="n">remaining</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="nb">sleep</span> <span class="mi">1</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">format_time</span><span class="p">(</span><span class="n">remaining</span><span class="p">)</span>
+  <span class="s2">"%02d:%02d"</span> <span class="o">%</span> <span class="n">remaining</span><span class="p">.</span><span class="nf">divmod</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">refocus</span>
+  <span class="nb">puts</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">Break over!"</span>
+  <span class="sb">`open focus://focus`</span>
+<span class="k">end</span>
+
+<span class="k">begin</span>
+  <span class="n">unfocus</span><span class="p">((</span><span class="no">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="mi">15</span><span class="p">).</span><span class="nf">to_i</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+  <span class="n">refocus</span>
+<span class="k">rescue</span> <span class="no">Interrupt</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="n">refocus</span>
+  <span class="nb">exit</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>The break defaults to 15 minutes, but you can pass a custom number as an argument to the script (so <code class="highlighter-rouge">unfocus 5</code> gives you a 5 minute break). When run, it’ll display a countdown timer of how long your break has remaining, then exit and re-enable Focus. It’ll even re-enable Focus if you accidentally kill the script while it’s running.</p>
+
+<p>And that’s it! I’ve just gotten this set up today, but I’m pleased with how it’s working so far. Time will tell if it’s a good long-term solution for me.</p>
+
+<p><em>Updated Feb 26th, 2017: A previous solution here used <a href="http://www.bernhard-baehr.de/">sleepwatcher</a>, but it began starting slowly after upgrading to Sierra. I replaced it with with Hammerspoon.</em></p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

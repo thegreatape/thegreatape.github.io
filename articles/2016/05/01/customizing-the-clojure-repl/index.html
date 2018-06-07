@@ -1,0 +1,216 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Customizing The Clojure REPL &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Customizing The Clojure REPL">
+<meta name="twitter:description" content="One of the things that makes Clojure great is its fantastic REPL. “REPL” stands for “read eval print loop”—it’s a com...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Customizing The Clojure REPL">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Customizing The Clojure REPL</h1>
+      <time datetime="2016-05-01T00:00:00-04:00" itemprop="datePublished">May 01, 2016</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>One of the things that makes Clojure great is its fantastic REPL. “REPL” stands for “read eval print loop”—it’s a command-line console where you can type in Clojure code and run it. It’s a great way to experiment and learn; I’ll often prototype a piece of code in the REPL before moving it back over to my editor to save in my project.</p>
+
+<h3 id="less-typing-required">Less typing required</h3>
+
+<p>My Clojure REPL sessions tend to be pretty long-lived, and I’ll often build up a mini-library of helper functions and imported namespaces as I go. This can get a little jarring when I have to restart the REPL session; I’ll hit the up arrow to repeat my last command, only to not have it work because the code references something I’d defined in the last session that’s now gone.</p>
+
+<p>As a partial solution, it turns out you can customize the environment the Clojure REPL starts up with. By default, <code class="highlighter-rouge">lein repl</code> starts using the <code class="highlighter-rouge">user</code> namespace, but it’s not any different than any other Clojure namespace. You can customize it by create a file in your project that describes the <code class="highlighter-rouge">user</code> namespace. For example, if I always want to have <a href="https://github.com/marick/Midje">Midje</a>’s testing functions loaded, I can add it to the <code class="highlighter-rouge">require</code> part of the namespace’s <code class="highlighter-rouge">ns</code> macro:</p>
+
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="c1">; user.clj</span><span class="w">
+</span><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">user</span><span class="w">
+ </span><span class="p">(</span><span class="no">:require</span><span class="w"> </span><span class="p">[</span><span class="n">midje.repl</span><span class="p">]))</span></code></pre></figure>
+
+<p>Now whenever I start a REPL session, all the functions from <code class="highlighter-rouge">korma.core</code> will be automatically required and ready to use. We can do the same thing with all the Clojure code-loading mechanisms: require, refer, alias, and use. The <code class="highlighter-rouge">user</code> namespace works the same as any other Clojure namespace; it just happens to be the one that our REPL loads by default.</p>
+
+<h3 id="helper-functions">Helper functions</h3>
+
+<p>This means we can also define helper functions in our <code class="highlighter-rouge">user</code> namespace. For example, if I want to stop and start my <a href="https://github.com/tolitius/mount">mount components</a> easily, I might define some helpers to do that (like the <a href="http://www.luminusweb.net/">Luminus</a> project does in its generated starter application):</p>
+
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="c1">; user.clj</span><span class="w">
+</span><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">user</span><span class="w">
+ </span><span class="p">(</span><span class="no">:require</span><span class="w"> </span><span class="p">[</span><span class="n">midje.repl</span><span class="p">]</span><span class="w">
+           </span><span class="p">[</span><span class="n">mount.core</span><span class="w"> </span><span class="no">:as</span><span class="w"> </span><span class="n">mount</span><span class="p">]))</span><span class="w">
+
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">mount/start</span><span class="p">))</span><span class="w">
+
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">mount/stop</span><span class="p">))</span><span class="w">
+
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">restart</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">stop</span><span class="p">)</span><span class="w">
+  </span><span class="p">(</span><span class="nf">start</span><span class="p">))</span></code></pre></figure>
+
+<p>Now those functions are available every time I start my REPL:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">user</span><span class="o">=&gt;</span> <span class="o">(</span>restart<span class="o">)</span>
+<span class="o">[</span>2016-05-01 13:46:22,647][INFO][luminus.http-server] starting HTTP server on port 3000</code></pre></figure>
+
+<h3 id="keeping-this-stuff-out-of-production">Keeping this stuff out of production</h3>
+
+<p>You probably don’t want to have development-only code like REPL customization loaded in your production application. If you’re using Leiningen to manage your project, you can define directories that are only loaded when the development profile is used:</p>
+
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="c1">; project.clj</span><span class="w">
+</span><span class="no">:profiles</span><span class="w">
+</span><span class="p">{</span><span class="no">:dev</span><span class="w">
+ </span><span class="p">{</span><span class="no">:source-paths</span><span class="w"> </span><span class="p">[</span><span class="s">"env/development/clj"</span><span class="p">]}</span></code></pre></figure>
+
+<p>Now, we can move our <code class="highlighter-rouge">user.clj</code> from above into <code class="highlighter-rouge">env/development/clj/user.clj</code>, and it’ll only be loaded when we start up a REPL session in our development environment.</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

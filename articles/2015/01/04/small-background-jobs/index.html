@@ -1,0 +1,207 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Make your Rails background jobs as small as possible &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Make your Rails background jobs as small as possible">
+<meta name="twitter:description" content="I recently ran into an issue with Literate Minuteman that reminded me of the value of keeping your Rails background j...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make your Rails background jobs as small as possible">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2015/01/04/small-background-jobs/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2015/01/04/small-background-jobs/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Make your Rails background jobs as small as possible</h1>
+      <time datetime="2015-01-04T00:00:00-05:00" itemprop="datePublished">January 04, 2015</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>I recently ran into an issue with <a href="http://www.literate-minuteman.com/">Literate Minuteman</a> that reminded me of the value of keeping your Rails background jobs as small as you can.</p>
+
+<p>In Minuteman, looking up the state of a book at a particular library is a relatively slow operation, and so is done periodically outside the HTTP request/response, using <a href="https://github.com/resque/resque">Resque</a>. For each book we want to update, we enqueue an <code class="highlighter-rouge">UpdateBook</code> worker with the book’s id, which fetches the book and then delegates to <code class="highlighter-rouge">Book</code>’s <code class="highlighter-rouge">sync_copies</code> method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/workers/update_book.rb</span>
+<span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
+  <span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
+  <span class="n">book</span><span class="p">.</span><span class="nf">sync_copies</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>The book’s <code class="highlighter-rouge">sync_copies</code> method then loops through all the available <code class="highlighter-rouge">LibrarySystem</code>s and asks the system in question for the current status of that book’s copies:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/book.rb</span>
+<span class="k">def</span> <span class="nf">sync_copies</span>
+  <span class="no">LibrarySystem</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">system</span><span class="o">|</span>
+    <span class="n">copies</span> <span class="o">=</span> <span class="nb">system</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">)</span>
+    <span class="c1"># book updating work happens here</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>The problem with this design is that each <code class="highlighter-rouge">LibrarySystem</code>’s lookup is run in serial as a part of the same job. If an exception is raised by any system’s <code class="highlighter-rouge">find</code> call, subsequent system book lookups won’t happen at all. That’s what I found was happening this weekend-a change in the Boston Public Library’s site had caused the very first system lookup to fail, and now no books were being updated at all!</p>
+
+<p>To fix this, I split the jobs out into more specific tasks-looking up the status of a book in a particular library system, instead of the status of a book in <em>all</em> library systems. <code class="highlighter-rouge">UpdateBook</code> simply took the library system id as a parameter and passed it to a <code class="highlighter-rouge">Book#sync_copies</code> method that just looked up copies in that system:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/workers/update_book.rb</span>
+<span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">perform</span><span class="p">(</span><span class="n">book_id</span><span class="p">,</span> <span class="n">library_system_id</span><span class="p">)</span>
+  <span class="n">book</span> <span class="o">=</span> <span class="no">Book</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">book_id</span><span class="p">)</span>
+  <span class="n">book</span><span class="p">.</span><span class="nf">sync_copies</span><span class="p">(</span><span class="no">LibrarySystem</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">library_system_id</span><span class="p">))</span>
+<span class="k">end</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/book.rb</span>
+<span class="k">def</span> <span class="nf">sync_copies</span><span class="p">(</span><span class="n">library_system</span><span class="p">)</span>
+  <span class="n">copies</span> <span class="o">=</span> <span class="nb">system</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">author</span><span class="p">)</span>
+  <span class="c1"># book updating work happens here</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Now, the BPL system lookups were still failing, but the other system lookups could run independently and I was free to fix the BPL lookup system in isolation.</p>
+
+<p>I’ve simplified the code in these examples slightly to make my point more clear; you can check out the full changes <a href="https://github.com/thegreatape/literate-minuteman/commit/5dbfe7a5629b88170cf65801b4c9a8ec37b44574">here</a>.</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

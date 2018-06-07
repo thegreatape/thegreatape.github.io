@@ -1,0 +1,217 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Emacs and Evil-mode: Field Notes &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Emacs and Evil-mode: Field Notes">
+<meta name="twitter:description" content="Back in December, I started experimenting with getting Emacs set up to use Vim-style modal editing. I’d begun studyin...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Emacs and Evil-mode: Field Notes">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2015/01/18/emacs-and-evil-mode-field-notes/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2015/01/18/emacs-and-evil-mode-field-notes/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Emacs and Evil-mode: Field Notes</h1>
+      <time datetime="2015-01-18T00:00:00-05:00" itemprop="datePublished">January 18, 2015</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>Back in December, I started experimenting with getting Emacs set up to use Vim-style modal editing. I’d begun studying Clojure more deeply and Emacs’s <a href="https://github.com/clojure-emacs/cider">CIDER</a> is the most popular editing environment for Clojure, so I felt like I at least owed it a look. I’d also found myself thinking about and agreeing with a central tenant of Emacs philosophy: that your tools should evolve with you and become deeply customized over time.</p>
+
+<p>But—and this is a big but—I couldn’t imagine leaving modal editing behind. Some background on my editing history: I used Emacs when I learned to program in college, writing Java, C++, Python with Emacs. It was what we used in the computer science lab, so it was what I adopted. Ironically, I barely customized my setup at all beyond cargo-culting a few different keybindings, tweaks and major modes. It wasn’t until about five years ago that some colleagues of mine convinced me to try out Vim instead. The idea that Vim’s <a href="http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118">modal editing is a language</a> clicked with me and sounded a lot easier on the wrists than Emacs key-chords. I spent a weekend getting up to speed, researching plugins and I’ve been a modal-editing weenie ever since.</p>
+
+<p>Fast-forward five years and articles on <a href="https://gitorious.org/evil/pages/Home">evil-mode</a> started to make the rounds. Despite some skepticism, I began to wonder if I could get the best of both worlds: a deeply customizable editing environment <em>and</em> modal editing. The Clojure community’s preference for CIDER was a great excuse to try things out.</p>
+
+<p>I used a couple blog posts as tutorials to start from and went from there:</p>
+
+<ul>
+  <li><a href="http://bling.github.io/blog/2013/10/27/emacs-as-my-leader-vim-survival-guide/">Emacs as my leader</a></li>
+  <li><a href="http://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html">Towards a Vim-like Emacs</a></li>
+  <li><a href="http://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/">From Vim to Emacs+Evil chaotic migration guide</a></li>
+</ul>
+
+<h3 id="what-i-learned-the-highlights">What I Learned: The Highlights</h3>
+
+<p><strong>Evil mode is actually that good:</strong> Any Vim user who’s tried to use a Vim-emulation plugin in other editors knows that they always fall jarringly short. Evil-mode… doesn’t. Text objects? Check. Visual block mode? Check. Registers? Check. Macros? Check. You really can sit down with Emacs, run <code class="highlighter-rouge">(evil-mode t)</code> and edit text in a completely unsurprising way. This is impressive as hell.</p>
+
+<p>What’s more, evil-mode doesn’t lock you into the default Vim keybindings; in fact, it makes customizing pretty easy. I was able to define custom normal-mode evil keys for various language modes after just a few quick tutorials.</p>
+
+<p><strong>Plugin management is much better than I remember</strong>: The Emacs package manager <code class="highlighter-rouge">package.el</code> wasn’t a default part of Emacs until 24.0, well after I switched to Vim. Being able to install a plugin with a single command was great, but I wanted something a bit closer to <a href="https://github.com/gmarik/Vundle.vim">Vundle</a> that would help me keep my plugins synced across two laptops.</p>
+
+<p>Behold: <a href="https://github.com/jwiegley/use-package">use-package</a> works like Vundle with the <code class="highlighter-rouge">:ensure t</code> argument. It also allows you to make sure the package is required before executing your plugin-specific configuration code. One gotcha: I needed to install one package with “M-x install <whatever>" before the `(use-package <whatever> :ensure t)` would install things automatically on boot. Thereafter, I could just write the use-package expression in my config file and eval it with `C-x C-e` to install and initialize things. Pretty nice.</whatever></whatever></p>
+
+<p><strong>Elisp isn’t awful</strong>: Emacs isn’t so much configured by Elisp as it is a giant Elisp REPL. Everything, from keypresses on up, is handled by calling Elisp functions, and you can customize how Emacs works by writing further Elisp. I found it a lot easier to pick up and start writing customization code in Elisp than I did in Vimscript. Most would agree that’s a low bar, but there it is.</p>
+
+<p>The degree to which Emacs is self-documenting was unexpectedly nice. <code class="highlighter-rouge">M-x describe-function</code> over an Elisp symbol will bring up its documentation. I bound this to <code class="highlighter-rouge">K</code> in evil-normal-mode as suggested by one of the above tutorials, and it’s a really great way to pick apart sample code and figure out how it works. Similarly, <code class="highlighter-rouge">M-x describe-key</code> is super useful for figuring out what function a particular Emacs-style key shortcut is calling. After you have the function name, you can easily bind it to your own evil-flavored keys.</p>
+
+<p><strong>Nothing is quite as good as Ctrl-P</strong>: A fast fuzzy file matcher is something I can’t live without, and I struggled to find something to replace <a href="https://github.com/kien/ctrlp.vim">Ctrl-P</a>. The <a href="https://github.com/bbatsov/projectile">projectile</a> project management plugin can be configured to use various file matching plugins, but none of them were without issues:</p>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/lewang/flx">ido-flx</a> was just straight-up too slow for matching on a large project (just under 7k files). I tried setting a higher garbage collection threshold and lowering the number of completion candidates needed before the fuzzy matching would kick in, per the flx <a href="https://github.com/lewang/flx/blob/master/README.md">README</a>, but it still was too laggy to use at work.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/grizzl/grizzl">grizzl</a> I couldn’t get working at all. I ran into <a href="https://github.com/bbatsov/projectile/issues/200">this issue</a> with a <code class="highlighter-rouge">Symbol's function definition is void: exitfun</code> error being thrown and didn’t find a solution.</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/emacs-helm/helm">helm</a> came the closest. It was acceptably fast on a large project, though still noticeably slower than Ctrl-P. The completion algorithm was a bit different than what I’m used to; it used spaces to break up tokens instead of an implicit <code class="highlighter-rouge">.*</code> after each character—so if you were searching for <code class="highlighter-rouge">app/models/file.rb</code> you’d use <code class="highlighter-rouge">ap mo fil</code> instead of <code class="highlighter-rouge">apmofil</code>. I wound up actually liking that better after a few days. Unfortunately, it would occasionally <a href="https://github.com/bbatsov/projectile/issues/600">crash the vanilla OS X build of Emacs</a>. This is apparently an Emacs bug and is purported to be fixed in the <a href="https://github.com/railwaycat/emacs-mac-port">emacs-mac-port build</a> but I haven’t stress-tested to be sure.</p>
+  </li>
+</ul>
+
+<p><strong>Evil-matchit just didn’t work with Ruby</strong>: I write Ruby by day, and Vim’s <a href="https://github.com/tmhedberg/matchit">matchit</a> lets me use <code class="highlighter-rouge">%</code> to hop between <code class="highlighter-rouge">do</code>/<code class="highlighter-rouge">end</code> or <code class="highlighter-rouge">def</code>/<code class="highlighter-rouge">end</code> blocks in Ruby as well parentheses, curly braces and so on. It’s really amazing useful for code navigation, especially if the code you’re working with doesn’t exactly hew to the idea of small methods. I was delighted that the Emacs <a href="https://github.com/redguardtoo/evil-matchit">evil-matchit</a> had Ruby support; unfortunately, it doesn’t seem to work. Hitting <code class="highlighter-rouge">%</code> on a block inside a method would take me to the block before the selected block, or to the top of the method, or to the beginning of the line I was on—essentially anywhere but where it should have gone.</p>
+
+<h3 id="two-months-later">Two Months Later</h3>
+
+<p>For now, I’m putting my Emacs configuration aside for a bit. I’m impressed with Evil, but feel a bit low on energy and like there’s too much <a href="http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx">yak-shaving</a> ahead before I’m really comfortable back in Emacs. I also want to focus on just learning Clojure and its idioms without having to wrestle with learning and customizing a new editing environment at the same time. I started using Tim Pope’s <a href="https://github.com/tpope/vim-fireplace">vim-fireplace</a> for working with Clojure, which works well enough, even if it’s not quite a real embedded REPL.</p>
+
+<p>I do want to come back to this experiment someday. I feel like the issues I ran into should be tractable with more time and focus, and there are some plugins like <a href="http://orgmode.org/">org-mode</a> that I really want to explore. The work I put in to get as far as I did is <a href="https://github.com/thegreatape/dot-files">versioned on GitHub along with the rest of my dot-files</a>, so hopefully the next time around I can just pick up where I left off.</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

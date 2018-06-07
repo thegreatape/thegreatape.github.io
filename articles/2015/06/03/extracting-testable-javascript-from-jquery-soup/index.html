@@ -1,0 +1,372 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Extracting Testable Javascript From jQuery Soup &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Extracting Testable Javascript From jQuery Soup">
+<meta name="twitter:description" content="I’m not sure where the phrase “jQuery Soup” originated, but it’s an apt description of a failure mode that Javascript...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Extracting Testable Javascript From jQuery Soup">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Extracting Testable Javascript From jQuery Soup</h1>
+      <time datetime="2015-06-03T00:00:00-04:00" itemprop="datePublished">June 03, 2015</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>I’m not sure where the phrase “jQuery Soup” originated, but it’s an apt description of a failure mode that Javascript code can fall into as it grows. It’s characterized by code that has little structure and no separation of concerns, mixing together HTTP calls, DOM manipulation, user event handling and business logic into a big pile of callbacks.</p>
+
+<p>Beyond just looking ugly, soupy Javascript has a high carrying cost because it tends to be hard to change and expensive to test. With its lack of structure, code written this way can be tested only by high-level end-to-end tests, using tools like <a href="http://www.seleniumhq.org/">Selenium</a> or <a href="https://github.com/teampoltergeist/poltergeist">Poltergeist</a>. Full-stack integration tests are important to have, but in moderation: they tend to be slow and provide very indirect feedback when something breaks.</p>
+
+<p>If we want to turn our soup into something easier to change, we need to restructure it so we can write isolated unit tests against it.</p>
+
+<h2 id="why">Why?</h2>
+
+<p>Correctly written unit tests using modern JS testing frameworks like <a href="http://mochajs.org/">Mocha</a> or <a href="http://jasmine.github.io/">Jasmine</a> are really freaking fast: a typical unit test should be executable in a small fraction of second and a suite of hundreds should take a handful of seconds to run. The productivity impact of speedy tests on the development feedback loop really cannot be understated: it’s a lot easier to stay focused and in the zone when your tests can finish running before you switch windows from text editor to browser.</p>
+
+<p>Beyond speed, isolated tests provide better locality of errors; when unit tests fail they’re more likely than end-to-end tests to point you to the specific area of code that’s gone wrong. They also encourage better testing of edge cases and failure modes; well-isolated tests mean there’s less setup for each scenario, and so less friction for writing new test cases.</p>
+
+<h2 id="how">How?</h2>
+
+<p>Luckily, writing unit-testable Javascript is mostly a matter of following good object-oriented design principals.</p>
+
+<p>Let’s look at some jQuery code that’s powering a search against a JSON API. It’s pretty pedestrian code, but can’t be unit tested as-is. This is a very simple example so as to fit comfortably in a blog post; imagine hundreds of lines structured in the same fashion as we go along.</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">$</span> <span class="o">-&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">"#search"</span><span class="p">).</span><span class="na">on</span> <span class="s">"click"</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="na">ajax</span>
+      <span class="na">url</span><span class="o">:</span> <span class="s">"/users/search"</span>
+      <span class="na">data</span><span class="o">:</span> <span class="p">{</span><span class="na">q</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s">"#query"</span><span class="p">).</span><span class="na">val</span><span class="p">()}</span>
+      <span class="na">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="o">-&gt;</span>
+        <span class="nx">resultHtml</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="nx">$</span><span class="p">.</span><span class="na">each</span> <span class="nx">users</span><span class="p">,</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="o">-&gt;</span>
+          <span class="nx">resultHtml</span> <span class="o">+=</span> <span class="s">"&lt;div&gt;</span><span class="si">#{</span><span class="nx">user</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&lt;/div&gt;"</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s">".results"</span><span class="p">).</span><span class="na">html</span><span class="p">(</span><span class="nx">resultHtml</span><span class="p">)</span></code></pre></figure>
+
+<p>Let’s refactor this code to get it under test.</p>
+
+<h3 id="make-your-code-instantiable-in-a-test-harness">Make Your Code Instantiable In A Test Harness</h3>
+
+<p>The minimum requirement for testable code is to be able to run the code itself inside a test harness. Our jQuery code above is a function that’s executed once upon page load: how do we run it inside something like Jasmine or Mocha?</p>
+
+<p>As a first step, we can extract the function’s behavior wholesale to a new object that we can create in our tests. There’s more decomposing of the behavior we could do, but the objective right now is just to it running inside a test harness.</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="k">class</span> <span class="vi">@</span><span class="na">UserSearch</span>
+  <span class="na">bindForm</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#search"</span><span class="p">).</span><span class="na">on</span> <span class="s">"click"</span><span class="p">,</span> <span class="o">-&gt;</span>
+      <span class="nx">$</span><span class="p">.</span><span class="na">ajax</span>
+        <span class="na">url</span><span class="o">:</span> <span class="s">"/users/search"</span>
+        <span class="na">data</span><span class="o">:</span> <span class="p">{</span><span class="na">q</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="s">"#query"</span><span class="p">).</span><span class="na">val</span><span class="p">()}</span>
+        <span class="na">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="o">-&gt;</span>
+          <span class="nx">resultHtml</span> <span class="o">=</span> <span class="s">""</span>
+          <span class="nx">$</span><span class="p">.</span><span class="na">each</span> <span class="nx">users</span><span class="p">,</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="o">-&gt;</span>
+            <span class="nx">resultHtml</span> <span class="o">+=</span> <span class="s">"&lt;div&gt;</span><span class="si">#{</span><span class="nx">user</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&lt;/div&gt;"</span>
+          <span class="nx">$</span><span class="p">(</span><span class="s">".results"</span><span class="p">).</span><span class="na">html</span><span class="p">(</span><span class="nx">resultHtml</span><span class="p">)</span></code></pre></figure>
+
+<p>Now the code that’s run on page load can simply create an instance of <code class="highlighter-rouge">UserSearch</code> and call <code class="highlighter-rouge">bindForm</code>:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">$</span> <span class="o">-&gt;</span>
+  <span class="k">new</span> <span class="nx">UserSearch</span><span class="p">().</span><span class="na">bindForm</span><span class="p">()</span></code></pre></figure>
+
+<p>We can now create instances of <code class="highlighter-rouge">UserSearch</code> inside our test harness:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">describe</span> <span class="s">"UserSearch"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">it</span> <span class="s">"can be created"</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="k">new</span> <span class="nx">UserSearch</span><span class="p">()).</span><span class="na">to</span><span class="p">.</span><span class="na">not</span><span class="p">.</span><span class="na">be</span><span class="p">.</span><span class="na">undefined</span><span class="p">;</span></code></pre></figure>
+
+<p>Wahoo! But we can’t test anything useful yet.</p>
+
+<h3 id="mock-external-dependencies">Mock External Dependencies</h3>
+
+<p>Our code has two external dependencies we need to deal with before we can test anything useful: the DOM and the HTTP search API.</p>
+
+<p><em>DOM Fixtures</em>: Our <code class="highlighter-rouge">UserSearch</code> class depends on three elements being present on the page: a input to read the search query from, a button to click to submit the query, and a container to fill with search results. We can use jQuery to construct a minimal set of elements that fulfill this contract and insert it into the test runner’s DOM in the <code class="highlighter-rouge">beforeEach</code> hook.</p>
+
+<p><em>HTTP search API</em>: <code class="highlighter-rouge">UserSearch</code> also depends on being able to retrieve JSON search results by hitting <code class="highlighter-rouge">/users/search</code> with an Ajax request. We can use <a href="http://sinonjs.org/">SinonJS’s</a> excellent high-level Ajax request mocking to build out a mock server that responds with fake search results.</p>
+
+<p>With tools for mocking both our external dependencies, we can finally write a meaningful test:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">describe</span> <span class="s">"UserSearch"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s">'&lt;div&gt;
+               &lt;input id="query" /&gt;
+               &lt;button id="search"&gt;Search&lt;/button&gt;
+               &lt;div class="results"&gt;&lt;/div&gt;
+             &lt;/div&gt;'</span><span class="p">)</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">'body'</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="vi">@</span><span class="na">el</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">server</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="na">fakeServer</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+
+  <span class="nx">afterEach</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">el</span><span class="p">.</span><span class="na">remove</span><span class="p">()</span>
+    <span class="vi">@</span><span class="na">server</span><span class="p">.</span><span class="na">restore</span><span class="p">()</span>
+
+  <span class="nx">it</span> <span class="s">"displays matching users"</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span><span class="na">name</span><span class="o">:</span> <span class="s">"Furiosa"</span><span class="p">},</span>
+      <span class="p">{</span><span class="na">name</span><span class="o">:</span> <span class="s">"Max"</span><span class="p">}</span>
+    <span class="p">]</span>
+    <span class="vi">@</span><span class="na">server</span><span class="p">.</span><span class="na">respondWith</span><span class="p">(</span>
+      <span class="s">"GET"</span><span class="p">,</span>
+      <span class="sr">/users\/search/</span><span class="p">,</span>
+      <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Content-Type"</span><span class="o">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="nx">JSON</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="nx">users</span><span class="p">)])</span>
+
+    <span class="k">new</span> <span class="nx">UserSearch</span><span class="p">().</span><span class="na">bindForm</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#query"</span><span class="p">).</span><span class="na">val</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#search"</span><span class="p">).</span><span class="na">trigger</span><span class="p">(</span><span class="s">"click"</span><span class="p">)</span>
+    <span class="vi">@</span><span class="na">server</span><span class="p">.</span><span class="na">respond</span><span class="p">()</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">".results div"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])).</span><span class="na">to</span><span class="p">.</span><span class="na">have</span><span class="p">.</span><span class="na">$text</span><span class="p">(</span><span class="s">"Furiosa"</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">".results div"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])).</span><span class="na">to</span><span class="p">.</span><span class="na">have</span><span class="p">.</span><span class="na">$text</span><span class="p">(</span><span class="s">"Max"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="follow-the-single-responsibility-principal">Follow The Single-Responsibility Principal</h3>
+
+<p>The above test requires a lot of mocking for single test. It’s also not great object-oriented design: we’ve just taken procedural code and wrapped an object around it for encapsulation. The Single-Responsibility Principal says that it’s a good idea to have an object be responsible for a single thing. What if we split <code class="highlighter-rouge">UserSearch</code> into two classes: one for talking to the search API and one for managing the DOM?</p>
+
+<p>Let’s create a <code class="highlighter-rouge">UserStore</code> class to abstract away the details of fetching our search results. It’ll just be responsible for talking to the backend and passing the search results along to the caller.</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="k">class</span> <span class="vi">@</span><span class="na">UserStore</span>
+  <span class="na">url</span><span class="o">:</span> <span class="s">"/users/search"</span>
+  <span class="na">search</span><span class="o">:</span> <span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span>
+    <span class="nx">$</span><span class="p">.</span><span class="na">ajax</span>
+      <span class="na">url</span><span class="o">:</span> <span class="vi">@</span><span class="na">url</span>
+      <span class="na">data</span><span class="o">:</span> <span class="p">{</span><span class="na">q</span><span class="o">:</span> <span class="nx">query</span><span class="p">}</span>
+      <span class="na">success</span><span class="o">:</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="o">-&gt;</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">users</span><span class="p">)</span></code></pre></figure>
+
+<p>We can test this by just mocking out the server Ajax response:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">describe</span> <span class="s">"UserStore"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">server</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="na">fakeServer</span><span class="p">.</span><span class="na">create</span><span class="p">()</span>
+
+  <span class="nx">afterEach</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">server</span><span class="p">.</span><span class="na">restore</span><span class="p">()</span>
+
+  <span class="nx">it</span> <span class="s">"displays matching users"</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="p">{</span><span class="na">name</span><span class="o">:</span> <span class="s">"Furiosa"</span><span class="p">},</span>
+      <span class="p">{</span><span class="na">name</span><span class="o">:</span> <span class="s">"Max"</span><span class="p">}</span>
+    <span class="p">]</span>
+    <span class="vi">@</span><span class="na">server</span><span class="p">.</span><span class="na">respondWith</span><span class="p">(</span>
+      <span class="s">"GET"</span><span class="p">,</span>
+      <span class="sr">/users\/search/</span><span class="p">,</span>
+      <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span> <span class="s">"Content-Type"</span><span class="o">:</span> <span class="s">"application/json"</span> <span class="p">},</span> <span class="nx">JSON</span><span class="p">.</span><span class="na">stringify</span><span class="p">(</span><span class="nx">users</span><span class="p">)])</span>
+
+    <span class="nx">callback</span> <span class="o">=</span> <span class="nx">sinon</span><span class="p">.</span><span class="na">spy</span><span class="p">()</span>
+    <span class="nx">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserStore</span><span class="p">()</span>
+    <span class="nx">store</span><span class="p">.</span><span class="na">search</span><span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">callback</span><span class="p">.</span><span class="na">calledWith</span><span class="p">(</span><span class="nx">users</span><span class="p">)).</span><span class="na">to</span><span class="p">.</span><span class="na">be</span><span class="p">.</span><span class="na">truthy</span></code></pre></figure>
+
+<h3 id="inject-js-dependencies">Inject JS Dependencies</h3>
+
+<p>Our <code class="highlighter-rouge">UserSearch</code> class now only manages the DOM and delegates the details of actually fetching the search results to its <code class="highlighter-rouge">UserStore</code>. Let’s rename it to <code class="highlighter-rouge">UserSearchForm</code> to reflect its new responsibilities and take a look:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="k">class</span> <span class="vi">@</span><span class="na">UserSearchForm</span>
+  <span class="na">constructor</span><span class="o">:</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">store</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UserStore</span><span class="p">()</span>
+
+  <span class="na">bindForm</span><span class="o">:</span> <span class="o">=&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#search"</span><span class="p">).</span><span class="na">on</span> <span class="s">"click"</span><span class="p">,</span> <span class="o">=&gt;</span>
+      <span class="vi">@</span><span class="na">store</span><span class="p">.</span><span class="na">search</span> <span class="nx">$</span><span class="p">(</span><span class="s">"#query"</span><span class="p">).</span><span class="na">val</span><span class="p">(),</span> <span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="o">-&gt;</span>
+        <span class="nx">resultHtml</span> <span class="o">=</span> <span class="s">""</span>
+        <span class="nx">$</span><span class="p">.</span><span class="na">each</span> <span class="nx">users</span><span class="p">,</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="o">-&gt;</span>
+          <span class="nx">resultHtml</span> <span class="o">+=</span> <span class="s">"&lt;div&gt;</span><span class="si">#{</span><span class="nx">user</span><span class="p">.</span><span class="na">name</span><span class="si">}</span><span class="s">&lt;/div&gt;"</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s">".results"</span><span class="p">).</span><span class="na">html</span><span class="p">(</span><span class="nx">resultHtml</span><span class="p">)</span></code></pre></figure>
+
+<p>But there’s a problem here. Our tests for this class still have to include our fake Ajax server or they won’t work—even though the code under test has nothing to do with HTTP requests now.</p>
+
+<p>To solve this, we’ll use dependency injection to pass our store in as a constructor argument. Frameworks like AngularJS makes “dependency injection” sound really complicated, but it doesn’t have to be. We’re just changing <code class="highlighter-rouge">UserSearchForm</code>’s constructor from one that creates a new instance of a specific class of store to one that takes a store as an argument:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="k">class</span> <span class="vi">@</span><span class="na">UserSearchForm</span>
+  <span class="na">constructor</span><span class="o">:</span> <span class="p">(</span><span class="nx">store</span><span class="p">)</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">store</span> <span class="o">=</span> <span class="nx">store</span></code></pre></figure>
+
+<p>And the code to instantiate the form on the actual page becomes:</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">$</span> <span class="o">-&gt;</span>
+  <span class="k">new</span> <span class="nx">UserSearchForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">UserStore</span><span class="p">()).</span><span class="na">bindForm</span><span class="p">()</span></code></pre></figure>
+
+<p>Now we can use a fake collaborator in our test instead of a real <code class="highlighter-rouge">UserStore</code>; we’ll just use a plain Javascript object that implements the same contract that the real store honors, but (like our Ajax server mock) returns stock data.</p>
+
+<figure class="highlight"><pre><code class="language-coffeescript" data-lang="coffeescript"><span class="nx">describe</span> <span class="s">"UserSearchForm"</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="nx">beforeEach</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s">'&lt;div&gt;
+               &lt;input id="query" /&gt;
+               &lt;button id="search"&gt;Search&lt;/button&gt;
+               &lt;div class="results"&gt;&lt;/div&gt;
+             &lt;/div&gt;'</span><span class="p">)</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">'body'</span><span class="p">).</span><span class="na">append</span><span class="p">(</span><span class="vi">@</span><span class="na">el</span><span class="p">)</span>
+
+  <span class="nx">afterEach</span> <span class="o">-&gt;</span>
+    <span class="vi">@</span><span class="na">el</span><span class="p">.</span><span class="na">remove</span><span class="p">()</span>
+
+  <span class="nx">it</span> <span class="s">"displays matching users"</span><span class="p">,</span> <span class="o">-&gt;</span>
+    <span class="k">class</span> <span class="nx">FakeStore</span>
+      <span class="na">search</span><span class="o">:</span> <span class="p">(</span><span class="nx">query</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">-&gt;</span>
+        <span class="nx">callback</span><span class="p">([</span>
+          <span class="p">{</span><span class="na">name</span><span class="o">:</span> <span class="s">"Furiosa"</span><span class="p">},</span>
+          <span class="p">{</span><span class="na">name</span><span class="o">:</span> <span class="s">"Max"</span><span class="p">}</span>
+        <span class="p">])</span>
+
+    <span class="k">new</span> <span class="nx">UserSearchForm</span><span class="p">(</span><span class="k">new</span> <span class="nx">FakeStore</span><span class="p">()).</span><span class="na">bindForm</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#query"</span><span class="p">).</span><span class="na">val</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">"#search"</span><span class="p">).</span><span class="na">trigger</span><span class="p">(</span><span class="s">"click"</span><span class="p">)</span>
+
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">".results div"</span><span class="p">)[</span><span class="mi">0</span><span class="p">])).</span><span class="na">to</span><span class="p">.</span><span class="na">have</span><span class="p">.</span><span class="na">$text</span><span class="p">(</span><span class="s">"Furiosa"</span><span class="p">)</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s">".results div"</span><span class="p">)[</span><span class="mi">1</span><span class="p">])).</span><span class="na">to</span><span class="p">.</span><span class="na">have</span><span class="p">.</span><span class="na">$text</span><span class="p">(</span><span class="s">"Max"</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="better">Better</h2>
+
+<p>The code we wound up at the end of this refactoring isn’t perfect, but that’s not the point. What’s most important is that we’ve established a beachhead of tests to watch our backs while we keep improving it. All by just applying some of the simple object oriented design principals we already knew!</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

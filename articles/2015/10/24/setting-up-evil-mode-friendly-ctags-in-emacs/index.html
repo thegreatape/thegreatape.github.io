@@ -1,0 +1,244 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Setting Up Evil-Mode Friendly Ctags in Emacs &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Setting Up Evil-Mode Friendly Ctags in Emacs">
+<meta name="twitter:description" content="Despite my failed experiment with evil-mode back in January, I wound up switching over to evil-powered Emacs full tim...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setting Up Evil-Mode Friendly Ctags in Emacs">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Setting Up Evil-Mode Friendly Ctags in Emacs</h1>
+      <time datetime="2015-10-24T00:00:00-04:00" itemprop="datePublished">October 24, 2015</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>Despite my <a href="/emacs-and-evil-mode-field-notes/">failed experiment</a> with evil-mode back in January, I wound up switching over to evil-powered Emacs full time earlier this summer. I love having modal editing combined with truly deep extensibility, and I’ve been focusing my tweaking on changes that let Emacs help me explore and understand code faster.</p>
+
+<p><a href="http://ctags.sourceforge.net/">Ctags</a> is a program that can parse code in many different language and generate an index of defined symbols—stuff like class names, method names, constants and so on. Text editors can be configured to use this index to do things like jump to where a particular symbol is defined (instead of just grepping for where the symbol occurs).</p>
+
+<p>Here’s how I set up Ctags in Emacs.</p>
+
+<h2 id="install-ctags">Install Ctags</h2>
+
+<p>OS X ships with an older version of Ctags that can’t generate a tags index in the format that Emacs expects. I installed the latest version via Homebrew:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">brew install ctags</code></pre></figure>
+
+<h2 id="tag-generation">Tag Generation</h2>
+
+<p>Tags can be generated on the command line pretty easily—<code class="highlighter-rouge">ctags -Re</code> will recursively parse and index all files below the current directory, in Emacs format. However, it’s handy to be able to regenerate them from within Emacs, especially if you’re switching git branches and want to quickly purge stale tags. The following lets me that do for the current <a href="http://batsov.com/projectile/">projectile</a> project with <code class="highlighter-rouge">M-x regenerate-tags</code>:</p>
+
+<figure class="highlight"><pre><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">regenerate-tags</span> <span class="p">()</span>
+  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">let</span> <span class="p">((</span><span class="nv">tags-directory</span> <span class="p">(</span><span class="nv">directory-file-name</span> <span class="p">(</span><span class="nv">projectile-project-root</span><span class="p">))))</span>
+    <span class="p">(</span><span class="nv">shell-command</span>
+     <span class="p">(</span><span class="nb">format</span> <span class="s">"ctags -f %s -e -R %s"</span> <span class="nv">tags-file-name</span> <span class="nv">tags-directory</span><span class="p">))))</span></code></pre></figure>
+
+<p>Rather than re-running this on the entire project whenever a file changes, I used the <code class="highlighter-rouge">ctags-update</code> package to do so incrementally on save. I’m just enabling it for when I’m in <code class="highlighter-rouge">enhanced-ruby-mode</code> right now.</p>
+
+<figure class="highlight"><pre><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ctags-update</span>
+  <span class="ss">:ensure</span> <span class="no">t</span>
+  <span class="ss">:config</span>
+  <span class="p">(</span><span class="k">progn</span>
+    <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'enh-ruby-mode-hook</span> <span class="ss">'turn-on-ctags-auto-update-mode</span><span class="p">)))</span></code></pre></figure>
+
+<h2 id="tag-navigation">Tag Navigation</h2>
+
+<p>Now that we can generate and update a tags file, we can start using it to explore our code faster. I’ve found the following keys in normal mode:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">gf</code> goes to the first match for the tag under the cursor. If I’ve got the symbol <code class="highlighter-rouge">User</code> under the cursor, I can hit <code class="highlighter-rouge">gf</code> and go to where the <code class="highlighter-rouge">User</code> class or module is defined.</li>
+  <li><code class="highlighter-rouge">gn</code> goes to the next match—if there are multiple matching tags (e.g. I’ve got multiple <code class="highlighter-rouge">User</code> classes in the same project), this cycles to the next one.</li>
+  <li><code class="highlighter-rouge">gb</code> pops me back to where I was before jumping.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">define-key</span> <span class="nv">evil-normal-state-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"gf"</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span> <span class="p">(</span><span class="nv">find-tag</span> <span class="p">(</span><span class="nv">find-tag-default-as-regexp</span><span class="p">))))</span>
+
+<span class="p">(</span><span class="nv">define-key</span> <span class="nv">evil-normal-state-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"gb"</span><span class="p">)</span> <span class="ss">'pop-tag-mark</span><span class="p">)</span>
+
+<span class="p">(</span><span class="nv">define-key</span> <span class="nv">evil-normal-state-map</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"gn"</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">lambda</span> <span class="p">()</span> <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span> <span class="p">(</span><span class="nv">find-tag</span> <span class="nv">last-tag</span> <span class="no">t</span><span class="p">)))</span></code></pre></figure>
+
+<h2 id="tag-search">Tag Search</h2>
+
+<p>Using a fuzzy matcher to search through the tags index is a great way to zip around a codebase. I use <a href="https://emacs-helm.github.io/helm/">Helm</a> for as-you-type filtering for all sorts of things—emacs functions, project files, and now, tags! I bound Helm’s built-in tag filter to <code class="highlighter-rouge">&lt;leader&gt;y</code>:</p>
+
+<figure class="highlight"><pre><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">evil-leader/set-key</span> <span class="s">"y"</span> <span class="ss">'helm-etags-select</span><span class="p">)</span></code></pre></figure>
+
+<p>The default behavior of the filtering left something to be desired, however. Matching tag candidate were sorted alphabetically, which mean that if I was looking for the module Searchable, the results would look like this (with the top item selected):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">*</span>AuthorSearchable<span class="k">*</span>
+BookSearchable
+Searchable</code></pre></figure>
+
+<p>What I really wanted was the closest item to my search to be on top. As it turns out, the shortest string that still matches the filtering text winds up being a decent hueristic for this. I did a bit of poking around in the helm-etags source, and found an empty function that’s meant to allow users to define their own custom behavior for Helm sources. Perfect!</p>
+
+<figure class="highlight"><pre><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-etags-sort-function</span> <span class="p">(</span><span class="nv">candidates</span> <span class="nv">source</span><span class="p">)</span>
+  <span class="p">(</span><span class="nb">sort</span> <span class="nv">candidates</span> <span class="p">(</span><span class="k">lambda</span> <span class="p">(</span><span class="nv">a</span> <span class="nv">b</span><span class="p">)</span> <span class="p">(</span><span class="nb">&lt;</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">a</span><span class="p">)</span> <span class="p">(</span><span class="nb">length</span> <span class="nv">b</span><span class="p">)))))</span>
+
+<span class="p">(</span><span class="nb">defmethod</span> <span class="nv">helm-setup-user-source</span> <span class="p">((</span><span class="nv">source</span> <span class="nv">helm-source</span><span class="p">))</span>
+  <span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">equal</span> <span class="p">(</span><span class="nv">oref</span> <span class="nv">source</span> <span class="ss">:name</span><span class="p">)</span> <span class="s">"Etags"</span><span class="p">)</span>
+    <span class="p">(</span><span class="nv">oset</span> <span class="nv">source</span> <span class="ss">:filtered-candidate-transformer</span> <span class="ss">'my-etags-sort-function</span><span class="p">)))</span></code></pre></figure>
+
+<p>Now, when I run the above search, the module I was looking for is on top and selected by default:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">*</span>Searchable<span class="k">*</span>
+BookSearchable
+AuthorSearchable</code></pre></figure>
+
+<p>There’s still more to tweak—the Emacs motto, I think—but I’m pretty pleased with my tags setup so far.</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

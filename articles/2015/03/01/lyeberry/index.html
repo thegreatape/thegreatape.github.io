@@ -1,0 +1,205 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Lyeberry: a new search backend for Literate Minuteman &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Lyeberry: a new search backend for Literate Minuteman">
+<meta name="twitter:description" content="Over the last week, I rolled out some big improvements to the way Literate Minuteman searches for books behind the sc...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lyeberry: a new search backend for Literate Minuteman">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2015/03/01/lyeberry/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2015/03/01/lyeberry/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Lyeberry: a new search backend for Literate Minuteman</h1>
+      <time datetime="2015-03-01T00:00:00-05:00" itemprop="datePublished">March 01, 2015</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>Over the last week, I rolled out some big improvements to the way <a href="http://www.literate-minuteman.com/">Literate Minuteman</a> searches for books behind the scenes. I want to share some of the ideas behind the new architecture and some thoughts on my first experience with building a web app in Clojure.</p>
+
+<h3 id="the-old-way-capybara-and-poltergeist">The Old Way: Capybara and Poltergeist</h3>
+
+<p>In Literate Minuteman, looking up a book’s availability is done in the background, as part of a set of nightly background jobs run under Resque. Each job would fire up a headless PhantomJS browser via <a href="https://github.com/teampoltergeist/poltergeist">Poltergeist</a>, visit the library’s search pages, and retreive the books as a real user would. It made for nice <a href="http://martinfowler.com/bliki/PageObject.html">page object</a> style classes: the old <a href="https://github.com/thegreatape/literate-minuteman/blob/c03183fbfe613b78b2672ca6426c6f711806597a/app/models/lookup_strategies/overdrive.rb">Overdrive lookup strategy</a> is a good example.</p>
+
+<p>While it was easy to create these scrapers, this approach had a couple of big disadvantages.</p>
+
+<p><em>Hard To Debug</em>: Even though the code was easy to read, it was often hard to debug why something wasn’t working. PhantomJS uses Webkit to load and render web pages just like Chrome or Firefox would, Javascript execution and all. This introduced timing issues that made a search work correctly sometimes and fail others. The Poltergeist API helped by retrying certain commands until a timeout is reached, but this required me to remember which calls would retry and which wouldn’t—for example, <code class="highlighter-rouge">find</code> waits for a matching element to appear, while <code class="highlighter-rouge">all</code> returns immediately.</p>
+
+<p><em>Mysterious Crashes</em>: Even worse, PhantomJS was run by Poltergeist as a separate process and would sometimes outright crash, leaving little information behind as to the cause. I hit a dead end trying to consistently reproduce these crashes, let alone fix them.</p>
+
+<p><em>Slow</em>: The nail in the coffin for the Poltergeist-based approach was how slow it was. Each book search would take between 10-20 seconds, due to the overhead of firing up a PhantomJS process and loading each page’s entire set of images, styles and Javascript. Switching to Sidekiq to run more instances of PhantomJS under a single Heroku worker was a bust—I’d get mysterious resource contention issues that only went away when I dialed the Sidekiq concurrency down to a single thread. With about 8000 books in the system, it was getting to the point where the nightly book lookup jobs wouldn’t have completed by the next night’s scheduled run. I had to change something.</p>
+
+<h3 id="independent-services-to-the-rescue">Independent Services To The Rescue</h3>
+
+<p>To fix this, I built a new independent application purely for book lookup, called <a href="http://github.com/thegreatape/lyeberry">Lyeberry</a>. It exposes each library system as a RESTful endpoint that talks JSON over HTTP. Retrieving all the copies of a book is just a simple GET request; for example, you could find all the copies of Kafka’s _Metamorphosis_in the Boston system by hitting:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">GET http://lyeberry.herokuapp.com/systems/boston/books?author<span class="o">=</span>Franz+Kafka&amp;title<span class="o">=</span>Metamorphosis</code></pre></figure>
+
+<p>On the Rails side, Minuteman’s nightly background jobs now just issue simple HTTP requests to Lyeberry to get an array of available copies of each book.</p>
+
+<p>Instead of firing up a browser as an independent process to interact with the library’s site, Lyeberry uses a more traditional scraping approach in just directly fetching and parsing the HTML of the pages it needs. The resulting code wound up being about the same size and complexity as the Poltergeist scrapers; see the <a href="https://github.com/thegreatape/lyeberry/blob/master/src/lyeberry/minuteman.clj">new Minuteman system scraper</a> for an example.</p>
+
+<p>And yes, it’s much faster. While still bound by the speed of an external HTTP lookup or two, each query now typically takes 1-2 seconds—an order of magnitude improvement over the old system. It should scale better as well; without the constraint of one PhantomJS process at a time, I switched Minuteman’s background job processer over to Sidekiq. Since Sidekiq’s concurrency mechanism is thread-based instead of process-based, I can dial up the concurrency from the Minuteman side without having to pay for more Heroku workers. Win, win.</p>
+
+<h3 id="3-clojure">&lt;3 Clojure</h3>
+
+<p>Lyeberry is my first real Clojure project and I’ve got to say I’m loving it so far. I’m using <a href="https://github.com/cgrand/enlive">Enlive</a> and <a href="https://github.com/dakrone/clj-http">clj-http</a> for the scraping parts and serving the results up with <a href="https://github.com/weavejester/compojure">Compojure</a> and <a href="https://github.com/ring-clojure/ring">Ring</a>. I’m still getting used to having a more powerful REPL available, but when I remember to use it, the <a href="https://github.com/tpope/vim-fireplace">vim-fireplace</a> integration is great.</p>
+
+<p>I wound up spinning off my first independent Clojure library while building Lyeberry: <a href="http://github.com/thegreatape/ring-raygun">ring-raygun</a> sends uncaught exceptions to the <a href="http://raygun.io">Raygun</a> error monitoring service. I felt like this was my first time experiencing how Clojure’s favoring primitive data structures over custom objects worked to encourage extension. Requests in Ring are just hashes and middleware handlers are just a functions that can wrap another function—structures that if you know Clojure, you already know how to use. It was easy enough to understand that even a Clojure newbie like myself was able to build a useful extension without learning a totally new set of APIs.</p>
+
+<p>The testing story in Clojure has also been superb so far. I’m using <a href="https://github.com/marick/Midje">Midje</a> to write my specs with an example-like syntax. It’s got a great Guard-like autotesting feature that you can run independently or right in your REPL session. When you save a file, <code class="highlighter-rouge">autotest</code> automatically runs the specs of that namespace—and it’s extremely fast. Discounting the initial startup time, the whole app’s tests run in less than a second. That’s a seriously great feedback loop, especially when it doubles as an interactive REPL session.</p>
+
+<p>Unsurprisingly, Clojure’s emphasis on immutable data structures and functional programming make tests pretty easy to write. Separating most of the business logic out into pure functions with no I/O or side effects seems to be a helpful pattern. For example, the <a href="https://github.com/thegreatape/lyeberry/blob/master/test/lyeberry/minuteman_test.clj">Minuteman scraper tests</a> mostly concern themselves with making sure an HTML string is correctly parsed into copies of books. This lets me feed those functions HTML from a fixture file during the tests and from a live HTTP request in production or development. This is a pattern I’ve had a lot of success with in other languages, and it makes me very happy to see Clojure’s path of least resistance push one towards using pure functions for the sake of testability.</p>
+
+<p>I have so much more to learn about Clojure, but I’m really happy with how it’s going so far. I’m looking forward to being able to cringe at all the amateur mistakes I’m sure I’ve made here.</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

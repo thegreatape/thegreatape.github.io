@@ -1,0 +1,264 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Notes On Writing Clojure In Vim &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Notes On Writing Clojure In Vim">
+<meta name="twitter:description" content="There a lot of things I like about Clojure as a language, but it requires a lot of tooling setup to not have a bad ti...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes On Writing Clojure In Vim">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Notes On Writing Clojure In Vim</h1>
+      <time datetime="2016-11-25T00:00:00-05:00" itemprop="datePublished">November 25, 2016</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>There a lot of things I like about Clojure as a language, but it requires a lot of tooling setup to not have a bad time. There’s a big chunk of the Clojure community that uses Emacs and the admittedly fantastic <a href="https://github.com/clojure-emacs/cider">CIDER</a> environment, but Vim salwarts who don’t want to ditch years of editor customization aren’t left out in the cold. It took a little more digging and research, but I managed to put together a Vim/Clojure setup with the fast feedback loop that’s so important to productive Clojure dev.</p>
+
+<p>What follows is annotated bits from my .vimrc - you can see the (<a href="https://github.com/thegreatape/dot-files/blob/master/vimrc">full source here</a>). I’m using <a href="https://github.com/VundleVim/Vundle.vim">Vundle</a> to manage my plugins.</p>
+
+<figure class="highlight"><pre><code class="language-vim" data-lang="vim">Plugin <span class="s1">'tpope/vim-classpath'</span>
+Plugin <span class="s1">'tpope/vim-fireplace.git'</span>
+Plugin <span class="s1">'guns/vim-clojure-static.git'</span>
+
+autocmd Filetype clojure nmap <span class="p">&lt;</span>buffer<span class="p">&gt;</span> gf <span class="p">&lt;</span>Plug<span class="p">&gt;</span>FireplaceDjump</code></pre></figure>
+
+<p>These plugins are the bare minimum you need to get going. They’ll give you syntax highlighting, indentation and a bunch of useful IDE-like tools. To get the most out of these, you’ll want to start a repl session in another window or tab; fireplace will automatically connect to it if present. The shortcuts I use the most:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">K</code> - show docs for the function under the cursor.</li>
+  <li><code class="highlighter-rouge">gf</code> - go to source for symbol under the cursor. great for zipping around your project or diving down into a libraries source. (remapped above as <code class="highlighter-rouge">gf</code>, it’s <code class="highlighter-rouge">[C-d</code> by default)</li>
+  <li><code class="highlighter-rouge">cpr</code> - evals the current buffer into the connected repl; if in a clojure.test buffer, runs the tests and prints any failures to the quickfix buffer.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-vim" data-lang="vim">Plugin <span class="s1">'guns/vim-sexp'</span>
+Plugin <span class="s1">'tpope/vim-sexp-mappings-for-regular-people'</span></code></pre></figure>
+
+<p>I think structural editing of s-expressions is one of the underrated perks of working in a lisp. You can a long ways with Vim’s built-in text objects (like <code class="highlighter-rouge">ci(</code> for change-inside-parenthesis), but these plugins let you do more advanced stuff like pushing symbols in and out of s-expresions and smartly moving expression boundaries.</p>
+
+<figure class="highlight"><pre><code class="language-vim" data-lang="vim">Plugin <span class="s1">'guns/vim-slamhound'</span>
+
+autocmd Filetype clojure nnoremap <span class="p">&lt;</span>buffer<span class="p">&gt;</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">sh</span> <span class="p">:</span>Slamhound<span class="p">&lt;</span><span class="k">cr</span><span class="p">&gt;</span></code></pre></figure>
+
+<p><a href="https://github.com/technomancy/slamhound">Slamhound</a> is an editor agnostic tool for managing Clojure namespaces’ require statements—run it on a file and it’ll remove unused imports and add requires for un-imported symbols. I bound it to <code class="highlighter-rouge">&lt;leader&gt;sh</code>.</p>
+
+<figure class="highlight"><pre><code class="language-vim" data-lang="vim">Plugin <span class="s1">'dgrnbrg/vim-redl'</span>
+autocmd Filetype clojure imap <span class="p">&lt;</span>buffer<span class="p">&gt;</span> <span class="p">&lt;</span>Up<span class="p">&gt;</span> <span class="p">&lt;</span>Plug<span class="p">&gt;</span>clj_repl_uphist<span class="p">.</span>
+autocmd Filetype clojure imap <span class="p">&lt;</span>buffer<span class="p">&gt;</span> <span class="p">&lt;</span>Down<span class="p">&gt;</span> <span class="p">&lt;</span>Plug<span class="p">&gt;</span>clj_repl_downhist<span class="p">.</span></code></pre></figure>
+
+<p>The Clojure community seems a little hostile to breakpoint debuggers for some reason, but I find them really useful. vim-redl gives you two useful things: a pretty good in-Vim repl (start one in the current file’s namespace with <code class="highlighter-rouge">:ReplHere</code>) and actual, factual breakpoint debugging. See the project’s README for the setup, but once included in your lein profile, you can use <code class="highlighter-rouge">redl.core/break</code> and <code class="highlighter-rouge">redl.core/continue</code> to debug functions run within Vim’s repl session. I rebound <code class="highlighter-rouge">&lt;Up&gt;</code> and <code class="highlighter-rouge">&lt;Down&gt;</code> in insert mode to page through the command history.</p>
+
+<figure class="highlight"><pre><code class="language-vim" data-lang="vim">Plugin <span class="s1">'kien/rainbow_parentheses.vim'</span>
+<span class="k">let</span> <span class="nv">g:rbpt_colorpairs</span> <span class="p">=</span> <span class="p">[</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span>        <span class="s1">'#FF6000'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span>        <span class="s1">'#00FFFF'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'darkgreen'</span><span class="p">,</span>   <span class="s1">'#00FF00'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'LightYellow'</span><span class="p">,</span> <span class="s1">'#c0c0c0'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span>        <span class="s1">'#FF6000'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span>        <span class="s1">'#00FFFF'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'darkgreen'</span><span class="p">,</span>   <span class="s1">'#00FF00'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'LightYellow'</span><span class="p">,</span> <span class="s1">'#c0c0c0'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span>        <span class="s1">'#FF6000'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span>        <span class="s1">'#00FFFF'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'darkgreen'</span><span class="p">,</span>   <span class="s1">'#00FF00'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'LightYellow'</span><span class="p">,</span> <span class="s1">'#c0c0c0'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'blue'</span><span class="p">,</span>        <span class="s1">'#FF6000'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'cyan'</span><span class="p">,</span>        <span class="s1">'#00FFFF'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'darkgreen'</span><span class="p">,</span>   <span class="s1">'#00FF00'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">[</span><span class="s1">'LightYellow'</span><span class="p">,</span> <span class="s1">'#c0c0c0'</span><span class="p">],</span>
+<span class="se">  \</span> <span class="p">]</span>
+<span class="k">let</span> <span class="nv">g:rbpt_max</span> <span class="p">=</span> <span class="m">16</span>
+
+autocmd <span class="nb">BufEnter</span> *<span class="p">.</span>cljs<span class="p">,</span>*<span class="p">.</span>clj<span class="p">,</span>*<span class="p">.</span>cljs<span class="p">.</span>hl RainbowParenthesesActivate
+autocmd <span class="nb">BufEnter</span> *<span class="p">.</span>cljs<span class="p">,</span>*<span class="p">.</span>clj<span class="p">,</span>*<span class="p">.</span>cljs<span class="p">.</span>hl RainbowParenthesesLoadRound
+autocmd <span class="nb">BufEnter</span> *<span class="p">.</span>cljs<span class="p">,</span>*<span class="p">.</span>clj<span class="p">,</span>*<span class="p">.</span>cljs<span class="p">.</span>hl RainbowParenthesesLoadSquare
+autocmd <span class="nb">BufEnter</span> *<span class="p">.</span>cljs<span class="p">,</span>*<span class="p">.</span>clj<span class="p">,</span>*<span class="p">.</span>cljs<span class="p">.</span>hl RainbowParenthesesLoadBraces</code></pre></figure>
+
+<p>Rainbow parentheses give you different colored parens by depth of nesting, which is a nice way to eyeball when you’ve got inbalanced s-expressions. The default colors didn’t play great with my color scheme (<a href="https://github.com/nanotech/jellybeans.vim">jellybeans</a>), so I customized the colors a bit here.</p>
+
+<figure class="highlight"><pre><code class="language-vim" data-lang="vim"><span class="k">function</span><span class="p">!</span> IsFireplaceConnected<span class="p">()</span>
+  <span class="k">try</span>
+    <span class="k">return</span> has_key<span class="p">(</span>fireplace#platform<span class="p">(),</span> <span class="s1">'connection'</span><span class="p">)</span>
+  <span class="k">catch</span> <span class="sr">/Fireplace: :Connect to a REPL or install classpath.vim/</span>
+    <span class="k">return</span> <span class="m">0</span> " false
+  <span class="k">endtry</span>
+<span class="k">endfunction</span>
+
+<span class="k">function</span><span class="p">!</span> NreplStatusLine<span class="p">()</span>
+  <span class="k">if</span> IsFireplaceConnected<span class="p">()</span>
+    <span class="k">return</span> <span class="s1">'nREPL Connected'</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="s1">'No nREPL Connection'</span>
+  <span class="k">endif</span>
+<span class="k">endfunction</span>
+
+<span class="k">function</span><span class="p">!</span> SetBasicStatusLine<span class="p">()</span>
+  <span class="k">set</span> statusline<span class="p">=</span>%<span class="k">f</span>   " path <span class="k">to</span> <span class="k">file</span>
+  <span class="k">set</span> statusline<span class="p">+=</span>\   " separator
+  <span class="k">set</span> statusline<span class="p">+=</span>%<span class="k">m</span>  " modified flag
+  <span class="k">set</span> statusline<span class="p">+=</span>%<span class="p">=</span>  " switch <span class="k">to</span> <span class="k">right</span> side
+  <span class="k">set</span> statusline<span class="p">+=</span>%<span class="k">y</span>  " <span class="k">filetype</span> of <span class="k">file</span>
+<span class="k">endfunction</span>
+
+autocmd Filetype clojure <span class="k">call</span> SetBasicStatusLine<span class="p">()</span>
+autocmd Filetype clojure <span class="k">set</span> statusline<span class="p">+=</span>\ <span class="p">[</span>%<span class="p">{</span>NreplStatusLine<span class="p">()}]</span>  " REPL connection status
+autocmd <span class="nb">BufLeave</span> *<span class="p">.</span>cljs<span class="p">,</span>*<span class="p">.</span>clj<span class="p">,</span>*<span class="p">.</span>cljs<span class="p">.</span>hl  <span class="k">call</span> SetBasicStatusLine<span class="p">()</span></code></pre></figure>
+
+<p>And lastly, I did a little customization of the status line to show whether or not Fireplace was connected to a running Clojure repl. All of the tools above will work without being connected to existing repl process—but because of the JVM’s startup time, running one of their commands cold will freeze Vim while a new process is spun up to eval the code to do whatever you just asked. Running the same command with a warm repl connected is basically instant. I added some functions add either <code class="highlighter-rouge">nREPL Connected</code> or <code class="highlighter-rouge">No nREPL Connection</code> to the status line so that I remember to start a new repl before I hit K to look up some docs… and grind my teeth while Vim freezes for 10 seconds.</p>
+
+<h2 id="repl-integration">REPL integration</h2>
+
+<p>While vim doesn’t have a true integrated REPL-as-subprocess like Emacs’s CIDER does, you can get a pretty nice setup within tmux by binding some keys to send s-expressions to a repl running an adjacent pane. I <a href="/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/">wrote up my notes on that strategy here</a>.</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

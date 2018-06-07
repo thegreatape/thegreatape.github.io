@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://localhost:4000</loc>
+    </url>
+    
+    
+    <url>
+        <loc>http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2017/12/30/2017-year-end-notes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2016/12/31/2016-year-end-notes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2016/05/28/fitness-resources-megapost/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/12/27/2015-year-end-notes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/03/28/reusable-javascript-components/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/03/01/lyeberry/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/01/18/emacs-and-evil-mode-field-notes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2015/01/04/small-background-jobs/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2014/12/30/2014-year-end-notes/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2014/07/01/relaunching-literate-minuteman/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2013/10/19/postgres-connection-error-after-upgrading-ruby/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2013/06/30/print-friendly-bookmarklet-for-programs-on-the-squat-rack-com/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2012/08/19/introducing-literate-minuteman/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2012/04/28/backbone-views-and-the-law-of-demeter/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2012/04/02/compiling-javascript-templates-with-guard/</loc>
+    </url>
+    
+    <url>
+        <loc>http://localhost:4000/articles/2011/05/05/converting-jpegs-to-multipage-pdfs-with-imagemagick/</loc>
+    </url>
+    
+</urlset>

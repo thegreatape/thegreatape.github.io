@@ -1,0 +1,234 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Backbone Views and the Law of Demeter &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://localhost:4000/images/birds.jpg">
+<meta name="twitter:title" content="Backbone Views and the Law of Demeter">
+<meta name="twitter:description" content="I’ve been getting more and more excited about Backbone.js over the last few months. One of the greatest things about ...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backbone Views and the Law of Demeter">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="http://localhost:4000/articles/2012/04/28/backbone-views-and-the-law-of-demeter/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/articles/2012/04/28/backbone-views-and-the-law-of-demeter/">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="http://localhost:4000/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://localhost:4000/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="http://localhost:4000/" >Articles</a></li>
+		        
+				<li><a href="http://localhost:4000/logbook" >Logbook</a></li>
+		        
+				<li><a href="http://localhost:4000/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Backbone Views and the Law of Demeter</h1>
+      <time datetime="2012-04-28T19:25:00-04:00" itemprop="datePublished">April 28, 2012</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>I’ve been getting more and more excited about <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> over the last few months. One of the greatest things about the framework is that it’s so unopinionated and modular that you can do anything between writing your whole app using Backbone idioms or applying just one or two pieces to an existing app. I’m particularly interested in how Backbone Views encourage cleaner separation between Javascript components on a page, without even using any other Backbone components. Let’s explore this a bit.</p>
+
+<h2 id="javascript-soup">Javascript Soup</h2>
+<p>I was lucky enough to attend <a href="http://speakerdeck.com/u/sarahmei/p/using-backbonejs-with-rails">Sarah Mei’s great talk on Backbone.js</a> at RailsConf this year. She rather aptly described the phases a Rails app moves through in its usage of Javascript: from the “what Javascript?” view helpers like <code class="highlighter-rouge">link_to_remote</code> and friends, to adding just a bit of extra functionality in that one view with a few lines of real JS, to what she terms a “jQuery Explosion”. You know, when that little unobtrusive enhancement somehow became a five-hundred line stateful nightmare that’s hard to modify and harder to test? Her thesis is that this right here is Backbone’s sweet spot: non-trivial existing Javascript apps that are beginning to age and struggle due to lack of structure.</p>
+
+<p>One of the patterns that comes out of poorly structured Javascript is violating the Law of Demeter. The Law of Demeter concerns loose coupling: it states (loosely) that each component of a program should only talk to its immediate “friends”- that is, other components of the program closely related to the current component. This has been generalized to “use only one dot” (meaning <code class="highlighter-rouge">a.doSomething()</code> is probably ok, but <code class="highlighter-rouge">a.b.doSomething()</code> is using too much knowledge of <code class="highlighter-rouge">a</code>’s implementation). In client-side Javascript, this can be applied by thinking of a page component’s DOM elements as out of the reach of other page components. Your navigation widget might communicate with your breadcrumb widget by event binding or direct method calls, but shouldn’t be reaching in and monkeying with the other’s DOM elements directly.</p>
+
+<h2 id="how-backbone-helps">How Backbone Helps</h2>
+<p>Backbone Views encourage better patterns in a couple ways:</p>
+
+<h4 id="scoped-event-binding-by-default">Scoped Event Binding By Default</h4>
+
+<p>Let’s look at a trivial Backbone View that represents a navigation bar.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">App</span><span class="p">.</span><span class="nx">NavigationView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">Extend</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s1">'#nav'</span><span class="p">,</span>
+  <span class="na">events</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"click li.item a"</span><span class="p">:</span> <span class="s2">"navigate"</span>
+  <span class="p">},</span>
+  <span class="na">navigate</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>This view binds to the existing element on the page with the id <code class="highlighter-rouge">nav</code> - this element becomes the view’s root. All elements under it can be considered direct properties of the view, and only this view should directly manipulate them. The <code class="highlighter-rouge">events</code> property in the view’s configuration options here binds click events on elements matching the selector <code class="highlighter-rouge">li.item</code> to the view’s <code class="highlighter-rouge">navigate</code> method. <em>This is automatically scoped to only match elements that are descendents of the View’s root element</em>. We’ll only ever match events from our private DOM elements, and other Backbone components on the page won’t match events from our elements.</p>
+
+<p>You can get the same effect with something like <code class="highlighter-rouge">$('#nav li.item a').click( /* nav  function */ )</code>, but this requires more discipline and doesn’t have the same effect of keeping all of our component’s event concerns in one place. It also establishes a common pattern of event handling across all our page components: convention over configuration.</p>
+
+<h4 id="scoped-selectors">Scoped Selectors</h4>
+
+<p>Setting up scoped event binding is great for maintaining our limited knowledge and encapsulation with regard to event handling, but once it’s time to actually modify those DOM elements, we need a way to do those operations with the same limitations.</p>
+
+<p>Backbone provides a convenient way to make a query scoped to just the view’s elements: the <code class="highlighter-rouge">this.$</code> function. Nothing fancy going on here: in a Backbone View, the root element of the View’s DOM is bound to <code class="highlighter-rouge">this.el</code>, so <code class="highlighter-rouge">this.$</code> is just sugared-up <code class="highlighter-rouge">$(this.el).find</code>. Let’s take our navigation bar example from above again. We’ll make it set a current location field when you click on a navigation link.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">App</span><span class="p">.</span><span class="nx">NavigationView</span> <span class="o">=</span> <span class="nx">Backbone</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">Extend</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s1">'#nav'</span><span class="p">,</span>
+  <span class="na">events</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"click li.item a"</span><span class="p">:</span> <span class="s2">"navigate"</span>
+  <span class="p">},</span>
+  <span class="na">navigate</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">evt</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">location</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">evt</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">text</span><span class="p">()</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">'.location'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">location</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">})</span></code></pre></figure>
+
+<p>Nothing much surprising going on here: we grab the text from the link and plunk it down inside the element with class <code class="highlighter-rouge">location</code>. But consider what we got by using the view’s scoped selector instead of a document-wide query:</p>
+
+<ul>
+  <li>
+    <p>We know we’re only modifying the DOM elements this view directly owns.</p>
+  </li>
+  <li>
+    <p>Our event handling code here doesn’t have to care if there’s more than one instance of NavigationView on the page. Multiple instances require extra care without a wrapping view- you’d need to know whose location element to modify and how to pick the right one.</p>
+  </li>
+  <li>
+    <p>This built-in knowledge of the component’s root also eliminates fragile traversals from the event’s element to the piece you want to modify. No more temptation to do stuff like <code class="highlighter-rouge">$(e.target).prev().children('.location')</code> in your event handlers, only to have them break when you alter your structure.</p>
+  </li>
+  <li>
+    <p>Even better, with this pattern, use of queries outside of <code class="highlighter-rouge">this.$</code> can serve as a useful warning sign that you’re stepping outside the limits of knowledge that your component should have.</p>
+  </li>
+</ul>
+
+<h2 id="were-just-getting-started">We’re Just Getting Started</h2>
+
+<p>Backbone offers a ton of ways to structure and modularize your Javascript code. You can represent your application’s state as Collections of as validated Models, write single-page apps with Routers, even render your HTML entirely client-side with various kind of JS templating - all of which can be pretty intimidating when you’re staring at years of jQuery soup and wondering where the hell to start. One of Backbone’s most important features, however, is that you don’t have to jump in whole hog. Teasing apart the code for individual page components into Backbone Views that respect the Law of Demeter has some immediate benefits and is a great jumping-off point for bringing some much-needed structure to your app’s Javascript.</p>
+
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="http://localhost:4000/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2018 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://localhost:4000/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>
