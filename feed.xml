@@ -3,223 +3,26 @@
 <title type="text">Duct Tape and Turing Machines</title>
 <subtitle type="text"></subtitle>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="https://thegreata.pe/feed.xml" />
-<link rel="alternate" type="text/html" href="https://thegreata.pe" />
-<updated>2018-06-06T20:37:17-04:00</updated>
-<id>https://thegreata.pe/</id>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2018-06-07T21:00:56-04:00</updated>
+<id>http://localhost:4000/</id>
 <author>
   <name>Thomas Mayfield</name>
-  <uri>https://thegreata.pe/</uri>
+  <uri>http://localhost:4000/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
 
 
 <entry>
-  <title type="html"><![CDATA[Interlude - Furball]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/05/25/interlude-furball/" />
-  <id>https://thegreata.pe/articles/2018/05/25/interlude-furball</id>
-  <published>2018-05-25T00:00:00-04:00</published>
-  <updated>2018-05-25T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;First, I’d like to introduce Ripley, one of the reasons my attention is a little scarce at the moment:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/ripley.png&quot; alt=&quot;Ripley&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A nine-week old puppy is a joyous thing, and will happily hoover up every spare second you have.&lt;/p&gt;
-
-&lt;p&gt;Focused time for learning and study will resume probably around the time this little furball starts sleeping through the night without pee breaks. But even before we adopted her, it was pretty clear at this point that my goal of hitting a once-a-week writeup on things I’m learning isn’t going to happen. I do think striving for that cadence has still proven a push in the right direction. I’m going to continue tacking towards that goal even if the year-end average is probably going to come out lower than I hoped.&lt;/p&gt;
-
-&lt;p&gt;A few reflections from the last few weeks:&lt;/p&gt;
-
-&lt;p&gt;I’ve been leaning on &lt;a href=&quot;https://habitica.com/&quot;&gt;Habitica&lt;/a&gt; as a way to help myself build daily habits and get through my todo list. It’s been working surprisingly—I’d even say embarrassingly—well. Progression systems and magic pixels, man. The part of me that fed a good chunk of my 20s into World of Warcraft is rolling its eyes in not-surprise.&lt;/p&gt;
-
-&lt;p&gt;Prior to doggo adoption, I’d gotten a pretty good streak of spending 20 minutes a day working on whatever my current project is… but found myself having a hard of time actually sitting down and writing about it. I think part of the friction here is how this blog is structured. Aside from a couple about-me pages, it’s a collection of articles. Trying to push my intended log-of-learning writing into this format has wound up making me feel like each entry needs to have a focused point and something to teach others. What I want out of this writing, instead, is just a nudge towards spending time deliberately learning and a bit of the clarity that comes from having to structure my thoughts to write them down. So, I’m going to try splitting this blog into two sections: a collection of articles/essays (which is most of the existing stuff) and a looser stream of thoughts and updates. Should be an interesting experiment to see if it helps shake loose writing more frequently.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/05/25/interlude-furball/&quot;&gt;Interlude - Furball&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 25, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[The Elements Of Computing Systems: Resisting An Avengers Joke]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/04/19/resisting-an-avengers-joke/" />
-  <id>https://thegreata.pe/articles/2018/04/19/resisting-an-avengers-joke</id>
-  <published>2018-04-19T00:00:00-04:00</published>
-  <updated>2018-04-19T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Out of the wiring swamp, on to the &lt;a href=&quot;https://plus.google.com/+JeanBaptisteQueru/posts/dfydM2Cnepe&quot;&gt;dizzying but invisible depths&lt;/a&gt; of software abstraction.&lt;/p&gt;
-
-&lt;p&gt;I was actually a little surprised that there was a full chapter devoted to writing an assembler—it’s just mechanically translating assembly code to machine code, word for word, right? As it turns out, while command translation itself is super straightforward, location labels for branching and variable declaration added a little fun. We wound up with a two pass design: a first pas to allow for memory address allocation for each variable and label, then a second pass to generate the machine code itself.&lt;/p&gt;
-
-&lt;p&gt;The system isn’t self hosting—that is, we now don’t use the tools we’re writing to directly build the next level of software (which would laborious, since we haven’t built an operating system yet, much less a text editor!). This means we get to use whatever outside-of-Hack language we want to build the assembler. So now instead of fighting with HDL, I’m writing Ruby! I write Ruby most of the day for work and have for the last seven years or so.  It’s DARN NICE for text chomping.&lt;/p&gt;
-
-&lt;p&gt;Onwards!&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/04/19/resisting-an-avengers-joke/&quot;&gt;The Elements Of Computing Systems: Resisting An Avengers Joke&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 19, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[The Elements of Computing Systems: Hardware, Complete]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/04/09/hardware-complete/" />
-  <id>https://thegreata.pe/articles/2018/04/09/hardware-complete</id>
-  <published>2018-04-09T00:00:00-04:00</published>
-  <updated>2018-04-09T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Holy crap, we’re done with the hardware part. I built a computer!&lt;/p&gt;
-
-&lt;h2 id=&quot;chapter-4&quot;&gt;Chapter 4&lt;/h2&gt;
-&lt;p&gt;A cool aspect of each chapter’s material being a self-contained abstraction is that the book can skip between levels for pedagogical reasons. So we wound up learning to write some programs in the machine language for our fully-built computer, before the final phase of actually wiring up the complete computer.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/assembly.png&quot;&gt;&lt;img src=&quot;/images/assembly.png&quot; alt=&quot;hack assembly language&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;It’s… definitely for machines. Messing around with the assembly language was pretty important for the next chapter. Without that experience, I don’t think I’d have understood enough of the intent behind how things are accomplished using its limited idioms. Debugging when my CPU wasn’t wired up correctly might have cost me a fair bit more hair!&lt;/p&gt;
-
-&lt;p&gt;Two side notes from spelunking with Hack assembly:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.marksmath.com/tecs/hack-asm/hack-asm.html&quot;&gt;This page&lt;/a&gt; was a super useful companion for dealing with some very picky language stuff.&lt;/li&gt;
-  &lt;li&gt;There’s a part where you need to load a 16-bit word that’s all &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt;s into memory to turn a part of the screen dark. You can actually only load 15-bit words in A-instructions, but the assembler will silently accept constants that are over the size you can express in 15 bits, leading to some serious headscratching.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;chapter-5&quot;&gt;Chapter 5&lt;/h2&gt;
-&lt;p&gt;Building the CPU and Memory units were the most challenging bits of HDL wiring so far. Breaking everything that needed to happen down into discrete tasks (and being well rested) was key here. Definitely went back to pen &amp;amp; paper here to make this work.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/cpu.jpg&quot;&gt;&lt;img src=&quot;/images/cpu.jpg&quot; alt=&quot;wiring the CPU on paper&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;All that wiring gore boiled down to only 18 lines of HDL to make a simple CPU, using all of the previously built components. Wow.&lt;/p&gt;
-
-&lt;p&gt;I did lots of breaking inputs down into binary to make sense of how to connect logical wires. Plotting numbers out as monospaced binary is another useful form of sketching:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/ram-binary.png&quot;&gt;&lt;img src=&quot;/images/ram-binary.png&quot; alt=&quot;writing out RAM addresses in binary&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;An added level of difficult: bus indexing works backwards from how my brain thinks, as traditional array indexes go left to right. Bus indexing, on the other hand, goes from the least significant bit to the most signicant bit… which is right to left when binary is written out. This must have accounted for at least half the bugs I created.&lt;/p&gt;
-
-&lt;h2 id=&quot;meta&quot;&gt;Meta&lt;/h2&gt;
-&lt;p&gt;It’s been three weeks since the entry before this; not exactly the pace I set out for myself at the beginning of the year. I was getting a little bored with writing a single entry for each chapter, but trying to get two chapters worth of work done in a single week &lt;em&gt;and&lt;/em&gt; a write up wound up taking much longer.&lt;/p&gt;
-
-&lt;p&gt;I’ve also been having a hard time finding the focus to do this particular project after work, so only the real progress happens on weekends. I figured that going back to the blinking lights part of programming would stretch different brain muscles from what I’m using at work, but I think that’s demonstrably false. I’m still having fun, but probably need to either moderate my expectations of what I can do during the week, and/or get more ok with these writeups being progress updates rather than proof of commpleting milestones.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/04/09/hardware-complete/&quot;&gt;The Elements of Computing Systems: Hardware, Complete&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 09, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[The Elements Of Computing Systems: Time, State & Memory]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/03/18/time-state-and-memory/" />
-  <id>https://thegreata.pe/articles/2018/03/18/time-state-and-memory</id>
-  <published>2018-03-18T00:00:00-04:00</published>
-  <updated>2018-03-18T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Oh boy, a clock! In this chapter of &lt;a href=&quot;http://www.nand2tetris.org/&quot;&gt;nand2tetris&lt;/a&gt;, we started teaching our logic circuits about time and consequently, memory. We’re introduced to a single new primitive, a data flipflop: all it does is output the value of its input one clock tick ago. With that and the array of combinatorial logic gates from previous chapters, we build all the way up to 16 kilobye RAM chips!&lt;/p&gt;
-
-&lt;p&gt;It was a bit disappointing that DFFs are given as primitives here. Though the book says they can be composed from Nand gates just like the rest of the chips we’ve built so far, it would have been neat to see the gory details of how one goes from combinatorial, stateless logic to sequential, time-based logic. Apparently the construction of DFFs is “intricate”, so I get pedagogically why we aren’t asked to implement them. Still, nandandflipflop2tetris just doesn’t have the same ring…&lt;/p&gt;
-
-&lt;p&gt;That aside, building memory chips felt like like bit twiddling and more like combining of logical components. These chips were easier to get right on the first-ish try without pen and paper; the composing of larger and larger RAM chips felt particularly simple and elegant. It did, however, take a bit for me to shift my thinking abouts values throughout a system being phased time-wise: e.g. you set inputs up, then &lt;em&gt;on the next clock tick&lt;/em&gt; the outputs react.&lt;/p&gt;
-
-&lt;p&gt;Aside: an HDL syntax thing that I didn’t know is that you can declare pin connection twice on the gate. Like, if I wanted to hook up a DFF’s output pin to both the chip’s out pin and something else internally, you can do  &lt;code class=&quot;highlighter-rouge&quot;&gt;DFF(in=something, out=outb, out=out)&lt;/code&gt; . The simulator won’t let you connect pins that touch the outside world to internal pins, so you can’t just use &lt;code class=&quot;highlighter-rouge&quot;&gt;out&lt;/code&gt;. Go figure.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/03/18/time-state-and-memory/&quot;&gt;The Elements Of Computing Systems: Time, State & Memory&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 18, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[The Elements Of Computing Systems: Teaching First-Grade Math To Virtual Sand]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/03/12/teaching-sand-math/" />
-  <id>https://thegreata.pe/articles/2018/03/12/teaching-sand-math</id>
-  <published>2018-03-12T00:00:00-04:00</published>
-  <updated>2018-03-12T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Continuing my slow plod through TEoCS (also known as &lt;a href=&quot;http://www.nand2tetris.org/&quot;&gt;nand2tetris&lt;/a&gt;), I’ve now reached the part of building in building a computer where I’ve built something that… computes.&lt;/p&gt;
-
-&lt;p&gt;The &lt;em&gt;Arithmetic Logic Unit&lt;/em&gt; chip is the first thing I’ve made that felt like it deserved the label “chip” instead of the mechanical-sounding “gate”.  Just like everything else so far, at its heart it’s a bunch Nand gates with a lot of wires running between them… but it feels like we’ve crossed over from simple logic reified by wires into the real start of a more general purpose computing machine. The chip has a pair of 16-bit inputs, and 6 control bits, which you manipulate to do various combinations of arithmatic, from producing a constant value, addition, subtraction, bitwise boolean operations, negation upon those inputs. We’ll apparently be implementing multiplication and division at a higher level up the stack, but that’s a still a lot for some jumped-up simulated silicon.&lt;/p&gt;
-
-&lt;p&gt;It was, remarkably, only 14 lines of HDL code to implement, using all the gates I’d built so far.&lt;/p&gt;
-
-&lt;p&gt;It would have been pretty easy to rip through this chapter and build the ALU by just blindly implementing the logical operations indicated in the chip’s truth table and control bits, but I wanted to take a step back and work out with pen and paper &lt;em&gt;how&lt;/em&gt; the chip actually accomplished a bunch of this math. It wasn’t obvious at all to me that, “ok, negate the y bus’s bits, then add them to x and then negate the result of that” comes out to &lt;code class=&quot;highlighter-rouge&quot;&gt;x-y&lt;/code&gt;. But it does, and I’ve at least moved past taking it on faith after working out a few of these operations out with ink and dead trees. Pretty elegant design!&lt;/p&gt;
-
-&lt;p&gt;A few tidbits that were helpful for me as I worked through this chapter:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;You can use the literal values &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; if you want a wired to be always on or off.  This eluded me for a bit (heh heh heh).&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The tests will produce a (relatively) easy to read output file as they go. At least on OS X, it’s difficult to see the entirety of this output in the simulator’s UI, but it’s also available in a file in the current project directory with the &lt;code class=&quot;highlighter-rouge&quot;&gt;.out&lt;/code&gt; extension. You can eyeball or diff each of its lines versus the test script’s &lt;code class=&quot;highlighter-rouge&quot;&gt;.cmp&lt;/code&gt; file to start seeing where things have gone wrong.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Examining the state of each internal pin of the chip in the hardware simulator is a great debugging technique. I found plenty of bugs by just running the test script, waiting for it to fail on a particular case, then stepping through what each internal pin/bus’s value should have been on paper.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/03/12/teaching-sand-math/&quot;&gt;The Elements Of Computing Systems: Teaching First-Grade Math To Virtual Sand&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 12, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[The Elements of Computing Systems: Putting The Blinking Lights Back In Computer Science]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/02/22/blinking-lights/" />
-  <id>https://thegreata.pe/articles/2018/02/22/blinking-lights</id>
-  <published>2018-02-22T00:00:00-05:00</published>
-  <updated>2018-02-22T00:00:00-05:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Last week, I cracked open &lt;a href=&quot;http://www.nand2tetris.org/&quot;&gt;The Elements of Computing Systems&lt;/a&gt; and started working through it. It’s a book with a pretty cool idea: it walks you through thirteen projects that all build upon each other to create a complete general-purpose computer. The first chapter starts with transistors and logic gates; the last has Tetris running on an operating system you wrote!&lt;/p&gt;
-
-&lt;p&gt;My posts about work towards this year’s learning-and-doing goal have thus far been either been documenting a finished project or showcasing immediately usable tips and tricks. Working my way through this book is going to be a little different. I want to document my progress—hopefully without these posts sounding like a third-grade book report—so I’m just going to try and call out what was fun or interesting about the material as I work through it. Maybe a work journal like this will be a useful template for how to write about other longer, ongoing projects, but we’ll see! This is all serving as a proxy for habit changes, which is the most important thing to me.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;The first chapter of TEoCS has you building primitive boolean logic gates starting with just a single atom: a &lt;a href=&quot;https://en.wikipedia.org/wiki/NAND_gate&quot;&gt;Nand gate&lt;/a&gt;. You progressively build more and more complicated gates, from the familiar Not/Or/And operators to stuff like multiplexors and n-way version of the earlier gates.&lt;/p&gt;
-
-&lt;p&gt;The book doesn’t come with a soldering iron, so this is all wired up inside a hardware simulator program (that reminds me of being introduced to pointers machine-language first in &lt;a href=&quot;https://www.cs.oberlin.edu/~jdonalds/210/syllabus.html&quot;&gt;CS210&lt;/a&gt;). You wire up the gates by writing code in Hardware Definition Language: basically virtually naming all the chips and how wires connect them.  You can load into the simulator, and then change the value of various wires and see what happens. It’s a baroque-looking program, but pretty useful for exploring and debugging:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/xor.png&quot;&gt;&lt;img src=&quot;/images/xor.png&quot; alt=&quot;hardware simulator&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Delightfully, the material has a set of test scripts that you can use to put your gates through their paces and make sure you’ve wired up everything correctly.&lt;/p&gt;
-
-&lt;p&gt;Creating gates like this via code definitely stretched my brain. Sketching them out on pen and paper was was really helpful:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/images/circuit-sketch.jpg&quot;&gt;&lt;img src=&quot;/images/circuit-sketch.jpg&quot; alt=&quot;circuit sketch&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Next week, we teach the circuits to do math!&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/02/22/blinking-lights/&quot;&gt;The Elements of Computing Systems: Putting The Blinking Lights Back In Computer Science&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 22, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
   <title type="html"><![CDATA[Clojure, vim, and tmux: using your editor as a repl scratchpad]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" />
-  <id>https://thegreata.pe/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" />
+  <id>http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad</id>
   <published>2018-02-11T00:00:00-05:00</published>
   <updated>2018-02-11T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I use Clojure at work, but the frequency varies—I’ll sometimes go months in between working on a project that uses it. Whenever I come back to using the language after some time away, I try to file a few sharp edges off the tooling I use around it.&lt;/p&gt;
@@ -251,19 +54,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Simple enough to use that hopefully I’ll remember it in between bouts with Clojure projects.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;Clojure, vim, and tmux: using your editor as a repl scratchpad&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 11, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;Clojure, vim, and tmux: using your editor as a repl scratchpad&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 11, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Generating Randomized Color Palettes (That Aren’t Clown Vomit)]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/02/04/generating-randomized-color-palettes/" />
-  <id>https://thegreata.pe/articles/2018/02/04/generating-randomized-color-palettes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes/" />
+  <id>http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes</id>
   <published>2018-02-04T00:00:00-05:00</published>
   <updated>2018-02-04T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Before we dive into randomized color palette generation, a little context on what brought me here:&lt;/p&gt;
@@ -329,52 +132,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another fun bonus to this approach: I could send the link to the page to other people with better artistic eyes than myself and get them to tool around with it and come up with good parameters. You can &lt;a href=&quot;http://littleandoften.club/color_tests?utf8=%E2%9C%93&amp;amp;palette%5Bfirst_angle%5D=0&amp;amp;palette%5Bfirst_range%5D=90&amp;amp;palette%5Bsecond_angle%5D=210&amp;amp;palette%5Bsecond_range%5D=30&amp;amp;palette%5Bthird_angle%5D=&amp;amp;palette%5Bthird_range%5D=&amp;amp;palette%5Blightness_jitter%5D=20&amp;amp;palette%5Bsaturation_jitter%5D=10&amp;amp;palette%5Binitial_lightness%5D=55&amp;amp;palette%5Binitial_saturation%5D=45&amp;amp;palette%5Bminimum_color_distance%5D=15&amp;amp;commit=Save+Palette&quot;&gt;try it for yourself here&lt;/a&gt;!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/02/04/generating-randomized-color-palettes/&quot;&gt;Generating Randomized Color Palettes (That Aren’t Clown Vomit)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 04, 2018.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Interlude - Vacation]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/01/20/interlude-vacation/" />
-  <id>https://thegreata.pe/articles/2018/01/20/interlude-vacation</id>
-  <published>2018-01-20T00:00:00-05:00</published>
-  <updated>2018-01-20T00:00:00-05:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Though I’m generally terrible at taking regular vacations, last week my wife and I got away to Hawaii for some long overdue R&amp;amp;R. We saw whales at sunset, stood 10 feet away from active lava flows, hiked an extinct volcano caldera, relaxed on the beach, and drank a whole bunch of rum drinks.&lt;/p&gt;
-
-&lt;p&gt;Regular learning posts resume next!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/hawaii/beach-sunset.jpg&quot; alt=&quot;Beach sunset&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/hawaii/botantical-garden-shore.jpg&quot; alt=&quot;Botantical garden shore&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/hawaii/caldera.jpg&quot; alt=&quot;Caldera floor&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/hawaii/hanu.jpg&quot; alt=&quot;Sea turtle&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/hawaii/lava.jpg&quot; alt=&quot;Lava!&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Oh, and we got to experience about 38 minutes of sheer mortal terror.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/hawaii/oh-fuck.png&quot; alt=&quot;Missle alert&quot; /&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/01/20/interlude-vacation/&quot;&gt;Interlude - Vacation&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 20, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes/&quot;&gt;Generating Randomized Color Palettes (That Aren’t Clown Vomit)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 04, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Vim syntax highlighting for SQL strings inside Ruby code]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" />
-  <id>https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" />
+  <id>http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code</id>
   <published>2018-01-01T00:00:00-05:00</published>
   <updated>2018-01-01T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Working in Rails, it’s not uncommon to have database queries that are better off expressed without using ActiveRecord. This usually means stuffing the SQL query itself into a string, and then running it against the database using &lt;code class=&quot;highlighter-rouge&quot;&gt;ActiveRecord::Base.connection.execute&lt;/code&gt;. Unfortunately, these queries tend to be on the large and complex side, so having a big blob of un-highlighted SQL in the middle of your Ruby code isn’t the nicest thing.&lt;/p&gt;
@@ -409,19 +179,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;&lt;a href=&quot;http://vimdoc.sourceforge.net/htmldoc/syntax.html&quot;&gt;Vim syntax documentation&lt;/a&gt; is the comprehensive (if dense) manual on the Vim syntax highlighting commands.&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Ruby code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 01, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Ruby code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 01, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2017 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2017/12/30/2017-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2017/12/30/2017-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2017/12/30/2017-year-end-notes/" />
+  <id>http://localhost:4000/articles/2017/12/30/2017-year-end-notes</id>
   <published>2017-12-30T00:00:00-05:00</published>
   <updated>2017-12-30T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Another year, another time for personal reflection and course adjustments.&lt;/p&gt;
@@ -507,19 +277,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;onwards&quot;&gt;Onwards&lt;/h2&gt;
 &lt;p&gt;Ok, 2018. Let’s do this.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2017/12/30/2017-year-end-notes/&quot;&gt;2017 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2017/12/30/2017-year-end-notes/&quot;&gt;2017 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2017.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2016 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/12/31/2016-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2016/12/31/2016-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/12/31/2016-year-end-notes/" />
+  <id>http://localhost:4000/articles/2016/12/31/2016-year-end-notes</id>
   <published>2016-12-31T00:00:00-05:00</published>
   <updated>2016-12-31T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I almost didn’t write this. After this year’s US election and the steady global rise of nationalism, well, my usual inward-looking year end review feels a bit trite. But this is the stuff that helps keep me functional and able to take any action at all, so. Here we go.&lt;/p&gt;
@@ -661,19 +431,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Let’s whoop 2017’s ass.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/12/31/2016-year-end-notes/&quot;&gt;2016 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/12/31/2016-year-end-notes/&quot;&gt;2016 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Notes On Writing Clojure In Vim]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/11/25/notes-on-writing-clojure-in-vim/" />
-  <id>https://thegreata.pe/articles/2016/11/25/notes-on-writing-clojure-in-vim</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/" />
+  <id>http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim</id>
   <published>2016-11-25T00:00:00-05:00</published>
   <updated>2016-11-25T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;There a lot of things I like about Clojure as a language, but it requires a lot of tooling setup to not have a bad time. There’s a big chunk of the Clojure community that uses Emacs and the admittedly fantastic &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; environment, but Vim salwarts who don’t want to ditch years of editor customization aren’t left out in the cold. It took a little more digging and research, but I managed to put together a Vim/Clojure setup with the fast feedback loop that’s so important to productive Clojure dev.&lt;/p&gt;
@@ -773,19 +543,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;While vim doesn’t have a true integrated REPL-as-subprocess like Emacs’s CIDER does, you can get a pretty nice setup within tmux by binding some keys to send s-expressions to a repl running an adjacent pane. I &lt;a href=&quot;/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;wrote up my notes on that strategy here&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/11/25/notes-on-writing-clojure-in-vim/&quot;&gt;Notes On Writing Clojure In Vim&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on November 25, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/&quot;&gt;Notes On Writing Clojure In Vim&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on November 25, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Defusing Distracting Defaults: An Experiment In Automating Better Habits]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/08/28/defusing-distracting-defaults/" />
-  <id>https://thegreata.pe/articles/2016/08/28/defusing-distracting-defaults</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/" />
+  <id>http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults</id>
   <published>2016-08-28T00:00:00-04:00</published>
   <updated>2016-08-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Ever have one of those moments where you’re browsing Instagram/Facebook/Twitter/whatever, realize you’ve burned an hour you meant to use working on something else, close the tab in disgust… then realize you’ve reopened the same site without even thinking about it?&lt;/p&gt;
@@ -873,19 +643,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;&lt;em&gt;Updated Feb 26th, 2017: A previous solution here used &lt;a href=&quot;http://www.bernhard-baehr.de/&quot;&gt;sleepwatcher&lt;/a&gt;, but it began starting slowly after upgrading to Sierra. I replaced it with with Hammerspoon.&lt;/em&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/08/28/defusing-distracting-defaults/&quot;&gt;Defusing Distracting Defaults: An Experiment In Automating Better Habits&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on August 28, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/&quot;&gt;Defusing Distracting Defaults: An Experiment In Automating Better Habits&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on August 28, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Fitness Resources Megapost]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/05/28/fitness-resources-megapost/" />
-  <id>https://thegreata.pe/articles/2016/05/28/fitness-resources-megapost</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/05/28/fitness-resources-megapost/" />
+  <id>http://localhost:4000/articles/2016/05/28/fitness-resources-megapost</id>
   <published>2016-05-28T00:00:00-04:00</published>
   <updated>2016-05-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;em&gt;Last updated March 3rd, 2018: see &lt;strong&gt;&lt;a href=&quot;#changelog&quot;&gt;changelog&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
@@ -1133,19 +903,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
   &lt;li&gt;Original Post&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/05/28/fitness-resources-megapost/&quot;&gt;Fitness Resources Megapost&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 28, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/05/28/fitness-resources-megapost/&quot;&gt;Fitness Resources Megapost&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 28, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Customizing The Clojure REPL]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/05/01/customizing-the-clojure-repl/" />
-  <id>https://thegreata.pe/articles/2016/05/01/customizing-the-clojure-repl</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/" />
+  <id>http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl</id>
   <published>2016-05-01T00:00:00-04:00</published>
   <updated>2016-05-01T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;One of the things that makes Clojure great is its fantastic REPL. “REPL” stands for “read eval print loop”—it’s a command-line console where you can type in Clojure code and run it. It’s a great way to experiment and learn; I’ll often prototype a piece of code in the REPL before moving it back over to my editor to save in my project.&lt;/p&gt;
@@ -1197,19 +967,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;Now, we can move our &lt;code class=&quot;highlighter-rouge&quot;&gt;user.clj&lt;/code&gt; from above into &lt;code class=&quot;highlighter-rouge&quot;&gt;env/development/clj/user.clj&lt;/code&gt;, and it’ll only be loaded when we start up a REPL session in our development environment.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/05/01/customizing-the-clojure-repl/&quot;&gt;Customizing The Clojure REPL&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 01, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/&quot;&gt;Customizing The Clojure REPL&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 01, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How Slack Could Respect Your Time And Attention (Better)]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" />
-  <id>https://thegreata.pe/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" />
+  <id>http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better</id>
   <published>2016-04-16T00:00:00-04:00</published>
   <updated>2016-04-16T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Slack, like any communication tool, can function anywhere on a spectrum from “effective medium” to “weapon of mass distraction”. Where your team’s experience falls depends mostly on how deliberately you set up your expectations of each other. But no tool is truly neutral and I think there are changes that Slack could make to help prevent chat fatigue and encourage longer periods of attention and focus.&lt;/p&gt;
@@ -1227,19 +997,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;Complaining is easy and product design is hard. But I’d still like to see more decisions that move Slack towards being a tool that focuses time and attention instead of tending to consume them.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2015 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/12/27/2015-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2015/12/27/2015-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/12/27/2015-year-end-notes/" />
+  <id>http://localhost:4000/articles/2015/12/27/2015-year-end-notes</id>
   <published>2015-12-27T00:00:00-05:00</published>
   <updated>2015-12-27T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Even if New Year’s resolutions are a terrible way to make lasting habit changes, I like using the end of the year as a reminder to take stock of how I did with respect to &lt;a href=&quot;http://thegreata.pe/2014-year-end-notes/&quot;&gt;last year’s goals&lt;/a&gt; and see what I want to change.&lt;/p&gt;
@@ -1426,19 +1196,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
   &lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/12/27/2015-year-end-notes/&quot;&gt;2015 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 27, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/12/27/2015-year-end-notes/&quot;&gt;2015 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 27, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Setting Up Evil-Mode Friendly Ctags in Emacs]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/" />
-  <id>https://thegreata.pe/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/" />
+  <id>http://localhost:4000/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs</id>
   <published>2015-10-24T00:00:00-04:00</published>
   <updated>2015-10-24T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Despite my &lt;a href=&quot;/emacs-and-evil-mode-field-notes/&quot;&gt;failed experiment&lt;/a&gt; with evil-mode back in January, I wound up switching over to evil-powered Emacs full time earlier this summer. I love having modal editing combined with truly deep extensibility, and I’ve been focusing my tweaking on changes that let Emacs help me explore and understand code faster.&lt;/p&gt;
@@ -1518,19 +1288,19 @@ AuthorSearchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;There’s still more to tweak—the Emacs motto, I think—but I’m pretty pleased with my tags setup so far.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/&quot;&gt;Setting Up Evil-Mode Friendly Ctags in Emacs&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on October 24, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/&quot;&gt;Setting Up Evil-Mode Friendly Ctags in Emacs&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on October 24, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Extracting Testable Javascript From jQuery Soup]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/" />
-  <id>https://thegreata.pe/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/" />
+  <id>http://localhost:4000/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup</id>
   <published>2015-06-03T00:00:00-04:00</published>
   <updated>2015-06-03T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I’m not sure where the phrase “jQuery Soup” originated, but it’s an apt description of a failure mode that Javascript code can fall into as it grows. It’s characterized by code that has little structure and no separation of concerns, mixing together HTTP calls, DOM manipulation, user event handling and business logic into a big pile of callbacks.&lt;/p&gt;
@@ -1738,7 +1508,492 @@ AuthorSearchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The code we wound up at the end of this refactoring isn’t perfect, but that’s not the point. What’s most important is that we’ve established a beachhead of tests to watch our backs while we keep improving it. All by just applying some of the simple object oriented design principals we already knew!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/&quot;&gt;Extracting Testable Javascript From jQuery Soup&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 03, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/&quot;&gt;Extracting Testable Javascript From jQuery Soup&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 03, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Composable Components: Comparing Angular and React]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/03/28/reusable-javascript-components/" />
+  <id>http://localhost:4000/articles/2015/03/28/reusable-javascript-components</id>
+  <published>2015-03-28T00:00:00-04:00</published>
+  <updated>2015-03-28T00:00:00-04:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Both Angular and React think you should be building client-side apps by baking new behavior into the structure of the DOM. They take very different approaches to this, with what I think are some interesting consequences.&lt;/p&gt;
+
+&lt;p&gt;Angular does this by teaching the old DOM new tricks: you add functionality to existing elements and create new ones entirely by defining &lt;em&gt;directives&lt;/em&gt;. A directive is Javascript that defines a custom HTML element or attribute with attached behavior. This behavior is declared as a function within Angular’s module system and then instantiated by adding the new element or attribute to the page’s HTML.&lt;/p&gt;
+
+&lt;p&gt;React, instead, defines both your markup structure and behavior &lt;em&gt;as&lt;/em&gt; Javascript code, in one place.&lt;/p&gt;
+
+&lt;p&gt;Let’s contrast these approaches with an example. Say you’re a horrible person running a Twitter-esque social network. Let’s further say that anywhere that there’s a list of tweets, you want to wrap it up in a way that puts a big promoted ad at the top. Because, again, you’re an awful person.&lt;/p&gt;
+
+&lt;p&gt;So we want to create a reusable component that can wrap whatever lists we pass to it and inject an ad at the top. Both our examples below will create the following markup when run—a pair of tweets from the user with a prepended ad from our corporate sponsors—but the important point is that both components can be re-used to wrap arbitrary lists.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Promoted Tweet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;angular&quot;&gt;Angular&lt;/h3&gt;
+
+&lt;p&gt;In Angular, you can create directives that wrap arbitrary content using a mechanism called &lt;em&gt;transclusion&lt;/em&gt;. The official Angular documentation doesn’t make what this does very clear: &lt;em&gt;“transclude makes the contents of a directive with this option have access to the scope outside of the directive rather than inside.”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The way to explain transclusion that makes the most sense to me is that it works like yielding to a block in Ruby or passing a function callback to another function in Javascript. It’s another way to add customizable behavior to a general-use component. The &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-transclude&lt;/code&gt; attribute on the directive’s template below is like the &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; call or callback invocation; it’s where the child elements of the directive are inserted into the template and processed by Angular as though they were defined in the scope outside it.&lt;/p&gt;
+
+&lt;p&gt;Let’s see our promoted-ad-first list as an Angular directive (&lt;a href=&quot;http://jsfiddle.net/92uz99f4/2/&quot;&gt;JSFiddle&lt;/a&gt;) :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transcludeExample&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;promoted-list&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'transcludeExample'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'promotedList'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;restrict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;transclude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;lt;ul&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+                    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;li&amp;gt;Promoted Content&amp;lt;/li&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+                    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;li ng-transclude&amp;gt;&amp;lt;/li&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+                  &lt;span class=&quot;s1&quot;&gt;'&amp;lt;/ul&amp;gt;'&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;react&quot;&gt;React&lt;/h3&gt;
+
+&lt;p&gt;React views are also built by defining trees of elements that use and extend the browser’s DOM, but instead of splitting the definition and use of them between HTML and Javascript, everything is done in Javascript. You can use the &lt;a href=&quot;http://facebook.github.io/react/docs/jsx-in-depth.html&quot;&gt;JSX processor&lt;/a&gt; with React to define your element trees in what looks like markup inline in Javascript. It’s just optional syntatic sugar, and though it takes a little getting used to visually, I think it’s an overall win and have used it in the example below. Just keep in mind that each piece of markup is directly translated to a function call; e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Nav color=&quot;blue&quot; /&amp;gt;&lt;/code&gt; just becomes &lt;code class=&quot;highlighter-rouge&quot;&gt;React.createElement(Nav, {color:&quot;blue&quot;})&lt;/code&gt; before it hits the browser.&lt;/p&gt;
+
+&lt;p&gt;To achieve the same thing as the Angular example above, in React we just pass our tweets into the promoted list component as arguments in a Javascript function call. It looks like this &lt;a href=&quot;http://jsfiddle.net/2qydq9gs/2/&quot;&gt;JSFiddle&lt;/a&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;var PromotedList = React.createClass({
+    render: function() {
+        return &amp;lt;ul&amp;gt;
+                  &amp;lt;li&amp;gt;Promoted Tweet&amp;lt;/li&amp;gt;
+                  {this.props.tweets}
+               &amp;lt;/ul&amp;gt;
+    }
+});
+
+var myTweets = [
+  &amp;lt;li&amp;gt;My Tweet One&amp;lt;/li&amp;gt;,
+  &amp;lt;li&amp;gt;My Tweet Two&amp;lt;/li&amp;gt;
+]
+React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;why-make-html-turing-complete&quot;&gt;Why make HTML Turing-complete?&lt;/h3&gt;
+
+&lt;p&gt;What’s interesting to me here is that React doesn’t require a special mechanism to pass dynamic content to a reusable component. Since both our behavior and markup structure are all defined in Javascript, our PromotedList’s dynamic content is just another argument to a function call. It’s… just Javascript.&lt;/p&gt;
+
+&lt;p&gt;The need in Angular for an explicit API to accomplish this—&lt;code class=&quot;highlighter-rouge&quot;&gt;ng-transclude&lt;/code&gt;— is a consequence of Angular’s choice to push so much of an app’s behavior definition into HTML. In order to create flexible APIs, it feels like they’re having to reinvent in HTML what programming languages can already do.&lt;/p&gt;
+
+&lt;p&gt;I get separating business logic from presentational logic, but I’m not convinced that Angular’s approach is better. Maybe it’s the LISPer in me.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/03/28/reusable-javascript-components/&quot;&gt;Composable Components: Comparing Angular and React&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 28, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Lyeberry: a new search backend for Literate Minuteman]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/03/01/lyeberry/" />
+  <id>http://localhost:4000/articles/2015/03/01/lyeberry</id>
+  <published>2015-03-01T00:00:00-05:00</published>
+  <updated>2015-03-01T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Over the last week, I rolled out some big improvements to the way &lt;a href=&quot;http://www.literate-minuteman.com/&quot;&gt;Literate Minuteman&lt;/a&gt; searches for books behind the scenes. I want to share some of the ideas behind the new architecture and some thoughts on my first experience with building a web app in Clojure.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-old-way-capybara-and-poltergeist&quot;&gt;The Old Way: Capybara and Poltergeist&lt;/h3&gt;
+
+&lt;p&gt;In Literate Minuteman, looking up a book’s availability is done in the background, as part of a set of nightly background jobs run under Resque. Each job would fire up a headless PhantomJS browser via &lt;a href=&quot;https://github.com/teampoltergeist/poltergeist&quot;&gt;Poltergeist&lt;/a&gt;, visit the library’s search pages, and retreive the books as a real user would. It made for nice &lt;a href=&quot;http://martinfowler.com/bliki/PageObject.html&quot;&gt;page object&lt;/a&gt; style classes: the old &lt;a href=&quot;https://github.com/thegreatape/literate-minuteman/blob/c03183fbfe613b78b2672ca6426c6f711806597a/app/models/lookup_strategies/overdrive.rb&quot;&gt;Overdrive lookup strategy&lt;/a&gt; is a good example.&lt;/p&gt;
+
+&lt;p&gt;While it was easy to create these scrapers, this approach had a couple of big disadvantages.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Hard To Debug&lt;/em&gt;: Even though the code was easy to read, it was often hard to debug why something wasn’t working. PhantomJS uses Webkit to load and render web pages just like Chrome or Firefox would, Javascript execution and all. This introduced timing issues that made a search work correctly sometimes and fail others. The Poltergeist API helped by retrying certain commands until a timeout is reached, but this required me to remember which calls would retry and which wouldn’t—for example, &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt; waits for a matching element to appear, while &lt;code class=&quot;highlighter-rouge&quot;&gt;all&lt;/code&gt; returns immediately.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Mysterious Crashes&lt;/em&gt;: Even worse, PhantomJS was run by Poltergeist as a separate process and would sometimes outright crash, leaving little information behind as to the cause. I hit a dead end trying to consistently reproduce these crashes, let alone fix them.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Slow&lt;/em&gt;: The nail in the coffin for the Poltergeist-based approach was how slow it was. Each book search would take between 10-20 seconds, due to the overhead of firing up a PhantomJS process and loading each page’s entire set of images, styles and Javascript. Switching to Sidekiq to run more instances of PhantomJS under a single Heroku worker was a bust—I’d get mysterious resource contention issues that only went away when I dialed the Sidekiq concurrency down to a single thread. With about 8000 books in the system, it was getting to the point where the nightly book lookup jobs wouldn’t have completed by the next night’s scheduled run. I had to change something.&lt;/p&gt;
+
+&lt;h3 id=&quot;independent-services-to-the-rescue&quot;&gt;Independent Services To The Rescue&lt;/h3&gt;
+
+&lt;p&gt;To fix this, I built a new independent application purely for book lookup, called &lt;a href=&quot;http://github.com/thegreatape/lyeberry&quot;&gt;Lyeberry&lt;/a&gt;. It exposes each library system as a RESTful endpoint that talks JSON over HTTP. Retrieving all the copies of a book is just a simple GET request; for example, you could find all the copies of Kafka’s _Metamorphosis_in the Boston system by hitting:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;GET http://lyeberry.herokuapp.com/systems/boston/books?author&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Franz+Kafka&amp;amp;title&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Metamorphosis&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;On the Rails side, Minuteman’s nightly background jobs now just issue simple HTTP requests to Lyeberry to get an array of available copies of each book.&lt;/p&gt;
+
+&lt;p&gt;Instead of firing up a browser as an independent process to interact with the library’s site, Lyeberry uses a more traditional scraping approach in just directly fetching and parsing the HTML of the pages it needs. The resulting code wound up being about the same size and complexity as the Poltergeist scrapers; see the &lt;a href=&quot;https://github.com/thegreatape/lyeberry/blob/master/src/lyeberry/minuteman.clj&quot;&gt;new Minuteman system scraper&lt;/a&gt; for an example.&lt;/p&gt;
+
+&lt;p&gt;And yes, it’s much faster. While still bound by the speed of an external HTTP lookup or two, each query now typically takes 1-2 seconds—an order of magnitude improvement over the old system. It should scale better as well; without the constraint of one PhantomJS process at a time, I switched Minuteman’s background job processer over to Sidekiq. Since Sidekiq’s concurrency mechanism is thread-based instead of process-based, I can dial up the concurrency from the Minuteman side without having to pay for more Heroku workers. Win, win.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-clojure&quot;&gt;&amp;lt;3 Clojure&lt;/h3&gt;
+
+&lt;p&gt;Lyeberry is my first real Clojure project and I’ve got to say I’m loving it so far. I’m using &lt;a href=&quot;https://github.com/cgrand/enlive&quot;&gt;Enlive&lt;/a&gt; and &lt;a href=&quot;https://github.com/dakrone/clj-http&quot;&gt;clj-http&lt;/a&gt; for the scraping parts and serving the results up with &lt;a href=&quot;https://github.com/weavejester/compojure&quot;&gt;Compojure&lt;/a&gt; and &lt;a href=&quot;https://github.com/ring-clojure/ring&quot;&gt;Ring&lt;/a&gt;. I’m still getting used to having a more powerful REPL available, but when I remember to use it, the &lt;a href=&quot;https://github.com/tpope/vim-fireplace&quot;&gt;vim-fireplace&lt;/a&gt; integration is great.&lt;/p&gt;
+
+&lt;p&gt;I wound up spinning off my first independent Clojure library while building Lyeberry: &lt;a href=&quot;http://github.com/thegreatape/ring-raygun&quot;&gt;ring-raygun&lt;/a&gt; sends uncaught exceptions to the &lt;a href=&quot;http://raygun.io&quot;&gt;Raygun&lt;/a&gt; error monitoring service. I felt like this was my first time experiencing how Clojure’s favoring primitive data structures over custom objects worked to encourage extension. Requests in Ring are just hashes and middleware handlers are just a functions that can wrap another function—structures that if you know Clojure, you already know how to use. It was easy enough to understand that even a Clojure newbie like myself was able to build a useful extension without learning a totally new set of APIs.&lt;/p&gt;
+
+&lt;p&gt;The testing story in Clojure has also been superb so far. I’m using &lt;a href=&quot;https://github.com/marick/Midje&quot;&gt;Midje&lt;/a&gt; to write my specs with an example-like syntax. It’s got a great Guard-like autotesting feature that you can run independently or right in your REPL session. When you save a file, &lt;code class=&quot;highlighter-rouge&quot;&gt;autotest&lt;/code&gt; automatically runs the specs of that namespace—and it’s extremely fast. Discounting the initial startup time, the whole app’s tests run in less than a second. That’s a seriously great feedback loop, especially when it doubles as an interactive REPL session.&lt;/p&gt;
+
+&lt;p&gt;Unsurprisingly, Clojure’s emphasis on immutable data structures and functional programming make tests pretty easy to write. Separating most of the business logic out into pure functions with no I/O or side effects seems to be a helpful pattern. For example, the &lt;a href=&quot;https://github.com/thegreatape/lyeberry/blob/master/test/lyeberry/minuteman_test.clj&quot;&gt;Minuteman scraper tests&lt;/a&gt; mostly concern themselves with making sure an HTML string is correctly parsed into copies of books. This lets me feed those functions HTML from a fixture file during the tests and from a live HTTP request in production or development. This is a pattern I’ve had a lot of success with in other languages, and it makes me very happy to see Clojure’s path of least resistance push one towards using pure functions for the sake of testability.&lt;/p&gt;
+
+&lt;p&gt;I have so much more to learn about Clojure, but I’m really happy with how it’s going so far. I’m looking forward to being able to cringe at all the amateur mistakes I’m sure I’ve made here.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/03/01/lyeberry/&quot;&gt;Lyeberry: a new search backend for Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 01, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Emacs and Evil-mode: Field Notes]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/01/18/emacs-and-evil-mode-field-notes/" />
+  <id>http://localhost:4000/articles/2015/01/18/emacs-and-evil-mode-field-notes</id>
+  <published>2015-01-18T00:00:00-05:00</published>
+  <updated>2015-01-18T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Back in December, I started experimenting with getting Emacs set up to use Vim-style modal editing. I’d begun studying Clojure more deeply and Emacs’s &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; is the most popular editing environment for Clojure, so I felt like I at least owed it a look. I’d also found myself thinking about and agreeing with a central tenant of Emacs philosophy: that your tools should evolve with you and become deeply customized over time.&lt;/p&gt;
+
+&lt;p&gt;But—and this is a big but—I couldn’t imagine leaving modal editing behind. Some background on my editing history: I used Emacs when I learned to program in college, writing Java, C++, Python with Emacs. It was what we used in the computer science lab, so it was what I adopted. Ironically, I barely customized my setup at all beyond cargo-culting a few different keybindings, tweaks and major modes. It wasn’t until about five years ago that some colleagues of mine convinced me to try out Vim instead. The idea that Vim’s &lt;a href=&quot;http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118&quot;&gt;modal editing is a language&lt;/a&gt; clicked with me and sounded a lot easier on the wrists than Emacs key-chords. I spent a weekend getting up to speed, researching plugins and I’ve been a modal-editing weenie ever since.&lt;/p&gt;
+
+&lt;p&gt;Fast-forward five years and articles on &lt;a href=&quot;https://gitorious.org/evil/pages/Home&quot;&gt;evil-mode&lt;/a&gt; started to make the rounds. Despite some skepticism, I began to wonder if I could get the best of both worlds: a deeply customizable editing environment &lt;em&gt;and&lt;/em&gt; modal editing. The Clojure community’s preference for CIDER was a great excuse to try things out.&lt;/p&gt;
+
+&lt;p&gt;I used a couple blog posts as tutorials to start from and went from there:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://bling.github.io/blog/2013/10/27/emacs-as-my-leader-vim-survival-guide/&quot;&gt;Emacs as my leader&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html&quot;&gt;Towards a Vim-like Emacs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/&quot;&gt;From Vim to Emacs+Evil chaotic migration guide&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;what-i-learned-the-highlights&quot;&gt;What I Learned: The Highlights&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Evil mode is actually that good:&lt;/strong&gt; Any Vim user who’s tried to use a Vim-emulation plugin in other editors knows that they always fall jarringly short. Evil-mode… doesn’t. Text objects? Check. Visual block mode? Check. Registers? Check. Macros? Check. You really can sit down with Emacs, run &lt;code class=&quot;highlighter-rouge&quot;&gt;(evil-mode t)&lt;/code&gt; and edit text in a completely unsurprising way. This is impressive as hell.&lt;/p&gt;
+
+&lt;p&gt;What’s more, evil-mode doesn’t lock you into the default Vim keybindings; in fact, it makes customizing pretty easy. I was able to define custom normal-mode evil keys for various language modes after just a few quick tutorials.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Plugin management is much better than I remember&lt;/strong&gt;: The Emacs package manager &lt;code class=&quot;highlighter-rouge&quot;&gt;package.el&lt;/code&gt; wasn’t a default part of Emacs until 24.0, well after I switched to Vim. Being able to install a plugin with a single command was great, but I wanted something a bit closer to &lt;a href=&quot;https://github.com/gmarik/Vundle.vim&quot;&gt;Vundle&lt;/a&gt; that would help me keep my plugins synced across two laptops.&lt;/p&gt;
+
+&lt;p&gt;Behold: &lt;a href=&quot;https://github.com/jwiegley/use-package&quot;&gt;use-package&lt;/a&gt; works like Vundle with the &lt;code class=&quot;highlighter-rouge&quot;&gt;:ensure t&lt;/code&gt; argument. It also allows you to make sure the package is required before executing your plugin-specific configuration code. One gotcha: I needed to install one package with “M-x install &lt;whatever&gt;&quot; before the `(use-package &lt;whatever&gt; :ensure t)` would install things automatically on boot. Thereafter, I could just write the use-package expression in my config file and eval it with `C-x C-e` to install and initialize things. Pretty nice.&lt;/whatever&gt;&lt;/whatever&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Elisp isn’t awful&lt;/strong&gt;: Emacs isn’t so much configured by Elisp as it is a giant Elisp REPL. Everything, from keypresses on up, is handled by calling Elisp functions, and you can customize how Emacs works by writing further Elisp. I found it a lot easier to pick up and start writing customization code in Elisp than I did in Vimscript. Most would agree that’s a low bar, but there it is.&lt;/p&gt;
+
+&lt;p&gt;The degree to which Emacs is self-documenting was unexpectedly nice. &lt;code class=&quot;highlighter-rouge&quot;&gt;M-x describe-function&lt;/code&gt; over an Elisp symbol will bring up its documentation. I bound this to &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; in evil-normal-mode as suggested by one of the above tutorials, and it’s a really great way to pick apart sample code and figure out how it works. Similarly, &lt;code class=&quot;highlighter-rouge&quot;&gt;M-x describe-key&lt;/code&gt; is super useful for figuring out what function a particular Emacs-style key shortcut is calling. After you have the function name, you can easily bind it to your own evil-flavored keys.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nothing is quite as good as Ctrl-P&lt;/strong&gt;: A fast fuzzy file matcher is something I can’t live without, and I struggled to find something to replace &lt;a href=&quot;https://github.com/kien/ctrlp.vim&quot;&gt;Ctrl-P&lt;/a&gt;. The &lt;a href=&quot;https://github.com/bbatsov/projectile&quot;&gt;projectile&lt;/a&gt; project management plugin can be configured to use various file matching plugins, but none of them were without issues:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/lewang/flx&quot;&gt;ido-flx&lt;/a&gt; was just straight-up too slow for matching on a large project (just under 7k files). I tried setting a higher garbage collection threshold and lowering the number of completion candidates needed before the fuzzy matching would kick in, per the flx &lt;a href=&quot;https://github.com/lewang/flx/blob/master/README.md&quot;&gt;README&lt;/a&gt;, but it still was too laggy to use at work.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/grizzl/grizzl&quot;&gt;grizzl&lt;/a&gt; I couldn’t get working at all. I ran into &lt;a href=&quot;https://github.com/bbatsov/projectile/issues/200&quot;&gt;this issue&lt;/a&gt; with a &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol's function definition is void: exitfun&lt;/code&gt; error being thrown and didn’t find a solution.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/emacs-helm/helm&quot;&gt;helm&lt;/a&gt; came the closest. It was acceptably fast on a large project, though still noticeably slower than Ctrl-P. The completion algorithm was a bit different than what I’m used to; it used spaces to break up tokens instead of an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; after each character—so if you were searching for &lt;code class=&quot;highlighter-rouge&quot;&gt;app/models/file.rb&lt;/code&gt; you’d use &lt;code class=&quot;highlighter-rouge&quot;&gt;ap mo fil&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;apmofil&lt;/code&gt;. I wound up actually liking that better after a few days. Unfortunately, it would occasionally &lt;a href=&quot;https://github.com/bbatsov/projectile/issues/600&quot;&gt;crash the vanilla OS X build of Emacs&lt;/a&gt;. This is apparently an Emacs bug and is purported to be fixed in the &lt;a href=&quot;https://github.com/railwaycat/emacs-mac-port&quot;&gt;emacs-mac-port build&lt;/a&gt; but I haven’t stress-tested to be sure.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Evil-matchit just didn’t work with Ruby&lt;/strong&gt;: I write Ruby by day, and Vim’s &lt;a href=&quot;https://github.com/tmhedberg/matchit&quot;&gt;matchit&lt;/a&gt; lets me use &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; to hop between &lt;code class=&quot;highlighter-rouge&quot;&gt;do&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;end&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;end&lt;/code&gt; blocks in Ruby as well parentheses, curly braces and so on. It’s really amazing useful for code navigation, especially if the code you’re working with doesn’t exactly hew to the idea of small methods. I was delighted that the Emacs &lt;a href=&quot;https://github.com/redguardtoo/evil-matchit&quot;&gt;evil-matchit&lt;/a&gt; had Ruby support; unfortunately, it doesn’t seem to work. Hitting &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; on a block inside a method would take me to the block before the selected block, or to the top of the method, or to the beginning of the line I was on—essentially anywhere but where it should have gone.&lt;/p&gt;
+
+&lt;h3 id=&quot;two-months-later&quot;&gt;Two Months Later&lt;/h3&gt;
+
+&lt;p&gt;For now, I’m putting my Emacs configuration aside for a bit. I’m impressed with Evil, but feel a bit low on energy and like there’s too much &lt;a href=&quot;http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx&quot;&gt;yak-shaving&lt;/a&gt; ahead before I’m really comfortable back in Emacs. I also want to focus on just learning Clojure and its idioms without having to wrestle with learning and customizing a new editing environment at the same time. I started using Tim Pope’s &lt;a href=&quot;https://github.com/tpope/vim-fireplace&quot;&gt;vim-fireplace&lt;/a&gt; for working with Clojure, which works well enough, even if it’s not quite a real embedded REPL.&lt;/p&gt;
+
+&lt;p&gt;I do want to come back to this experiment someday. I feel like the issues I ran into should be tractable with more time and focus, and there are some plugins like &lt;a href=&quot;http://orgmode.org/&quot;&gt;org-mode&lt;/a&gt; that I really want to explore. The work I put in to get as far as I did is &lt;a href=&quot;https://github.com/thegreatape/dot-files&quot;&gt;versioned on GitHub along with the rest of my dot-files&lt;/a&gt;, so hopefully the next time around I can just pick up where I left off.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/01/18/emacs-and-evil-mode-field-notes/&quot;&gt;Emacs and Evil-mode: Field Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 18, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Make your Rails background jobs as small as possible]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2015/01/04/small-background-jobs/" />
+  <id>http://localhost:4000/articles/2015/01/04/small-background-jobs</id>
+  <published>2015-01-04T00:00:00-05:00</published>
+  <updated>2015-01-04T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I recently ran into an issue with &lt;a href=&quot;http://www.literate-minuteman.com/&quot;&gt;Literate Minuteman&lt;/a&gt; that reminded me of the value of keeping your Rails background jobs as small as you can.&lt;/p&gt;
+
+&lt;p&gt;In Minuteman, looking up the state of a book at a particular library is a relatively slow operation, and so is done periodically outside the HTTP request/response, using &lt;a href=&quot;https://github.com/resque/resque&quot;&gt;Resque&lt;/a&gt;. For each book we want to update, we enqueue an &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateBook&lt;/code&gt; worker with the book’s id, which fetches the book and then delegates to &lt;code class=&quot;highlighter-rouge&quot;&gt;Book&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;sync_copies&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/workers/update_book.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The book’s &lt;code class=&quot;highlighter-rouge&quot;&gt;sync_copies&lt;/code&gt; method then loops through all the available &lt;code class=&quot;highlighter-rouge&quot;&gt;LibrarySystem&lt;/code&gt;s and asks the system in question for the current status of that book’s copies:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/book.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;LibrarySystem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;copies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# book updating work happens here&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The problem with this design is that each &lt;code class=&quot;highlighter-rouge&quot;&gt;LibrarySystem&lt;/code&gt;’s lookup is run in serial as a part of the same job. If an exception is raised by any system’s &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt; call, subsequent system book lookups won’t happen at all. That’s what I found was happening this weekend-a change in the Boston Public Library’s site had caused the very first system lookup to fail, and now no books were being updated at all!&lt;/p&gt;
+
+&lt;p&gt;To fix this, I split the jobs out into more specific tasks-looking up the status of a book in a particular library system, instead of the status of a book in &lt;em&gt;all&lt;/em&gt; library systems. &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateBook&lt;/code&gt; simply took the library system id as a parameter and passed it to a &lt;code class=&quot;highlighter-rouge&quot;&gt;Book#sync_copies&lt;/code&gt; method that just looked up copies in that system:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/workers/update_book.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library_system_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;LibrarySystem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library_system_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/book.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library_system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;copies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# book updating work happens here&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, the BPL system lookups were still failing, but the other system lookups could run independently and I was free to fix the BPL lookup system in isolation.&lt;/p&gt;
+
+&lt;p&gt;I’ve simplified the code in these examples slightly to make my point more clear; you can check out the full changes &lt;a href=&quot;https://github.com/thegreatape/literate-minuteman/commit/5dbfe7a5629b88170cf65801b4c9a8ec37b44574&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2015/01/04/small-background-jobs/&quot;&gt;Make your Rails background jobs as small as possible&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 04, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[2014 Year End Notes]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2014/12/30/2014-year-end-notes/" />
+  <id>http://localhost:4000/articles/2014/12/30/2014-year-end-notes</id>
+  <published>2014-12-30T00:00:00-05:00</published>
+  <updated>2014-12-30T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Another year, another time for rambling retrospection and course adjustment.&lt;/p&gt;
+
+&lt;h2 id=&quot;reading&quot;&gt;Reading&lt;/h2&gt;
+
+&lt;p&gt;I met my &lt;a href=&quot;https://www.goodreads.com/challenges/1914-2014-reading-challenge&quot;&gt;50 books/ year reading challenge&lt;/a&gt;, again. I’ve maintained this pace since I decided to change my reading habits three years ago and am very happy that I’ve been able to make it a more or less automatic part of my life.&lt;/p&gt;
+
+&lt;p&gt;A quick breakdown of what I read:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Genre / Subject&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Count&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Science Fiction&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fantasy&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Technical&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Fitness&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Other Non-Fiction&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;9&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;What to do differently next year?&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Fix the gender disparity&lt;/em&gt;: Out of the 53 books I read this year, 5 were by women. Yikes. I didn’t even think to pay attention to the balance here until a discussion with a friend yesterday. Clearly, this is something I should be more mindful of.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;More technical books&lt;/em&gt;: Four books relating to what I do professionally isn’t &lt;em&gt;bad&lt;/em&gt;, considering that these tend to be a large time investment, but I think I’d like to do better. I’m going to shoot for eight next year.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Notable List&lt;/em&gt;: The books that tickled my fancy the most this year were:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.goodreads.com/book/show/44919.Working_Effectively_with_Legacy_Code&quot;&gt;Working Effectively With Legacy Code by Michael Feathers&lt;/a&gt;: I first read this many years ago and it remains the best writing I’ve ever read on how to start turning around a legacy software project. Feathers’ techniques are pragmatic and his willingness to present advice as a series of it-depends and tradeoffs is something I wish was common in other technical writing.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.goodreads.com/book/show/7170627-the-emperor-of-all-maladies&quot;&gt;The Emperor of All Maladies by Siddhartha Mukherjee&lt;/a&gt; Both a history of cancer and a look into how the disease works. Moving and educational.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.goodreads.com/book/show/9359818-god-s-war&quot;&gt;God’s War by Kameron Hurley&lt;/a&gt; A sci-fi noir story with tremendous worldbuilding that manages someone how to be both brutally violent and eminently feminist.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.goodreads.com/book/show/18490708-echopraxia&quot;&gt;Echopraxia by Peter Watts&lt;/a&gt; The sequel to &lt;a href=&quot;https://www.goodreads.com/book/show/48484.Blindsight&quot;&gt;Blindsight&lt;/a&gt;, one of my favorites from last year, Echopraxia was just as bleakly beautiful and intellectually disturbing.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;lifting&quot;&gt;Lifting&lt;/h2&gt;
+
+&lt;p&gt;I set &lt;a href=&quot;https://twitter.com/thegreatape/status/422111860796579840&quot;&gt;lifting goals for myself&lt;/a&gt; at the start of 2014. Here’s how it went:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Lift&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Year Starting 1RM&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Goal 1RM&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Year Ending 1RM&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deadlift&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;355 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;400 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;390 lbs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Squat&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;300 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;350 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;see below&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bench&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;215 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;250 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;225 lbs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Overhead Press&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;150 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;170 lbs&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;160 lbs&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;As you can see, I was entirely too optimistic and failed to hit any of these goals! That said, I’m still happy with how my training went this year.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Turn Up The Volume&lt;/em&gt;: I can handle a ton more volume now. I was running Wendler’s 5/3/1 at the start of 2014—a relatively low volume program—and was still exhausted by the end of each workout. Through slow addition of volume and a bit more conditioning, I’ve adjusted to &lt;a href=&quot;http://swoleateveryheight.blogspot.com/2014/07/the-gzcl-method-simplified_13.html&quot;&gt;much higher volume programming&lt;/a&gt;, and 5/3/1 feels like something I’d do during a deload week. I think this should help set me up to keep pushing the intensity in the new year. It also gives me more recovery breathing room to add in more conditioning, something I also want to do more of.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Back Squatting&lt;/em&gt;: The back squat and I are undergoing a trial separation. I had to take a lot of time off in the first part of the year due to back and hip tweaks that always seemed to hit me when the back squat intensity got too high. What’s been working well for the past few months has been replacing back squats entirely with a combination of front squats and Bulgarian split squats. Both are still full-body squatting motions, but don’t stress the lower back as much. I lift for fun and to challenge myself, so unless I intend to enter a powerlifting competition, I don’t really see a reason for me to go back to back squatting.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Next Year’s Goals&lt;/em&gt;: I want to change things up a bit and focus on just two lifts for absolute strength goals while also adding in a conditioning goal. I’ll still be doing squat and bench variants, but more as accessories to bring up the press and deadlift. By the end of 2015, I want to be able to hit:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Lift&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Goal 1RM&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Deadlift&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;405 lbs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Overhead Press&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;170 lbs&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Kettlebell Swing&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;200 x 53 lbs in 10 minutes&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;programming&quot;&gt;Programming&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Tour de Babel&lt;/em&gt;: I spent a lot of my non-professional coding time in 2014 exploring different languages. And boy, did I have a lot of fun. I wrote a &lt;a href=&quot;https://github.com/thegreatape/betamax&quot;&gt;recording HTTP proxy&lt;/a&gt; in Go, &lt;a href=&quot;https://github.com/thegreatape/book-calendar&quot;&gt;messed around with the Goodreads API&lt;/a&gt; in Clojure, and worked through &lt;a href=&quot;https://pragprog.com/book/elixir/programming-elixir&quot;&gt;Dave Thomas’s wonderful book on Elixir&lt;/a&gt;. Writing up all my thoughts on these languages would take entirely too much space, so suffice to say that my language tour was a long overdue exercise in brain stretching, and maybe more than a bit of trying to see where things go professionally for me after Ruby.&lt;/p&gt;
+
+&lt;p&gt;After spending this year going broad, I think it’s time to get out of perpetual beginner mode go deep, and really begin to learn one of either Go, Clojure or Elixir in the new year. Signs point to Clojure right now, but I haven’t totally decided.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Mobile development&lt;/em&gt;: Professionally speaking, I spent the majority of my time this year doing mobile development. I worked on two iOS apps using RubyMotion, open-sourced a &lt;a href=&quot;https://github.com/terriblelabs/motion-juxtapose&quot;&gt;library for screenshot-driven testing&lt;/a&gt;, and rebuilt an Android app with native Java and Android Studio.&lt;/p&gt;
+
+&lt;p&gt;I have to say, while I certainly learned a lot and enjoyed some of the challenges, I’m increasingly of the opinion that the current state of mobile app development is not my cup of tea. There’s another whole essay here, I think, so in brief: limited choices in app architecture, vast and ever-evolving black box APIs, and testing tools that are frankly embarassing to the industry wound up being frustrating for me. I can see working on mobile apps as part of a full-stack effort in the future, but I don’t think I want to devote myself to mobile full-time as things stand right now.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2014/12/30/2014-year-end-notes/&quot;&gt;2014 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Relaunching Literate Minuteman]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2014/07/01/relaunching-literate-minuteman/" />
+  <id>http://localhost:4000/articles/2014/07/01/relaunching-literate-minuteman</id>
+  <published>2014-07-01T00:00:00-04:00</published>
+  <updated>2014-07-01T00:00:00-04:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Today, I’m relaunching an old project of mine with a new coat of paint and a bunch of new goodies: &lt;a href=&quot;http://literate-minuteman.com&quot;&gt;Literate Minuteman&lt;/a&gt; shows you what books from your &lt;a href=&quot;http://goodreads.com&quot;&gt;Goodreads&lt;/a&gt; lists are available at your local Boston-area library.&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-new&quot;&gt;What’s new?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Revamped visual design, with some judicious responsiveness so it works well on mobile-sized screens.&lt;/li&gt;
+  &lt;li&gt;Live loading of your books when you sign up (via Pusher).&lt;/li&gt;
+  &lt;li&gt;Tons of bug fixes and internal refactoring to bring the code from “embarassing first Rails project” to “I might not hate this in a month”.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
+
+&lt;p&gt;Ain’t no rest for the wicked, so what’s planned next:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Integration with the BPL and Minuteman ebook systems.&lt;/li&gt;
+  &lt;li&gt;Email notifications when books become available.&lt;/li&gt;
+  &lt;li&gt;Filtering by individual locations and making filters persistent across browser sessions.&lt;/li&gt;
+  &lt;li&gt;Smarter queuing of book lookups for new users; right now, if two people sign up at the same time, one has to wait in line.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;go-try-it&quot;&gt;Go try it!&lt;/h2&gt;
+
+&lt;p&gt;If you live around Boston and like to read, &lt;a href=&quot;http://literate-minuteman.com&quot;&gt;give it a whirl&lt;/a&gt;. Let me know what you think, dear reader: you can reach me at Thomas.Mayfield@gmail.com.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2014/07/01/relaunching-literate-minuteman/&quot;&gt;Relaunching Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 01, 2014.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Fixing conflicting Vim plugins with NeoBundle]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/" />
+  <id>http://localhost:4000/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle</id>
+  <published>2014-06-01T00:00:00-04:00</published>
+  <updated>2014-06-01T00:00:00-04:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri>http://localhost:4000</uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I started &lt;a href=&quot;http://www.braveclojure.com/&quot;&gt;messing around with Clojure&lt;/a&gt; this weekend and quickly discovered that something in my Vim setup was causing parentheses matching with &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; to not work quite right. The output in the statusbar showed a call to &lt;a href=&quot;https://github.com/vim-scripts/ruby-matchit&quot;&gt;ruby-matchit&lt;/a&gt;, a plugin that lets you jump between between the start and end of blocks and method definitions in Ruby. As wonderful as that is, I certainly don’t need it while editing Clojure.&lt;/p&gt;
+
+&lt;p&gt;As it turns out, there’s a fork of the &lt;a href=&quot;https://github.com/gmarik/Vundle.vim&quot;&gt;Vundle&lt;/a&gt; plugin manager called &lt;a href=&quot;https://github.com/Shougo/neobundle.vim&quot;&gt;NeoBundle&lt;/a&gt; that supports lazy loading and initialization of plugins. You can do this with the following in your &lt;code class=&quot;highlighter-rouge&quot;&gt;.vimrc&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-vim&quot; data-lang=&quot;vim&quot;&gt;NeoBundleLazy &lt;span class=&quot;s1&quot;&gt;'vim-scripts/ruby-matchit'&lt;/span&gt;
+autocmd &lt;span class=&quot;nb&quot;&gt;FileType&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ruby&lt;/span&gt; NeoBundleSource &lt;span class=&quot;k&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;matchit&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Switching to NeoBundle from Vundle was a breeze, and now vim-matchit only loads when I open Ruby files. Hooray!&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/&quot;&gt;Fixing conflicting Vim plugins with NeoBundle&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
