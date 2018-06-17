@@ -3,26 +3,26 @@
 <title type="text">Duct Tape and Turing Machines</title>
 <subtitle type="text"></subtitle>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="https://thegreata.pe/feed.xml" />
-<link rel="alternate" type="text/html" href="https://thegreata.pe" />
-<updated>2018-06-10T10:07:05-04:00</updated>
-<id>https://thegreata.pe/</id>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2018-06-17T16:52:36-04:00</updated>
+<id>/</id>
 <author>
   <name>Thomas Mayfield</name>
-  <uri>https://thegreata.pe/</uri>
+  <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Clojure, vim, and tmux: using your editor as a repl scratchpad]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" />
-  <id>https://thegreata.pe/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad</id>
+  <link rel="alternate" type="text/html" href="/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" />
+  <id>/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad</id>
   <published>2018-02-11T00:00:00-05:00</published>
   <updated>2018-02-11T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I use Clojure at work, but the frequency varies—I’ll sometimes go months in between working on a project that uses it. Whenever I come back to using the language after some time away, I try to file a few sharp edges off the tooling I use around it.&lt;/p&gt;
@@ -54,19 +54,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Simple enough to use that hopefully I’ll remember it in between bouts with Clojure projects.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;Clojure, vim, and tmux: using your editor as a repl scratchpad&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 11, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;Clojure, vim, and tmux: using your editor as a repl scratchpad&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 11, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Generating Randomized Color Palettes (That Aren’t Clown Vomit)]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/02/04/generating-randomized-color-palettes/" />
-  <id>https://thegreata.pe/articles/2018/02/04/generating-randomized-color-palettes</id>
+  <link rel="alternate" type="text/html" href="/articles/2018/02/04/generating-randomized-color-palettes/" />
+  <id>/articles/2018/02/04/generating-randomized-color-palettes</id>
   <published>2018-02-04T00:00:00-05:00</published>
   <updated>2018-02-04T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Before we dive into randomized color palette generation, a little context on what brought me here:&lt;/p&gt;
@@ -132,19 +132,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another fun bonus to this approach: I could send the link to the page to other people with better artistic eyes than myself and get them to tool around with it and come up with good parameters. You can &lt;a href=&quot;http://littleandoften.club/color_tests?utf8=%E2%9C%93&amp;amp;palette%5Bfirst_angle%5D=0&amp;amp;palette%5Bfirst_range%5D=90&amp;amp;palette%5Bsecond_angle%5D=210&amp;amp;palette%5Bsecond_range%5D=30&amp;amp;palette%5Bthird_angle%5D=&amp;amp;palette%5Bthird_range%5D=&amp;amp;palette%5Blightness_jitter%5D=20&amp;amp;palette%5Bsaturation_jitter%5D=10&amp;amp;palette%5Binitial_lightness%5D=55&amp;amp;palette%5Binitial_saturation%5D=45&amp;amp;palette%5Bminimum_color_distance%5D=15&amp;amp;commit=Save+Palette&quot;&gt;try it for yourself here&lt;/a&gt;!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/02/04/generating-randomized-color-palettes/&quot;&gt;Generating Randomized Color Palettes (That Aren’t Clown Vomit)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 04, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2018/02/04/generating-randomized-color-palettes/&quot;&gt;Generating Randomized Color Palettes (That Aren’t Clown Vomit)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 04, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Vim syntax highlighting for SQL strings inside Ruby code]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" />
-  <id>https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code</id>
+  <link rel="alternate" type="text/html" href="/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" />
+  <id>/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code</id>
   <published>2018-01-01T00:00:00-05:00</published>
   <updated>2018-01-01T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Working in Rails, it’s not uncommon to have database queries that are better off expressed without using ActiveRecord. This usually means stuffing the SQL query itself into a string, and then running it against the database using &lt;code class=&quot;highlighter-rouge&quot;&gt;ActiveRecord::Base.connection.execute&lt;/code&gt;. Unfortunately, these queries tend to be on the large and complex side, so having a big blob of un-highlighted SQL in the middle of your Ruby code isn’t the nicest thing.&lt;/p&gt;
@@ -179,19 +179,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;&lt;a href=&quot;http://vimdoc.sourceforge.net/htmldoc/syntax.html&quot;&gt;Vim syntax documentation&lt;/a&gt; is the comprehensive (if dense) manual on the Vim syntax highlighting commands.&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Ruby code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 01, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Ruby code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 01, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2017 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2017/12/30/2017-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2017/12/30/2017-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="/articles/2017/12/30/2017-year-end-notes/" />
+  <id>/articles/2017/12/30/2017-year-end-notes</id>
   <published>2017-12-30T00:00:00-05:00</published>
   <updated>2017-12-30T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Another year, another time for personal reflection and course adjustments.&lt;/p&gt;
@@ -277,19 +277,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;onwards&quot;&gt;Onwards&lt;/h2&gt;
 &lt;p&gt;Ok, 2018. Let’s do this.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2017/12/30/2017-year-end-notes/&quot;&gt;2017 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2017/12/30/2017-year-end-notes/&quot;&gt;2017 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2017.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2016 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/12/31/2016-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2016/12/31/2016-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="/articles/2016/12/31/2016-year-end-notes/" />
+  <id>/articles/2016/12/31/2016-year-end-notes</id>
   <published>2016-12-31T00:00:00-05:00</published>
   <updated>2016-12-31T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I almost didn’t write this. After this year’s US election and the steady global rise of nationalism, well, my usual inward-looking year end review feels a bit trite. But this is the stuff that helps keep me functional and able to take any action at all, so. Here we go.&lt;/p&gt;
@@ -431,19 +431,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Let’s whoop 2017’s ass.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/12/31/2016-year-end-notes/&quot;&gt;2016 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2016/12/31/2016-year-end-notes/&quot;&gt;2016 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Notes On Writing Clojure In Vim]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/11/25/notes-on-writing-clojure-in-vim/" />
-  <id>https://thegreata.pe/articles/2016/11/25/notes-on-writing-clojure-in-vim</id>
+  <link rel="alternate" type="text/html" href="/articles/2016/11/25/notes-on-writing-clojure-in-vim/" />
+  <id>/articles/2016/11/25/notes-on-writing-clojure-in-vim</id>
   <published>2016-11-25T00:00:00-05:00</published>
   <updated>2016-11-25T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;There a lot of things I like about Clojure as a language, but it requires a lot of tooling setup to not have a bad time. There’s a big chunk of the Clojure community that uses Emacs and the admittedly fantastic &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; environment, but Vim salwarts who don’t want to ditch years of editor customization aren’t left out in the cold. It took a little more digging and research, but I managed to put together a Vim/Clojure setup with the fast feedback loop that’s so important to productive Clojure dev.&lt;/p&gt;
@@ -543,19 +543,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;While vim doesn’t have a true integrated REPL-as-subprocess like Emacs’s CIDER does, you can get a pretty nice setup within tmux by binding some keys to send s-expressions to a repl running an adjacent pane. I &lt;a href=&quot;/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;wrote up my notes on that strategy here&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/11/25/notes-on-writing-clojure-in-vim/&quot;&gt;Notes On Writing Clojure In Vim&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on November 25, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2016/11/25/notes-on-writing-clojure-in-vim/&quot;&gt;Notes On Writing Clojure In Vim&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on November 25, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Defusing Distracting Defaults: An Experiment In Automating Better Habits]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/08/28/defusing-distracting-defaults/" />
-  <id>https://thegreata.pe/articles/2016/08/28/defusing-distracting-defaults</id>
+  <link rel="alternate" type="text/html" href="/articles/2016/08/28/defusing-distracting-defaults/" />
+  <id>/articles/2016/08/28/defusing-distracting-defaults</id>
   <published>2016-08-28T00:00:00-04:00</published>
   <updated>2016-08-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Ever have one of those moments where you’re browsing Instagram/Facebook/Twitter/whatever, realize you’ve burned an hour you meant to use working on something else, close the tab in disgust… then realize you’ve reopened the same site without even thinking about it?&lt;/p&gt;
@@ -643,19 +643,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;&lt;em&gt;Updated Feb 26th, 2017: A previous solution here used &lt;a href=&quot;http://www.bernhard-baehr.de/&quot;&gt;sleepwatcher&lt;/a&gt;, but it began starting slowly after upgrading to Sierra. I replaced it with with Hammerspoon.&lt;/em&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/08/28/defusing-distracting-defaults/&quot;&gt;Defusing Distracting Defaults: An Experiment In Automating Better Habits&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on August 28, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2016/08/28/defusing-distracting-defaults/&quot;&gt;Defusing Distracting Defaults: An Experiment In Automating Better Habits&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on August 28, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Fitness Resources Megapost]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/05/28/fitness-resources-megapost/" />
-  <id>https://thegreata.pe/articles/2016/05/28/fitness-resources-megapost</id>
+  <link rel="alternate" type="text/html" href="/articles/2016/05/28/fitness-resources-megapost/" />
+  <id>/articles/2016/05/28/fitness-resources-megapost</id>
   <published>2016-05-28T00:00:00-04:00</published>
   <updated>2016-05-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;em&gt;Last updated March 3rd, 2018: see &lt;strong&gt;&lt;a href=&quot;#changelog&quot;&gt;changelog&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
@@ -903,19 +903,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
   &lt;li&gt;Original Post&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/05/28/fitness-resources-megapost/&quot;&gt;Fitness Resources Megapost&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 28, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2016/05/28/fitness-resources-megapost/&quot;&gt;Fitness Resources Megapost&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 28, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Customizing The Clojure REPL]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/05/01/customizing-the-clojure-repl/" />
-  <id>https://thegreata.pe/articles/2016/05/01/customizing-the-clojure-repl</id>
+  <link rel="alternate" type="text/html" href="/articles/2016/05/01/customizing-the-clojure-repl/" />
+  <id>/articles/2016/05/01/customizing-the-clojure-repl</id>
   <published>2016-05-01T00:00:00-04:00</published>
   <updated>2016-05-01T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;One of the things that makes Clojure great is its fantastic REPL. “REPL” stands for “read eval print loop”—it’s a command-line console where you can type in Clojure code and run it. It’s a great way to experiment and learn; I’ll often prototype a piece of code in the REPL before moving it back over to my editor to save in my project.&lt;/p&gt;
@@ -967,19 +967,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;Now, we can move our &lt;code class=&quot;highlighter-rouge&quot;&gt;user.clj&lt;/code&gt; from above into &lt;code class=&quot;highlighter-rouge&quot;&gt;env/development/clj/user.clj&lt;/code&gt;, and it’ll only be loaded when we start up a REPL session in our development environment.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/05/01/customizing-the-clojure-repl/&quot;&gt;Customizing The Clojure REPL&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 01, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2016/05/01/customizing-the-clojure-repl/&quot;&gt;Customizing The Clojure REPL&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 01, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How Slack Could Respect Your Time And Attention (Better)]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" />
-  <id>https://thegreata.pe/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better</id>
+  <link rel="alternate" type="text/html" href="/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" />
+  <id>/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better</id>
   <published>2016-04-16T00:00:00-04:00</published>
   <updated>2016-04-16T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Slack, like any communication tool, can function anywhere on a spectrum from “effective medium” to “weapon of mass distraction”. Where your team’s experience falls depends mostly on how deliberately you set up your expectations of each other. But no tool is truly neutral and I think there are changes that Slack could make to help prevent chat fatigue and encourage longer periods of attention and focus.&lt;/p&gt;
@@ -997,19 +997,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;Complaining is easy and product design is hard. But I’d still like to see more decisions that move Slack towards being a tool that focuses time and attention instead of tending to consume them.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2015 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/12/27/2015-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2015/12/27/2015-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/12/27/2015-year-end-notes/" />
+  <id>/articles/2015/12/27/2015-year-end-notes</id>
   <published>2015-12-27T00:00:00-05:00</published>
   <updated>2015-12-27T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Even if New Year’s resolutions are a terrible way to make lasting habit changes, I like using the end of the year as a reminder to take stock of how I did with respect to &lt;a href=&quot;http://thegreata.pe/2014-year-end-notes/&quot;&gt;last year’s goals&lt;/a&gt; and see what I want to change.&lt;/p&gt;
@@ -1196,19 +1196,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
   &lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/12/27/2015-year-end-notes/&quot;&gt;2015 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 27, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/12/27/2015-year-end-notes/&quot;&gt;2015 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 27, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Setting Up Evil-Mode Friendly Ctags in Emacs]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/" />
-  <id>https://thegreata.pe/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/" />
+  <id>/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs</id>
   <published>2015-10-24T00:00:00-04:00</published>
   <updated>2015-10-24T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Despite my &lt;a href=&quot;/emacs-and-evil-mode-field-notes/&quot;&gt;failed experiment&lt;/a&gt; with evil-mode back in January, I wound up switching over to evil-powered Emacs full time earlier this summer. I love having modal editing combined with truly deep extensibility, and I’ve been focusing my tweaking on changes that let Emacs help me explore and understand code faster.&lt;/p&gt;
@@ -1288,19 +1288,19 @@ AuthorSearchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;There’s still more to tweak—the Emacs motto, I think—but I’m pretty pleased with my tags setup so far.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/&quot;&gt;Setting Up Evil-Mode Friendly Ctags in Emacs&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on October 24, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/&quot;&gt;Setting Up Evil-Mode Friendly Ctags in Emacs&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on October 24, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Extracting Testable Javascript From jQuery Soup]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/" />
-  <id>https://thegreata.pe/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/" />
+  <id>/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup</id>
   <published>2015-06-03T00:00:00-04:00</published>
   <updated>2015-06-03T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I’m not sure where the phrase “jQuery Soup” originated, but it’s an apt description of a failure mode that Javascript code can fall into as it grows. It’s characterized by code that has little structure and no separation of concerns, mixing together HTTP calls, DOM manipulation, user event handling and business logic into a big pile of callbacks.&lt;/p&gt;
@@ -1508,19 +1508,19 @@ AuthorSearchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;The code we wound up at the end of this refactoring isn’t perfect, but that’s not the point. What’s most important is that we’ve established a beachhead of tests to watch our backs while we keep improving it. All by just applying some of the simple object oriented design principals we already knew!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/&quot;&gt;Extracting Testable Javascript From jQuery Soup&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 03, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/&quot;&gt;Extracting Testable Javascript From jQuery Soup&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 03, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Composable Components: Comparing Angular and React]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/03/28/reusable-javascript-components/" />
-  <id>https://thegreata.pe/articles/2015/03/28/reusable-javascript-components</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/03/28/reusable-javascript-components/" />
+  <id>/articles/2015/03/28/reusable-javascript-components</id>
   <published>2015-03-28T00:00:00-04:00</published>
   <updated>2015-03-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Both Angular and React think you should be building client-side apps by baking new behavior into the structure of the DOM. They take very different approaches to this, with what I think are some interesting consequences.&lt;/p&gt;
@@ -1597,19 +1597,19 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 
 &lt;p&gt;I get separating business logic from presentational logic, but I’m not convinced that Angular’s approach is better. Maybe it’s the LISPer in me.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/03/28/reusable-javascript-components/&quot;&gt;Composable Components: Comparing Angular and React&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 28, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/03/28/reusable-javascript-components/&quot;&gt;Composable Components: Comparing Angular and React&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 28, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Lyeberry: a new search backend for Literate Minuteman]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/03/01/lyeberry/" />
-  <id>https://thegreata.pe/articles/2015/03/01/lyeberry</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/03/01/lyeberry/" />
+  <id>/articles/2015/03/01/lyeberry</id>
   <published>2015-03-01T00:00:00-05:00</published>
   <updated>2015-03-01T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Over the last week, I rolled out some big improvements to the way &lt;a href=&quot;http://www.literate-minuteman.com/&quot;&gt;Literate Minuteman&lt;/a&gt; searches for books behind the scenes. I want to share some of the ideas behind the new architecture and some thoughts on my first experience with building a web app in Clojure.&lt;/p&gt;
@@ -1650,19 +1650,19 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 
 &lt;p&gt;I have so much more to learn about Clojure, but I’m really happy with how it’s going so far. I’m looking forward to being able to cringe at all the amateur mistakes I’m sure I’ve made here.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/03/01/lyeberry/&quot;&gt;Lyeberry: a new search backend for Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 01, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/03/01/lyeberry/&quot;&gt;Lyeberry: a new search backend for Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 01, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Emacs and Evil-mode: Field Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/01/18/emacs-and-evil-mode-field-notes/" />
-  <id>https://thegreata.pe/articles/2015/01/18/emacs-and-evil-mode-field-notes</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/01/18/emacs-and-evil-mode-field-notes/" />
+  <id>/articles/2015/01/18/emacs-and-evil-mode-field-notes</id>
   <published>2015-01-18T00:00:00-05:00</published>
   <updated>2015-01-18T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Back in December, I started experimenting with getting Emacs set up to use Vim-style modal editing. I’d begun studying Clojure more deeply and Emacs’s &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; is the most popular editing environment for Clojure, so I felt like I at least owed it a look. I’d also found myself thinking about and agreeing with a central tenant of Emacs philosophy: that your tools should evolve with you and become deeply customized over time.&lt;/p&gt;
@@ -1715,19 +1715,19 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 
 &lt;p&gt;I do want to come back to this experiment someday. I feel like the issues I ran into should be tractable with more time and focus, and there are some plugins like &lt;a href=&quot;http://orgmode.org/&quot;&gt;org-mode&lt;/a&gt; that I really want to explore. The work I put in to get as far as I did is &lt;a href=&quot;https://github.com/thegreatape/dot-files&quot;&gt;versioned on GitHub along with the rest of my dot-files&lt;/a&gt;, so hopefully the next time around I can just pick up where I left off.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/01/18/emacs-and-evil-mode-field-notes/&quot;&gt;Emacs and Evil-mode: Field Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 18, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/01/18/emacs-and-evil-mode-field-notes/&quot;&gt;Emacs and Evil-mode: Field Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 18, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Make your Rails background jobs as small as possible]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2015/01/04/small-background-jobs/" />
-  <id>https://thegreata.pe/articles/2015/01/04/small-background-jobs</id>
+  <link rel="alternate" type="text/html" href="/articles/2015/01/04/small-background-jobs/" />
+  <id>/articles/2015/01/04/small-background-jobs</id>
   <published>2015-01-04T00:00:00-05:00</published>
   <updated>2015-01-04T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I recently ran into an issue with &lt;a href=&quot;http://www.literate-minuteman.com/&quot;&gt;Literate Minuteman&lt;/a&gt; that reminded me of the value of keeping your Rails background jobs as small as you can.&lt;/p&gt;
@@ -1770,19 +1770,19 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 
 &lt;p&gt;I’ve simplified the code in these examples slightly to make my point more clear; you can check out the full changes &lt;a href=&quot;https://github.com/thegreatape/literate-minuteman/commit/5dbfe7a5629b88170cf65801b4c9a8ec37b44574&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2015/01/04/small-background-jobs/&quot;&gt;Make your Rails background jobs as small as possible&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 04, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2015/01/04/small-background-jobs/&quot;&gt;Make your Rails background jobs as small as possible&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 04, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2014 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2014/12/30/2014-year-end-notes/" />
-  <id>https://thegreata.pe/articles/2014/12/30/2014-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="/articles/2014/12/30/2014-year-end-notes/" />
+  <id>/articles/2014/12/30/2014-year-end-notes</id>
   <published>2014-12-30T00:00:00-05:00</published>
   <updated>2014-12-30T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Another year, another time for rambling retrospection and course adjustment.&lt;/p&gt;
@@ -1929,19 +1929,19 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 
 &lt;p&gt;I have to say, while I certainly learned a lot and enjoyed some of the challenges, I’m increasingly of the opinion that the current state of mobile app development is not my cup of tea. There’s another whole essay here, I think, so in brief: limited choices in app architecture, vast and ever-evolving black box APIs, and testing tools that are frankly embarassing to the industry wound up being frustrating for me. I can see working on mobile apps as part of a full-stack effort in the future, but I don’t think I want to devote myself to mobile full-time as things stand right now.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2014/12/30/2014-year-end-notes/&quot;&gt;2014 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2014/12/30/2014-year-end-notes/&quot;&gt;2014 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Relaunching Literate Minuteman]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2014/07/01/relaunching-literate-minuteman/" />
-  <id>https://thegreata.pe/articles/2014/07/01/relaunching-literate-minuteman</id>
+  <link rel="alternate" type="text/html" href="/articles/2014/07/01/relaunching-literate-minuteman/" />
+  <id>/articles/2014/07/01/relaunching-literate-minuteman</id>
   <published>2014-07-01T00:00:00-04:00</published>
   <updated>2014-07-01T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Today, I’m relaunching an old project of mine with a new coat of paint and a bunch of new goodies: &lt;a href=&quot;http://literate-minuteman.com&quot;&gt;Literate Minuteman&lt;/a&gt; shows you what books from your &lt;a href=&quot;http://goodreads.com&quot;&gt;Goodreads&lt;/a&gt; lists are available at your local Boston-area library.&lt;/p&gt;
@@ -1969,19 +1969,19 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 
 &lt;p&gt;If you live around Boston and like to read, &lt;a href=&quot;http://literate-minuteman.com&quot;&gt;give it a whirl&lt;/a&gt;. Let me know what you think, dear reader: you can reach me at Thomas.Mayfield@gmail.com.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2014/07/01/relaunching-literate-minuteman/&quot;&gt;Relaunching Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 01, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2014/07/01/relaunching-literate-minuteman/&quot;&gt;Relaunching Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Fixing conflicting Vim plugins with NeoBundle]]></title>
-  <link rel="alternate" type="text/html" href="https://thegreata.pe/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/" />
-  <id>https://thegreata.pe/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle</id>
+  <link rel="alternate" type="text/html" href="/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/" />
+  <id>/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle</id>
   <published>2014-06-01T00:00:00-04:00</published>
   <updated>2014-06-01T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri>https://thegreata.pe</uri>
+    <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I started &lt;a href=&quot;http://www.braveclojure.com/&quot;&gt;messing around with Clojure&lt;/a&gt; this weekend and quickly discovered that something in my Vim setup was causing parentheses matching with &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; to not work quite right. The output in the statusbar showed a call to &lt;a href=&quot;https://github.com/vim-scripts/ruby-matchit&quot;&gt;ruby-matchit&lt;/a&gt;, a plugin that lets you jump between between the start and end of blocks and method definitions in Ruby. As wonderful as that is, I certainly don’t need it while editing Clojure.&lt;/p&gt;
@@ -1993,7 +1993,7 @@ autocmd &lt;span class=&quot;nb&quot;&gt;FileType&lt;/span&gt; &lt;span class=&q
 
 &lt;p&gt;Switching to NeoBundle from Vundle was a breeze, and now vim-matchit only loads when I open Ruby files. Hooray!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;https://thegreata.pe/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/&quot;&gt;Fixing conflicting Vim plugins with NeoBundle&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;https://thegreata.pe&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 01, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/&quot;&gt;Fixing conflicting Vim plugins with NeoBundle&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
