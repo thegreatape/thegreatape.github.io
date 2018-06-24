@@ -117,6 +117,32 @@
   
     <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost" class="logbook">
       <h2 itemprop="headline">
+        <a href="/logbooks/2018-06-24-15/" rel="bookmark" title="15"> 
+          <span class="post-date">Jun 24, 2018</span>
+        </a>
+      </h2>
+      <div class="article-wrap" itemprop="text">
+        <p>My challenge for the next little bit: learning to draw.</p>
+
+<p><a href="/images/dab-lines.jpg"><img src="/images/dab-lines.jpg" alt="dab-lines" /></a></p>
+
+<p>I started working through the first lesson on <a href="http://drawabox.com/">Draw a Box</a> this week. So far, it’s all mechanical practice: how to draw moving from the shoulder, “ghosting” lines before you put them down on paper, and rendering some planes with those techniques.</p>
+
+<p>Part of my trouble with nand2tetris earlier this year was that I didn’t define clearly enough what I wanted to get out of it. So, what am I trying to get out of drawing practice?</p>
+
+<ol>
+  <li>To practice seeing the world a different way.</li>
+  <li>To try a hobby that isn’t in front of a screen.</li>
+  <li>To, maybe some years from now, make something work remarking on.</li>
+</ol>
+
+<p>I’m doing just a little bit a day, often what I can fit into the space of a puppy nap on a week night. <a href="https://habitica.com/">Habitica</a> has continued to be really great for helping me be consistent with “every day” or “every week” type tasks.</p>
+
+      </div>
+    </article>
+  
+    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost" class="logbook">
+      <h2 itemprop="headline">
         <a href="/logbooks/2018-06-17-14/" rel="bookmark" title="14"> 
           <span class="post-date">Jun 17, 2018</span>
         </a>
@@ -221,24 +247,6 @@
 <p>It’s been three weeks since the entry before this; not exactly the pace I set out for myself at the beginning of the year. I was getting a little bored with writing a single entry for each chapter, but trying to get two chapters worth of work done in a single week <em>and</em> a write up wound up taking much longer.</p>
 
 <p>I’ve also been having a hard time finding the focus to do this particular project after work, so only the real progress happens on weekends. I figured that going back to the blinking lights part of programming would stretch different brain muscles from what I’m using at work, but I think that’s demonstrably false. I’m still having fun, but probably need to either moderate my expectations of what I can do during the week, and/or get more ok with these writeups being progress updates rather than proof of commpleting milestones.</p>
-
-      </div>
-    </article>
-  
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost" class="logbook">
-      <h2 itemprop="headline">
-        <a href="/logbooks/2018-03-18-time-state-and-memory/" rel="bookmark" title="The Elements Of Computing Systems: Time, State & Memory"> 
-          <span class="post-date">Mar 18, 2018</span>
-        </a>
-      </h2>
-      <div class="article-wrap" itemprop="text">
-        <p>Oh boy, a clock! In this chapter of <a href="http://www.nand2tetris.org/">nand2tetris</a>, we started teaching our logic circuits about time and consequently, memory. We’re introduced to a single new primitive, a data flipflop: all it does is output the value of its input one clock tick ago. With that and the array of combinatorial logic gates from previous chapters, we build all the way up to 16 kilobye RAM chips!</p>
-
-<p>It was a bit disappointing that DFFs are given as primitives here. Though the book says they can be composed from Nand gates just like the rest of the chips we’ve built so far, it would have been neat to see the gory details of how one goes from combinatorial, stateless logic to sequential, time-based logic. Apparently the construction of DFFs is “intricate”, so I get pedagogically why we aren’t asked to implement them. Still, nandandflipflop2tetris just doesn’t have the same ring…</p>
-
-<p>That aside, building memory chips felt like like bit twiddling and more like combining of logical components. These chips were easier to get right on the first-ish try without pen and paper; the composing of larger and larger RAM chips felt particularly simple and elegant. It did, however, take a bit for me to shift my thinking abouts values throughout a system being phased time-wise: e.g. you set inputs up, then <em>on the next clock tick</em> the outputs react.</p>
-
-<p>Aside: an HDL syntax thing that I didn’t know is that you can declare pin connection twice on the gate. Like, if I wanted to hook up a DFF’s output pin to both the chip’s out pin and something else internally, you can do  <code class="highlighter-rouge">DFF(in=something, out=outb, out=out)</code> . The simulator won’t let you connect pins that touch the outside world to internal pins, so you can’t just use <code class="highlighter-rouge">out</code>. Go figure.</p>
 
       </div>
     </article>
