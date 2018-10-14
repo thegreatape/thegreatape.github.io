@@ -5,7 +5,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2018-06-24T17:55:09-04:00</updated>
+<updated>2018-10-14T08:52:33-04:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
@@ -658,7 +658,7 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
     <uri></uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
-  <content type="html">&lt;p&gt;&lt;em&gt;Last updated March 3rd, 2018: see &lt;strong&gt;&lt;a href=&quot;#changelog&quot;&gt;changelog&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+  <content type="html">&lt;p&gt;&lt;em&gt;Last updated October 14th, 2018: see &lt;strong&gt;&lt;a href=&quot;#changelog&quot;&gt;changelog&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;I’m a huge fitness nerd, and I’ll talk your ear off about all aspects of physical training given half a chance. I frequently wind up sending reading recommendations to people who’re interested in knowing more after chatting, and figured it was time to put together a big list of the fitness resources I’ve gotten the most out of.&lt;/p&gt;
 
@@ -677,7 +677,7 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
     &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.strongerbyscience.com/art-and-science/&quot;&gt;The Art &amp;amp; Science of Lifting&lt;/a&gt;&lt;/strong&gt; by Greg Nuckols and Omar Isof — Two relatively short ebooks that are probably the best introduction to the principals of successful strength training. As the titles suggest, they cover both practical techniques as well as the backing scientific research. For further reading, &lt;a href=&quot;http://www.strongerbyscience.com&quot;&gt;Greg’s Stronger By Science&lt;/a&gt; is a goldmine of good information.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.amazon.com/Fit-Lon-Kilgore/dp/0615497063&quot;&gt;Fit&lt;/a&gt;&lt;/strong&gt; by Kilgore, Hartman, Laseck — Another good deep guide to the practice and science of fitness. Where &lt;em&gt;Art &amp;amp; Science&lt;/em&gt; covers mostly getting strong, &lt;em&gt;Fit&lt;/em&gt; goes into conditioning, mobility, and a bit of anatomy as well.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://muscleandstrengthpyramids.com/&quot;&gt;The Muscle and Strength Pyramids&lt;/a&gt;&lt;/strong&gt; by Eric Helms, Andy Morgan, Andrea Valdez - Strength training and nutrition guides that lay out a clear set of priorities for getting results. Truly excellent for helping beginners figure out what’s actually important and what’s trivial details. A little spendy but pure gold.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.amazon.com/Intervention-Course-Corrections-Athlete-Trainer-ebook/dp/B00ABNEN3G&quot;&gt;Intervention&lt;/a&gt;&lt;/strong&gt; by Dan John — One of those books I keep coming back to. Enough ideas, philosophy and guidelines to keep you busy for a lifetime. I know I’m due for a re-read because I haven’t been doing my loaded carries…&lt;/p&gt;
@@ -869,6 +869,11 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;changelog&quot;&gt;&lt;a name=&quot;changelog&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#changelog&quot;&gt;Changelog&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;2018-10-14&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Replace &lt;em&gt;Fit&lt;/em&gt; with &lt;em&gt;The Muscle and Strength Pyramids&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;strong&gt;2018-03-03&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Added Podcast section&lt;/li&gt;
