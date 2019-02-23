@@ -1,0 +1,265 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Quickly publishing notes from Ulysses with Alfred and JXA &#8211; Duct Tape and Turing Machines</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/pun-demo.gif">
+<meta name="twitter:title" content="Quickly publishing notes from Ulysses with Alfred and JXA">
+<meta name="twitter:description" content="One of the things I’ve been working on for a few months now is taking more notes. Being intentional and systematic ab...">
+<meta name="twitter:creator" content="@thegreatape">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quickly publishing notes from Ulysses with Alfred and JXA">
+<meta property="og:description" content="Duct Tape and Turing Machines">
+<meta property="og:url" content="/articles/2019/02/23/publishing-ulysses-notes/">
+<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+
+
+
+
+<link rel="canonical" href="/articles/2019/02/23/publishing-ulysses-notes/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Webfonts -->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.min.css">
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+<link rel="stylesheet" href="/assets/css/ie.min.css">
+<![endif]-->
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body class="article" itemscope itemtype="http://schema.org/WebPage">
+
+<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
+
+
+
+
+<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+<div class="navigation-wrapper">
+	<div class="site-name">
+	</div><!-- /.site-name -->
+	<div class="top-navigation">
+		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		    <ul>
+		        
+				<li><a href="/" >Articles</a></li>
+		        
+				<li><a href="/logbook" >Logbook</a></li>
+		        
+				<li><a href="/code" >Code</a></li>
+		        
+		        <li><i class="icon-feed"></i> <a href="/feed.xml" title="Atom/RSS feed">Feed</a>
+		    </ul>
+		</nav>
+	</div><!-- /.top-navigation -->
+</div><!-- /.navigation-wrapper -->
+  <div class="article-author-top">
+    <img src="/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+  </div>
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="headline-wrap">
+      <h1 itemprop="name">Quickly publishing notes from Ulysses with Alfred and JXA</h1>
+      <time datetime="2019-02-23T00:00:00-05:00" itemprop="datePublished">February 23, 2019</time>    
+    </div><!--/ .headline-wrap -->
+    <div class="article-wrap" itemprop="text">
+      <p>One of the things I’ve been working on for a few months now is taking more notes. Being intentional and systematic about writing down material I’m reading or learning has felt like a nice boost to my ability to make progress on a number of projects.</p>
+
+<p>I’m using <a href="https://ulysses.app/">Ulysses</a> on OS X as my main note taking program and it’s a really fantastic writing environment, but it’s slightly cumbersome to share my notes with other people. While Ulysses can export writing in a variety of file formats, I missed <a href="https://www.notion.so/">Notion</a>’s ability to generate a public url for sharing a note with a single click. So, I built something to do that for Ulysses!</p>
+
+<p>It’s an <a href="https://www.alfredapp.com/">Alfred 3</a> workflow—all I have to do is hit Cmd-Space, type “pun” and hit Enter. The workflow then takes the currently open Ulysses note, automates the steps of exporting it to nicely formatted HTML, publishes it to a url on my site, and copies that url to the clipboard. It looks like this:</p>
+
+<p><img src="/images/pun-demo.gif" alt="demo" /></p>
+
+<h2 id="details">Details</h2>
+<p>Building this involved digging into a bunch of stuff I haven’t used before, and there are more than a couple moving parts:</p>
+
+<p><a href="https://www.alfredapp.com/help/workflows/">Alfred workflows</a> are a way to extend Alfred to be way more than an application launcher. They let you string together scripts (written in shell, Python, Ruby, or whatever) with user input from Alfred in really powerful ways. The workflow is what glues all these pieces together.</p>
+
+<p><a href="https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/index.html">JXA: Javascript For Automation</a>: as it turns out, Ulysses <a href="https://ulysses.app/kb/x-callback-url/">does have an API</a>, but there’s no support for programmatically triggering an export of a sheet. So I needed a way to automate the actual button and menu clicking that you do in Ulysses to export as sheet as HTML. Luckily, Mac OS has long had good accessibility baked into its UI toolkits and you can script interactions with them via AppleScript and (since Yosemite) via Javascript! The docs on the JS specific side of things were a little sparse and most of the examples I found were in AppleScript (since it’s been around much longer), but I was able to cobble together something working. The JXA part looks like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">run</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">ObjC</span><span class="p">.</span><span class="k">import</span><span class="p">(</span><span class="s1">'stdlib'</span><span class="p">)</span>
+  
+  <span class="kd">var</span> <span class="nx">notesPath</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">getenv</span><span class="p">(</span><span class="s1">'notes_repository_path'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">Application</span><span class="p">(</span><span class="s2">"Ulysses"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">system</span> <span class="o">=</span> <span class="nx">Application</span><span class="p">(</span><span class="s2">"System Events"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nb">window</span> <span class="o">=</span> <span class="nx">system</span><span class="p">.</span><span class="nx">processes</span><span class="p">.</span><span class="nx">byName</span><span class="p">(</span><span class="s2">"Ulysses"</span><span class="p">).</span><span class="nx">windows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="kd">var</span> <span class="nx">currentlyOpenNotes</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">scrollAreas</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">textAreas</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">value</span><span class="p">();</span>
+  <span class="kd">var</span> <span class="nx">folderName</span> <span class="o">=</span> <span class="nx">currentlyOpenNotes</span>
+    <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"</span><span class="err">\</span><span class="s2">n"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">(</span><span class="sr">^#</span><span class="se">\s</span><span class="sr">*|</span><span class="se">\/)</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\s</span><span class="sr">+/g</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">exportTargetPath</span> <span class="o">=</span> <span class="nx">notesPath</span> <span class="o">+</span> <span class="nx">folderName</span><span class="p">;</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">system</span><span class="p">(</span><span class="s1">'rm -rf '</span> <span class="o">+</span> <span class="nx">exportTargetPath</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">system</span><span class="p">(</span><span class="s1">'mkdir '</span> <span class="o">+</span> <span class="nx">exportTargetPath</span><span class="p">);</span>
+  <span class="nx">exportNotes</span><span class="p">(</span><span class="nx">exportTargetPath</span><span class="p">);</span>
+  
+  <span class="kd">function</span> <span class="nx">exportNotes</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">activate</span><span class="p">();</span>
+  
+    <span class="kd">var</span> <span class="nx">exportButton</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">toolbars</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">buttons</span><span class="p">.</span><span class="nx">whose</span><span class="p">({</span><span class="na">description</span><span class="p">:</span> <span class="s2">"Quick Export"</span><span class="p">})[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="nx">exportButton</span><span class="p">.</span><span class="nx">actions</span><span class="p">[</span><span class="s1">'AXPress'</span><span class="p">].</span><span class="nx">perform</span><span class="p">();</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="nx">exportButton</span><span class="p">.</span><span class="nx">popOvers</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">buttons</span><span class="p">.</span><span class="nx">whose</span><span class="p">({</span><span class="na">description</span><span class="p">:</span> <span class="s2">"Save to location"</span><span class="p">}).</span><span class="nx">actions</span><span class="p">[</span><span class="s1">'AXPress'</span><span class="p">].</span><span class="nx">perform</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+      <span class="c1">// even though this works and opens the button, it also seems to </span>
+      <span class="c1">// raise a "message not understood" error. damned if I know why.</span>
+      <span class="c1">// we seem to be able to just ignore it and move on.</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="nx">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">.</span><span class="nx">keystroke</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="p">{</span><span class="na">using</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shift down"</span><span class="p">,</span> <span class="s2">"command down"</span><span class="p">]});</span> <span class="c1">// bring up path entry dialog</span>
+    <span class="nx">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">.</span><span class="nx">keystroke</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span> <span class="c1">// enter path</span>
+    <span class="nx">system</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span> <span class="c1">// press return to select path</span>
+    <span class="nx">delay</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nx">system</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span> <span class="c1">// press return to begin export</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">exportTargetPath</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Some resources I found helpful while figuring this part out:</p>
+<ul>
+  <li><a href="https://github.com/JXA-Cookbook/JXA-Cookbook">JXA Cookbook</a> Great general resource for getting started with JXA.</li>
+  <li><a href="https://forum.keyboardmaestro.com/t/os-x-accessibility-inspector-uielementinspector-tool-for-ui-scripting/3443">UIElementInspector</a> for examining the UI element hierarchy inside Ulysses so I could figure how to drill down to the buttons and menus I needed to interact with.</li>
+  <li><a href="https://www.deanishe.net/post/2018/10/workflow-environment-variables-in-alfred/">Workflow/environment variables in Alfred</a> Alfred exposes the variable you set to each script environment a little differently, this is a great guide to each one, including JXA.</li>
+</ul>
+
+<p>With the HTML exported, the rest is a fairly simple shell script. I use <a href="https://pages.github.com/">Github Pages</a> to host this blog, so publishing new pages is just a matter of committing them and pushing to Github. The script adds the exported files, pushes them to Github, generates the url where they’ll be accessible and copies it to the clipboard.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+<span class="nb">pushd</span> <span class="nv">$notes_repository_path</span> <span class="o">&gt;</span> /dev/null
+
+git status | <span class="nb">grep</span> <span class="s1">'nothing to commit'</span> <span class="o">&gt;</span> /dev/null
+<span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$?</span><span class="s2">"</span> <span class="nt">-eq</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
+  </span><span class="nb">echo</span> <span class="s2">"No changes to publish"</span><span class="p">;</span>
+<span class="k">else
+	</span>git add <span class="nb">.</span>
+	git commit <span class="nt">-m</span> <span class="s2">"Ulysses note publish </span><span class="sb">`</span>date<span class="sb">`</span><span class="s2">"</span> <span class="o">&gt;</span> /dev/null
+	git push origin HEAD <span class="o">&gt;</span> /dev/null
+	git show HEAD | <span class="nb">grep</span> <span class="s2">"+++ b.*index.html"</span> | sed <span class="s2">"s/</span><span class="se">\+\+\+</span><span class="s2"> b</span><span class="se">\/</span><span class="s2">//"</span> | sed <span class="s2">"s/index.html//"</span> | xargs <span class="nt">-I</span><span class="o">{}</span> <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$site_domain</span><span class="s2">/{}"</span>
+<span class="k">fi</span>
+</code></pre></div></div>
+
+<h2 id="setup-instructions">Setup Instructions</h2>
+<p>Want to try this yourself?</p>
+
+<p>Setup:</p>
+<ol>
+  <li>If you don’t already have one, <a href="https://pages.github.com/">set up your Github pages site</a> and make sure <a href="https://git-scm.com/">git</a> is installed on your computer.</li>
+  <li>Install the workflow (via <a href="http://www.packal.org/workflow/publish-ulysses-notes">Packal</a>)</li>
+  <li>Configure the environment variables in the workflow:
+    <ol>
+      <li><code class="highlighter-rouge">notes_repository_path</code>: set to the absolute path of your Github pages repo where you want the notes html to be published.</li>
+      <li><code class="highlighter-rouge">site_domain</code>: set to the domain where the notes are hosted—this will be used to construct the url that’s copied to the clipboard after exporting.</li>
+    </ol>
+  </li>
+  <li>With the Ulysses note you want to publish open, bring up Alfred, type “pun” and hit enter.</li>
+</ol>
+
+<p>Something broken for you? <a href="https://github.com/thegreatape/publish-ulysses-notes/issues">Report a bug</a> on the project’s Github page!</p>
+
+      <footer role="contentinfo">
+        <div class="article-author-bottom">
+          <img src="/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
+<div class="bio-content">
+  <h3>Thomas Mayfield</h3>
+  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
+  <div class="social-icons">
+    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    
+    
+    
+    
+    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
+    
+    
+  </div>
+</div>
+
+        </div>
+      </footer>
+    </div><!-- /.article-wrap -->
+  </article>
+  <div class="push"></div>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    <span>&copy; 2019 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
+
+  </footer>
+</div><!-- /.footer-wrap -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+	        
+
+</body>
+</html>

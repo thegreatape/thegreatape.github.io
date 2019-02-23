@@ -5,13 +5,126 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2019-02-23T09:10:19-05:00</updated>
+<updated>2019-02-23T13:21:49-05:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Quickly publishing notes from Ulysses with Alfred and JXA]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2019/02/23/publishing-ulysses-notes/" />
+  <id>/articles/2019/02/23/publishing-ulysses-notes</id>
+  <published>2019-02-23T00:00:00-05:00</published>
+  <updated>2019-02-23T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;One of the things I’ve been working on for a few months now is taking more notes. Being intentional and systematic about writing down material I’m reading or learning has felt like a nice boost to my ability to make progress on a number of projects.&lt;/p&gt;
+
+&lt;p&gt;I’m using &lt;a href=&quot;https://ulysses.app/&quot;&gt;Ulysses&lt;/a&gt; on OS X as my main note taking program and it’s a really fantastic writing environment, but it’s slightly cumbersome to share my notes with other people. While Ulysses can export writing in a variety of file formats, I missed &lt;a href=&quot;https://www.notion.so/&quot;&gt;Notion&lt;/a&gt;’s ability to generate a public url for sharing a note with a single click. So, I built something to do that for Ulysses!&lt;/p&gt;
+
+&lt;p&gt;It’s an &lt;a href=&quot;https://www.alfredapp.com/&quot;&gt;Alfred 3&lt;/a&gt; workflow—all I have to do is hit Cmd-Space, type “pun” and hit Enter. The workflow then takes the currently open Ulysses note, automates the steps of exporting it to nicely formatted HTML, publishes it to a url on my site, and copies that url to the clipboard. It looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/pun-demo.gif&quot; alt=&quot;demo&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;details&quot;&gt;Details&lt;/h2&gt;
+&lt;p&gt;Building this involved digging into a bunch of stuff I haven’t used before, and there are more than a couple moving parts:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.alfredapp.com/help/workflows/&quot;&gt;Alfred workflows&lt;/a&gt; are a way to extend Alfred to be way more than an application launcher. They let you string together scripts (written in shell, Python, Ruby, or whatever) with user input from Alfred in really powerful ways. The workflow is what glues all these pieces together.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/index.html&quot;&gt;JXA: Javascript For Automation&lt;/a&gt;: as it turns out, Ulysses &lt;a href=&quot;https://ulysses.app/kb/x-callback-url/&quot;&gt;does have an API&lt;/a&gt;, but there’s no support for programmatically triggering an export of a sheet. So I needed a way to automate the actual button and menu clicking that you do in Ulysses to export as sheet as HTML. Luckily, Mac OS has long had good accessibility baked into its UI toolkits and you can script interactions with them via AppleScript and (since Yosemite) via Javascript! The docs on the JS specific side of things were a little sparse and most of the examples I found were in AppleScript (since it’s been around much longer), but I was able to cobble together something working. The JXA part looks like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;ObjC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'stdlib'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;notesPath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'notes_repository_path'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ulysses&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;System Events&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;processes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;byName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ulysses&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;windows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;currentlyOpenNotes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollAreas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;textAreas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;folderName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;currentlyOpenNotes&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;n&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;^#&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\s&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;*|&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/)&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toLowerCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\s&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;+/g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exportTargetPath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;notesPath&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;folderName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'rm -rf '&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exportTargetPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'mkdir '&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exportTargetPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;exportNotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exportTargetPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exportNotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;activate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exportButton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toolbars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;buttons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;whose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Quick Export&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;exportButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'AXPress'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;exportButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;popOvers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;buttons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;whose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Save to location&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;actions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'AXPress'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// even though this works and opens the button, it also seems to &lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// raise a &quot;message not understood&quot; error. damned if I know why.&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// we seem to be able to just ignore it and move on.&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keystroke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;g&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;using&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;shift down&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;command down&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]});&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// bring up path entry dialog&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keystroke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// enter path&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keyCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// press return to select path&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keyCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// press return to begin export&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exportTargetPath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Some resources I found helpful while figuring this part out:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JXA-Cookbook/JXA-Cookbook&quot;&gt;JXA Cookbook&lt;/a&gt; Great general resource for getting started with JXA.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://forum.keyboardmaestro.com/t/os-x-accessibility-inspector-uielementinspector-tool-for-ui-scripting/3443&quot;&gt;UIElementInspector&lt;/a&gt; for examining the UI element hierarchy inside Ulysses so I could figure how to drill down to the buttons and menus I needed to interact with.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.deanishe.net/post/2018/10/workflow-environment-variables-in-alfred/&quot;&gt;Workflow/environment variables in Alfred&lt;/a&gt; Alfred exposes the variable you set to each script environment a little differently, this is a great guide to each one, including JXA.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With the HTML exported, the rest is a fairly simple shell script. I use &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; to host this blog, so publishing new pages is just a matter of committing them and pushing to Github. The script adds the exported files, pushes them to Github, generates the url where they’ll be accessible and copies it to the clipboard.&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;pushd&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$notes_repository_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/null
+
+git status | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'nothing to commit'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/null
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-eq&lt;/span&gt; 0 &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;No changes to publish&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+	&lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+	git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ulysses note publish &lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;date&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/null
+	git push origin HEAD &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/null
+	git show HEAD | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;+++ b.*index.html&quot;&lt;/span&gt; | sed &lt;span class=&quot;s2&quot;&gt;&quot;s/&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\+\+\+&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\/&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;//&quot;&lt;/span&gt; | sed &lt;span class=&quot;s2&quot;&gt;&quot;s/index.html//&quot;&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-I&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$site_domain&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/{}&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;setup-instructions&quot;&gt;Setup Instructions&lt;/h2&gt;
+&lt;p&gt;Want to try this yourself?&lt;/p&gt;
+
+&lt;p&gt;Setup:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;If you don’t already have one, &lt;a href=&quot;https://pages.github.com/&quot;&gt;set up your Github pages site&lt;/a&gt; and make sure &lt;a href=&quot;https://git-scm.com/&quot;&gt;git&lt;/a&gt; is installed on your computer.&lt;/li&gt;
+  &lt;li&gt;Install the workflow (via &lt;a href=&quot;http://www.packal.org/workflow/publish-ulysses-notes&quot;&gt;Packal&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Configure the environment variables in the workflow:
+    &lt;ol&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;notes_repository_path&lt;/code&gt;: set to the absolute path of your Github pages repo where you want the notes html to be published.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;site_domain&lt;/code&gt;: set to the domain where the notes are hosted—this will be used to construct the url that’s copied to the clipboard after exporting.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;With the Ulysses note you want to publish open, bring up Alfred, type “pun” and hit enter.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Something broken for you? &lt;a href=&quot;https://github.com/thegreatape/publish-ulysses-notes/issues&quot;&gt;Report a bug&lt;/a&gt; on the project’s Github page!&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2019/02/23/publishing-ulysses-notes/&quot;&gt;Quickly publishing notes from Ulysses with Alfred and JXA&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 23, 2019.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -2019,46 +2132,6 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 &lt;p&gt;I have to say, while I certainly learned a lot and enjoyed some of the challenges, I’m increasingly of the opinion that the current state of mobile app development is not my cup of tea. There’s another whole essay here, I think, so in brief: limited choices in app architecture, vast and ever-evolving black box APIs, and testing tools that are frankly embarassing to the industry wound up being frustrating for me. I can see working on mobile apps as part of a full-stack effort in the future, but I don’t think I want to devote myself to mobile full-time as things stand right now.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2014/12/30/2014-year-end-notes/&quot;&gt;2014 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Relaunching Literate Minuteman]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2014/07/01/relaunching-literate-minuteman/" />
-  <id>/articles/2014/07/01/relaunching-literate-minuteman</id>
-  <published>2014-07-01T00:00:00-04:00</published>
-  <updated>2014-07-01T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Today, I’m relaunching an old project of mine with a new coat of paint and a bunch of new goodies: &lt;a href=&quot;http://literate-minuteman.com&quot;&gt;Literate Minuteman&lt;/a&gt; shows you what books from your &lt;a href=&quot;http://goodreads.com&quot;&gt;Goodreads&lt;/a&gt; lists are available at your local Boston-area library.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-new&quot;&gt;What’s new?&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Revamped visual design, with some judicious responsiveness so it works well on mobile-sized screens.&lt;/li&gt;
-  &lt;li&gt;Live loading of your books when you sign up (via Pusher).&lt;/li&gt;
-  &lt;li&gt;Tons of bug fixes and internal refactoring to bring the code from “embarassing first Rails project” to “I might not hate this in a month”.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h2&gt;
-
-&lt;p&gt;Ain’t no rest for the wicked, so what’s planned next:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Integration with the BPL and Minuteman ebook systems.&lt;/li&gt;
-  &lt;li&gt;Email notifications when books become available.&lt;/li&gt;
-  &lt;li&gt;Filtering by individual locations and making filters persistent across browser sessions.&lt;/li&gt;
-  &lt;li&gt;Smarter queuing of book lookups for new users; right now, if two people sign up at the same time, one has to wait in line.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;go-try-it&quot;&gt;Go try it!&lt;/h2&gt;
-
-&lt;p&gt;If you live around Boston and like to read, &lt;a href=&quot;http://literate-minuteman.com&quot;&gt;give it a whirl&lt;/a&gt;. Let me know what you think, dear reader: you can reach me at Thomas.Mayfield@gmail.com.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2014/07/01/relaunching-literate-minuteman/&quot;&gt;Relaunching Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 01, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>
