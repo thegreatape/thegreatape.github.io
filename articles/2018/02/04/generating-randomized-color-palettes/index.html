@@ -1,122 +1,15 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<title>Generating Randomized Color Palettes (That Aren’t Clown Vomit) &#8211; Duct Tape and Turing Machines</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/images/lo-color-test-small.png">
-<meta name="twitter:title" content="Generating Randomized Color Palettes (That Aren’t Clown Vomit)">
-<meta name="twitter:description" content="Before we dive into randomized color palette generation, a little context on what brought me here:">
-<meta name="twitter:creator" content="@thegreatape">
+<!DOCTYPE html>
+<html>
+<head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'><meta charset='utf-8'><meta content='width=device-width, initial-scale=1' name='viewport'><title>Generating Randomized Color Palettes (That Aren’t Clown Vomit) - Thomas Mayfield</title><meta content='Thomas Mayfield' name='author'><meta content='Generating Randomized Color Palettes (That Aren’t Clown Vomit) - Thomas Mayfield' name='description'><meta content='' name='keywords'><!-- Twitter Cards --><meta content='summary' name='twitter:card'><meta content='/images/birds.jpg' name='twitter:image'><meta content='Generating Randomized Color Palettes (That Aren’t Clown Vomit) - Thomas Mayfield' name='twitter:title'><meta content='@thegreatape' name='twitter:creator'><!-- Open Graph --><meta content='en_US' property='og:locale'><meta content='article' property='og:type'><meta content='Generating Randomized Color Palettes (That Aren’t Clown Vomit) - Thomas Mayfield' property='og:title'><meta content='/' property='og:url'><meta content='Thomas Mayfield' property='og:site_name'><link href='/assets/css/styles.css' rel='stylesheet'><script src='/assets/js/bundle.js'></script><script src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'></script><link href='/feed.xml' rel='alternate' title='Thomas Mayfield' type='application/atom+xml'></head>
+<body class='post '>
+<nav aria-label='main navigation' class='navbar has-shadow is-primary' role='navigation'><div class='container'><div class='navbar-brand'><div class='navbar-item'><div class='title is-2'>Thomas Mayfield</div></div><a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='navbar-menu' role='button'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div class='navbar-menu' id='navbar-menu'><div class='navbar-start'><a class='navbar-item' href='/'>Home</a><a class='navbar-item' href='/reading'>Reading</a><a class='navbar-item' href='/code'>Code</a><a class='navbar-item' href='/about'>About Me</a></div></div></div></nav>
+<section class='section'>
+<div class='container'>
+<h2 class='title is-2'>Generating Randomized Color Palettes (That Aren’t Clown Vomit)</h2>
 
-<!-- Open Graph -->
-<meta property="og:locale" content="en_US">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Generating Randomized Color Palettes (That Aren’t Clown Vomit)">
-<meta property="og:description" content="Duct Tape and Turing Machines">
-<meta property="og:url" content="/articles/2018/02/04/generating-randomized-color-palettes/">
-<meta property="og:site_name" content="Duct Tape and Turing Machines">
+<div class='date subtitle is-5'>February 04, 2018</div>
 
-
-
-
-
-<link rel="canonical" href="/articles/2018/02/04/generating-randomized-color-palettes/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
-
-
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Webfonts -->
-<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-<!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.min.css">
-
-<!--[if (lt IE 9) & (!IEMobile)]>
-<link rel="stylesheet" href="/assets/css/ie.min.css">
-<![endif]-->
-
-<meta http-equiv="cleartype" content="on">
-
-<!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
-
-<!-- Icons -->
-<!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
-<!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
-
-</head>
-
-<body class="article" itemscope itemtype="http://schema.org/WebPage">
-
-<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
-
-
-
-
-<div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
-<div class="navigation-wrapper">
-	<div class="site-name">
-	</div><!-- /.site-name -->
-	<div class="top-navigation">
-		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-		    <ul>
-		        
-				<li><a href="/" >Articles</a></li>
-		        
-				<li><a href="/reading" >Reading</a></li>
-		        
-				<li><a href="/code" >Code</a></li>
-		        
-		        <li><i class="icon-feed"></i> <a href="/feed.xml" title="Atom/RSS feed">Feed</a>
-		    </ul>
-		</nav>
-	</div><!-- /.top-navigation -->
-</div><!-- /.navigation-wrapper -->
-  <div class="article-author-top">
-    <img src="/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
-<div class="bio-content">
-  <h3>Thomas Mayfield</h3>
-  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
-  <div class="social-icons">
-    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
-    
-    
-    
-    
-    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
-    
-    
-  </div>
-</div>
-
-  </div>
-  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <div class="headline-wrap">
-      <h1 itemprop="name">Generating Randomized Color Palettes (That Aren’t Clown Vomit)</h1>
-      <time datetime="2018-02-04T00:00:00-05:00" itemprop="datePublished">February 04, 2018</time>    
-    </div><!--/ .headline-wrap -->
-    <div class="article-wrap" itemprop="text">
-      <p>Before we dive into randomized color palette generation, a little context on what brought me here:</p>
+<div class='content'><p>Before we dive into randomized color palette generation, a little context on what brought me here:</p>
 
 <h2 id="little-and-often">Little And Often</h2>
 <p>I’ve been spending some time reviving a project that I’d started and abandoned mid-last year. The idea of using small, frequent periods of work to make progress towards big goals is one that’s stuck with me over the years: basically favoring putting in 20 minutes a day on a task versus dedicating an entire Saturday afternoon. It’s effective for chopping up very large projects into manageable pieces, but also has some notably favorable effects on learning/skill acquisition and exercise-induced physical adaptations.</p>
@@ -178,42 +71,10 @@
 <p>It’s also worth noting that I wound up developing the code and visualization concurrently. Being able to see the results of a particular approach not only helped tune the parameters and flush out bugs, but it help me figure out where the approach was falling down aesthetically and led to adding ideas like a minimum color distance and constrained randomization of saturation and lightness.</p>
 
 <p>Another fun bonus to this approach: I could send the link to the page to other people with better artistic eyes than myself and get them to tool around with it and come up with good parameters. You can <a href="http://littleandoften.club/color_tests?utf8=%E2%9C%93&amp;palette%5Bfirst_angle%5D=0&amp;palette%5Bfirst_range%5D=90&amp;palette%5Bsecond_angle%5D=210&amp;palette%5Bsecond_range%5D=30&amp;palette%5Bthird_angle%5D=&amp;palette%5Bthird_range%5D=&amp;palette%5Blightness_jitter%5D=20&amp;palette%5Bsaturation_jitter%5D=10&amp;palette%5Binitial_lightness%5D=55&amp;palette%5Binitial_saturation%5D=45&amp;palette%5Bminimum_color_distance%5D=15&amp;commit=Save+Palette">try it for yourself here</a>!</p>
-
-      <footer role="contentinfo">
-        <div class="article-author-bottom">
-          <img src="/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
-<div class="bio-content">
-  <h3>Thomas Mayfield</h3>
-  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
-  <div class="social-icons">
-    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
-    
-    
-    
-    
-    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
-    
-    
-  </div>
 </div>
-
-        </div>
-      </footer>
-    </div><!-- /.article-wrap -->
-  </article>
-  <div class="push"></div>
-</div><!-- /#main -->
-
-<div class="footer-wrap">
-  <footer>
-    <span>&copy; 2020 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
-
-  </footer>
-</div><!-- /.footer-wrap -->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+</div>
+</section>
+</body>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -224,7 +85,5 @@
   ga('send', 'pageview');
 
 </script>
-	        
 
-</body>
 </html>

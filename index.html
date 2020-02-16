@@ -1,491 +1,318 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<title>Thomas Mayfield &#8211; Duct Tape and Turing Machines</title>
-<meta name="description" content="">
-<meta name="keywords" content="">
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/images/birds.jpg">
-<meta name="twitter:title" content="Thomas Mayfield">
-<meta name="twitter:description" content="">
-<meta name="twitter:creator" content="@thegreatape">
+<!DOCTYPE html>
+<html>
+<head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'><meta charset='utf-8'><meta content='width=device-width, initial-scale=1' name='viewport'><title>Home - Thomas Mayfield</title><meta content='Thomas Mayfield' name='author'><meta content='Home - Thomas Mayfield' name='description'><meta content='' name='keywords'><!-- Twitter Cards --><meta content='summary' name='twitter:card'><meta content='/images/birds.jpg' name='twitter:image'><meta content='Home - Thomas Mayfield' name='twitter:title'><meta content='@thegreatape' name='twitter:creator'><!-- Open Graph --><meta content='en_US' property='og:locale'><meta content='article' property='og:type'><meta content='Home - Thomas Mayfield' property='og:title'><meta content='/' property='og:url'><meta content='Thomas Mayfield' property='og:site_name'><link href='/assets/css/styles.css' rel='stylesheet'><script src='/assets/js/bundle.js'></script><script src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'></script><link href='/feed.xml' rel='alternate' title='Thomas Mayfield' type='application/atom+xml'></head>
+<body class='home'>
+<nav aria-label='main navigation' class='navbar has-shadow is-primary' role='navigation'><div class='container'><div class='navbar-brand'><div class='navbar-item'><div class='title is-2'>Thomas Mayfield</div></div><a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='navbar-menu' role='button'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div class='navbar-menu' id='navbar-menu'><div class='navbar-start'><a class='navbar-item' href='/'>Home</a><a class='navbar-item' href='/reading'>Reading</a><a class='navbar-item' href='/code'>Code</a><a class='navbar-item' href='/about'>About Me</a></div></div></div></nav>
+<section class='section'>
+<div class='container'>
 
-<!-- Open Graph -->
-<meta property="og:locale" content="en_US">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Thomas Mayfield">
-<meta property="og:description" content="Duct Tape and Turing Machines">
-<meta property="og:url" content="/">
-<meta property="og:site_name" content="Duct Tape and Turing Machines">
+
+<h2 class='title is-3 year'>2019</h2>
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2019/12/31/2019-year-end-notes/' title='2019 Year End Notes'>2019 Year End Notes</a>
+<span class='post-date'>Dec 31</span>
+</div>
 
 
 
 
 
-<link rel="canonical" href="/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Duct Tape and Turing Machines Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Webfonts -->
-<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-<!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.min.css">
-
-<!--[if (lt IE 9) & (!IEMobile)]>
-<link rel="stylesheet" href="/assets/css/ie.min.css">
-<![endif]-->
-
-<meta http-equiv="cleartype" content="on">
-
-<!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
-
-<!-- Icons -->
-<!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
-<!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
-
-</head>
-
-<body class="articles" itemscope itemtype="http://schema.org/WebPage">
-
-<!--[if lt IE 9]><div class="browser-upgrade alert alert-info">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div><![endif]-->
-
-<div class="navigation-wrapper">
-	<div class="site-name">
-	</div><!-- /.site-name -->
-	<div class="top-navigation">
-		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-		    <ul>
-		        
-				<li><a href="/" >Articles</a></li>
-		        
-				<li><a href="/reading" >Reading</a></li>
-		        
-				<li><a href="/code" >Code</a></li>
-		        
-		        <li><i class="icon-feed"></i> <a href="/feed.xml" title="Atom/RSS feed">Feed</a>
-		    </ul>
-		</nav>
-	</div><!-- /.top-navigation -->
-</div><!-- /.navigation-wrapper -->
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2019/02/23/publishing-ulysses-notes/' title='Quickly publishing notes from Ulysses with Alfred and JXA'>Quickly publishing notes from Ulysses with Alfred and JXA</a>
+<span class='post-date'>Feb 23</span>
+</div>
 
 
 
-<div class="article-author-top">
-  <img src="/images/bio-photo.png" class="bio-photo" alt="Thomas Mayfield bio photo"></a>
-<div class="bio-content">
-  <h3>Thomas Mayfield</h3>
-  <p>Polyglot programmer who loves the weird beautiful chaos of humans building software together. Fitness nerd. Southern kid living in Massachusetts.</p>
-  <div class="social-icons">
-    <a href="http://twitter.com/thegreatape" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>
-    
-    
-    
-    
-    <a href="http://github.com/thegreatape" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>
-    
-    
-  </div>
+
+
+<h2 class='title is-3 year'>2018</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2018/12/30/2018-year-end-notes/' title='2018 Year End Notes'>2018 Year End Notes</a>
+<span class='post-date'>Dec 30</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/' title='Clojure, vim, and tmux: using your editor as a repl scratchpad'>Clojure, vim, and tmux: using your editor as a repl scratchpad</a>
+<span class='post-date'>Feb 11</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2018/02/04/generating-randomized-color-palettes/' title='Generating Randomized Color Palettes (That Aren’t Clown Vomit)'>Generating Randomized Color Palettes (That Aren’t Clown Vomit)</a>
+<span class='post-date'>Feb 04</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/' title='Vim syntax highlighting for SQL strings inside Ruby code'>Vim syntax highlighting for SQL strings inside Ruby code</a>
+<span class='post-date'>Jan 01</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2017</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2017/12/30/2017-year-end-notes/' title='2017 Year End Notes'>2017 Year End Notes</a>
+<span class='post-date'>Dec 30</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2016</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2016/12/31/2016-year-end-notes/' title='2016 Year End Notes'>2016 Year End Notes</a>
+<span class='post-date'>Dec 31</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2016/11/25/notes-on-writing-clojure-in-vim/' title='Notes On Writing Clojure In Vim'>Notes On Writing Clojure In Vim</a>
+<span class='post-date'>Nov 25</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2016/08/28/defusing-distracting-defaults/' title='Defusing Distracting Defaults: An Experiment In Automating Better Habits'>Defusing Distracting Defaults: An Experiment In Automating Better Habits</a>
+<span class='post-date'>Aug 28</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2016/05/28/fitness-resources-megapost/' title='Fitness Resources Megapost'>Fitness Resources Megapost</a>
+<span class='post-date'>May 28</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2016/05/01/customizing-the-clojure-repl/' title='Customizing The Clojure REPL'>Customizing The Clojure REPL</a>
+<span class='post-date'>May 01</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/' title='How Slack Could Respect Your Time And Attention (Better)'>How Slack Could Respect Your Time And Attention (Better)</a>
+<span class='post-date'>Apr 16</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2015</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/12/27/2015-year-end-notes/' title='2015 Year End Notes'>2015 Year End Notes</a>
+<span class='post-date'>Dec 27</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/' title='Setting Up Evil-Mode Friendly Ctags in Emacs'>Setting Up Evil-Mode Friendly Ctags in Emacs</a>
+<span class='post-date'>Oct 24</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/' title='Extracting Testable Javascript From jQuery Soup'>Extracting Testable Javascript From jQuery Soup</a>
+<span class='post-date'>Jun 03</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/03/28/reusable-javascript-components/' title='Composable Components: Comparing Angular and React'>Composable Components: Comparing Angular and React</a>
+<span class='post-date'>Mar 28</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/03/01/lyeberry/' title='Lyeberry: a new search backend for Literate Minuteman'>Lyeberry: a new search backend for Literate Minuteman</a>
+<span class='post-date'>Mar 01</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/01/18/emacs-and-evil-mode-field-notes/' title='Emacs and Evil-mode: Field Notes'>Emacs and Evil-mode: Field Notes</a>
+<span class='post-date'>Jan 18</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2015/01/04/small-background-jobs/' title='Make your Rails background jobs as small as possible'>Make your Rails background jobs as small as possible</a>
+<span class='post-date'>Jan 04</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2014</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2014/12/30/2014-year-end-notes/' title='2014 Year End Notes'>2014 Year End Notes</a>
+<span class='post-date'>Dec 30</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2014/07/01/relaunching-literate-minuteman/' title='Relaunching Literate Minuteman'>Relaunching Literate Minuteman</a>
+<span class='post-date'>Jul 01</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/' title='Fixing conflicting Vim plugins with NeoBundle'>Fixing conflicting Vim plugins with NeoBundle</a>
+<span class='post-date'>Jun 01</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2013</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2013/10/19/postgres-connection-error-after-upgrading-ruby/' title='Postgres connection errors after upgrading Ruby'>Postgres connection errors after upgrading Ruby</a>
+<span class='post-date'>Oct 19</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2013/06/30/print-friendly-bookmarklet-for-programs-on-the-squat-rack-com/' title='Print-friendly bookmarklet for programs on TheSquatRack.com'>Print-friendly bookmarklet for programs on TheSquatRack.com</a>
+<span class='post-date'>Jun 30</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2012</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2012/08/19/introducing-literate-minuteman/' title='Introducing Literate Minuteman'>Introducing Literate Minuteman</a>
+<span class='post-date'>Aug 19</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2012/04/28/backbone-views-and-the-law-of-demeter/' title='Backbone Views and the Law of Demeter'>Backbone Views and the Law of Demeter</a>
+<span class='post-date'>Apr 28</span>
+</div>
+
+
+
+
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2012/04/02/compiling-javascript-templates-with-guard/' title='Compiling Javascript templates with Guard'>Compiling Javascript templates with Guard</a>
+<span class='post-date'>Apr 02</span>
+</div>
+
+
+
+
+
+<h2 class='title is-3 year'>2011</h2>
+
+
+<div class='article is-size-5'>
+<a class='article-title' href='/articles/2011/05/05/converting-jpegs-to-multipage-pdfs-with-imagemagick/' title='Converting JPEGs to multipage PDFs with ImageMagick'>Converting JPEGs to multipage PDFs with ImageMagick</a>
+<span class='post-date'>May 05</span>
 </div>
 
 </div>
-
-<div id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
-  
-  
-    <h3>2019</h3>
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Dec 31</span>
-          <a href="/articles/2019/12/31/2019-year-end-notes/" rel="bookmark" title="2019 Year End Notes">2019 Year End Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Feb 23</span>
-          <a href="/articles/2019/02/23/publishing-ulysses-notes/" rel="bookmark" title="Quickly publishing notes from Ulysses with Alfred and JXA">Quickly publishing notes from Ulysses with Alfred and JXA</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2018</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Dec 30</span>
-          <a href="/articles/2018/12/30/2018-year-end-notes/" rel="bookmark" title="2018 Year End Notes">2018 Year End Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Feb 11</span>
-          <a href="/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" rel="bookmark" title="Clojure, vim, and tmux: using your editor as a repl scratchpad">Clojure, vim, and tmux: using your editor as a repl scratchpad</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Feb 04</span>
-          <a href="/articles/2018/02/04/generating-randomized-color-palettes/" rel="bookmark" title="Generating Randomized Color Palettes (That Aren’t Clown Vomit)">Generating Randomized Color Palettes (That Aren’t Clown Vomit)</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jan 01</span>
-          <a href="/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" rel="bookmark" title="Vim syntax highlighting for SQL strings inside Ruby code">Vim syntax highlighting for SQL strings inside Ruby code</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2017</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Dec 30</span>
-          <a href="/articles/2017/12/30/2017-year-end-notes/" rel="bookmark" title="2017 Year End Notes">2017 Year End Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2016</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Dec 31</span>
-          <a href="/articles/2016/12/31/2016-year-end-notes/" rel="bookmark" title="2016 Year End Notes">2016 Year End Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Nov 25</span>
-          <a href="/articles/2016/11/25/notes-on-writing-clojure-in-vim/" rel="bookmark" title="Notes On Writing Clojure In Vim">Notes On Writing Clojure In Vim</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Aug 28</span>
-          <a href="/articles/2016/08/28/defusing-distracting-defaults/" rel="bookmark" title="Defusing Distracting Defaults: An Experiment In Automating Better Habits">Defusing Distracting Defaults: An Experiment In Automating Better Habits</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">May 28</span>
-          <a href="/articles/2016/05/28/fitness-resources-megapost/" rel="bookmark" title="Fitness Resources Megapost">Fitness Resources Megapost</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">May 01</span>
-          <a href="/articles/2016/05/01/customizing-the-clojure-repl/" rel="bookmark" title="Customizing The Clojure REPL">Customizing The Clojure REPL</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Apr 16</span>
-          <a href="/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" rel="bookmark" title="How Slack Could Respect Your Time And Attention (Better)">How Slack Could Respect Your Time And Attention (Better)</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2015</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Dec 27</span>
-          <a href="/articles/2015/12/27/2015-year-end-notes/" rel="bookmark" title="2015 Year End Notes">2015 Year End Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Oct 24</span>
-          <a href="/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/" rel="bookmark" title="Setting Up Evil-Mode Friendly Ctags in Emacs">Setting Up Evil-Mode Friendly Ctags in Emacs</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jun 03</span>
-          <a href="/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/" rel="bookmark" title="Extracting Testable Javascript From jQuery Soup">Extracting Testable Javascript From jQuery Soup</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Mar 28</span>
-          <a href="/articles/2015/03/28/reusable-javascript-components/" rel="bookmark" title="Composable Components: Comparing Angular and React">Composable Components: Comparing Angular and React</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Mar 01</span>
-          <a href="/articles/2015/03/01/lyeberry/" rel="bookmark" title="Lyeberry: a new search backend for Literate Minuteman">Lyeberry: a new search backend for Literate Minuteman</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jan 18</span>
-          <a href="/articles/2015/01/18/emacs-and-evil-mode-field-notes/" rel="bookmark" title="Emacs and Evil-mode: Field Notes">Emacs and Evil-mode: Field Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jan 04</span>
-          <a href="/articles/2015/01/04/small-background-jobs/" rel="bookmark" title="Make your Rails background jobs as small as possible">Make your Rails background jobs as small as possible</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2014</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Dec 30</span>
-          <a href="/articles/2014/12/30/2014-year-end-notes/" rel="bookmark" title="2014 Year End Notes">2014 Year End Notes</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jul 01</span>
-          <a href="/articles/2014/07/01/relaunching-literate-minuteman/" rel="bookmark" title="Relaunching Literate Minuteman">Relaunching Literate Minuteman</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jun 01</span>
-          <a href="/articles/2014/06/01/fixing-conflicting-vim-plugins-with-neobundle/" rel="bookmark" title="Fixing conflicting Vim plugins with NeoBundle">Fixing conflicting Vim plugins with NeoBundle</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2013</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Oct 19</span>
-          <a href="/articles/2013/10/19/postgres-connection-error-after-upgrading-ruby/" rel="bookmark" title="Postgres connection errors after upgrading Ruby">Postgres connection errors after upgrading Ruby</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Jun 30</span>
-          <a href="/articles/2013/06/30/print-friendly-bookmarklet-for-programs-on-the-squat-rack-com/" rel="bookmark" title="Print-friendly bookmarklet for programs on TheSquatRack.com">Print-friendly bookmarklet for programs on TheSquatRack.com</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2012</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Aug 19</span>
-          <a href="/articles/2012/08/19/introducing-literate-minuteman/" rel="bookmark" title="Introducing Literate Minuteman">Introducing Literate Minuteman</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Apr 28</span>
-          <a href="/articles/2012/04/28/backbone-views-and-the-law-of-demeter/" rel="bookmark" title="Backbone Views and the Law of Demeter">Backbone Views and the Law of Demeter</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">Apr 02</span>
-          <a href="/articles/2012/04/02/compiling-javascript-templates-with-guard/" rel="bookmark" title="Compiling Javascript templates with Guard">Compiling Javascript templates with Guard</a>
-        </h2>
-    </article>
-  
-  
-      
-      
-      
-        <h3>2011</h3>
-      
-    
-    <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-        <h2 itemprop="headline">
-          <span class="post-date">May 05</span>
-          <a href="/articles/2011/05/05/converting-jpegs-to-multipage-pdfs-with-imagemagick/" rel="bookmark" title="Converting JPEGs to multipage PDFs with ImageMagick">Converting JPEGs to multipage PDFs with ImageMagick</a>
-        </h2>
-    </article>
-  
-</div><!-- /#index -->
-
-<div class="footer-wrap">
-  <footer>
-    <span>&copy; 2020 Thomas Mayfield. Powered by <a href="http://jekyllrb.com">Jekyll</a> using the <a href="http://mademistakes.com/">Minimal Mistakes</a> theme.</span>
-
-  </footer>
-</div><!-- /.footer-wrap -->
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+</section>
+</body>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -497,6 +324,4 @@
 
 </script>
 
-
-</body>
 </html>
