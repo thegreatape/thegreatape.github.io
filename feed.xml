@@ -5,13 +5,51 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2020-02-16T09:07:16-05:00</updated>
+<updated>2020-02-17T11:31:46-05:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Building A Custom Reading List With Airtable]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2020/02/17/building-a-custom-reading-list-with-airtable/" />
+  <id>/articles/2020/02/17/building-a-custom-reading-list-with-airtable</id>
+  <published>2020-02-17T00:00:00-05:00</published>
+  <updated>2020-02-17T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I built a custom &lt;a href=&quot;https://airtable.com/shrklkcdOzAPEO7S5/tbldD4SKQaINX1gxw/viwWA7YHSRBL7AxL8?blocks=hide&quot;&gt;book tracker&lt;/a&gt; and &lt;a href=&quot;https://thegreata.pe/reading/&quot;&gt;reading history page&lt;/a&gt;, and now I’m kind of in love with &lt;a href=&quot;https://airtable.com/&quot;&gt;Airtable&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;airtable&quot;&gt;Airtable&lt;/h2&gt;
+&lt;p&gt;Airtable is an online spreadsheet app with a relational database’s heart and wonderful first-class API support. You can build a huge array of useful stuff using their tools: &lt;a href=&quot;https://airtable.com/product&quot;&gt;their product page&lt;/a&gt; and &lt;a href=&quot;https://airtable.com/universe&quot;&gt;example universe&lt;/a&gt; are a good showcase of what Airtable can do. They’ve got an incredibly generous free plan, too: everything detailed here fits in a free account!&lt;/p&gt;
+
+&lt;p&gt;For hobby-stage products, I think Airtable is a lift in productivity on par with hosting platforms like Heroku. It’s a huge force multiplier for prototyping or &lt;a href=&quot;https://www.robinsloan.com/notes/home-cooked-app/&quot;&gt;building home-cooked apps&lt;/a&gt; tightly fitted to your own workflows. The first stage of this reading list was up and running on its own in a couple minutes after just setting up the fields in my Airtable base: a spreadsheet-like interface to my data that was powerful and visually pleasing.  More importantly, it &lt;em&gt;was already useful and useable&lt;/em&gt;. I used this first stage of the project as-is for a week, to track my read books and note ones I’d like to read in the future. I got a sense of what working with the modeling was like, and could remove and alter fields with no ceremony. Before I imported my full reading history or wrote a single line of code, I knew the structure was well set up for my personal use.&lt;/p&gt;
+
+&lt;p&gt;This is all heavily inspired by Simon Hørup Eskildsen’s work, both &lt;a href=&quot;https://sirupsen.com/minimum-viable-airtable/&quot;&gt;Minimum Viable Airtable&lt;/a&gt; and his excellent &lt;a href=&quot;https://github.com/sirupsen/airrecord&quot;&gt;airrecord&lt;/a&gt; Ruby gem. Big thanks to him for the spark that made me start all this.&lt;/p&gt;
+
+&lt;h2 id=&quot;book-tracking&quot;&gt;Book Tracking&lt;/h2&gt;
+&lt;p&gt;Why build my own reading tracker, after a decade or so on Goodreads? I wanted:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;An easier way to filter my to-read list by author background. Specifically, reading a lot of authors with diverse backgrounds is important to me, so I wanted my to read list to be able to show me a single page of all the books that aren’t by straight white dudes.&lt;/li&gt;
+  &lt;li&gt;The flexibility to show reading history and stats on my personal site exactly how I wanted them.  I do a summary of author backgrounds among the year’s books in my yearly review posts. This was a somewhat manual process, and I wanted to have the breakdowns automatically tracked and summarized for current and past years.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I only wrote code here for the second part: the reading history page. Just building a &lt;a href=&quot;https://airtable.com/shrklkcdOzAPEO7S5/tbldD4SKQaINX1gxw/viwavLuE5fkC10RCp?blocks=hide&quot;&gt;filtered Airtable view&lt;/a&gt; was good enough for the to-read list by author background, and I didn’t need to go any further than that!&lt;/p&gt;
+
+&lt;p&gt;For the reading history page, a little context: this site is written in &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; and hosted on Github Pages. There’s a limited set of plugins you can use with Pages’ basic Jekyll integration, so I use two repos: a &lt;a href=&quot;https://github.com/thegreatape/thegreata.pe-source&quot;&gt;source repo&lt;/a&gt; with the Jekyll code and markdown for blog posts, and a &lt;a href=&quot;https://github.com/thegreatape/thegreatape.github.io&quot;&gt;built files repo&lt;/a&gt; with the compiled HTML to be served. I use a simple &lt;a href=&quot;https://github.com/thegreatape/thegreata.pe-source/blob/master/publish.sh&quot;&gt;publish script&lt;/a&gt; to sync content between them.&lt;/p&gt;
+
+&lt;p&gt;The reading page is built with a relatively small amount of code. I have &lt;a href=&quot;https://github.com/thegreatape/thegreata.pe-source/blob/master/sync_reading.rb&quot;&gt;a Ruby script&lt;/a&gt; to query my Airtable’s API for my reading history, to which it does some light processing and dumps the results out to a single JSON file. The &lt;a href=&quot;https://github.com/thegreatape/thegreata.pe-source/blob/master/_layouts/reading.haml&quot;&gt;template for the reading page&lt;/a&gt; simply loads that file and renders the page with some straightforward Haml. This process is run on my laptop right now—maybe someday I’ll automate it, but at a couple books a month, remembering to run a single shell script after updating my Airtable reading records isn’t exactly a huge burden.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2020/02/17/building-a-custom-reading-list-with-airtable/&quot;&gt;Building A Custom Reading List With Airtable&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 17, 2020.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -2057,61 +2095,6 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 &lt;p&gt;I do want to come back to this experiment someday. I feel like the issues I ran into should be tractable with more time and focus, and there are some plugins like &lt;a href=&quot;http://orgmode.org/&quot;&gt;org-mode&lt;/a&gt; that I really want to explore. The work I put in to get as far as I did is &lt;a href=&quot;https://github.com/thegreatape/dot-files&quot;&gt;versioned on GitHub along with the rest of my dot-files&lt;/a&gt;, so hopefully the next time around I can just pick up where I left off.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2015/01/18/emacs-and-evil-mode-field-notes/&quot;&gt;Emacs and Evil-mode: Field Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 18, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Make your Rails background jobs as small as possible]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2015/01/04/small-background-jobs/" />
-  <id>/articles/2015/01/04/small-background-jobs</id>
-  <published>2015-01-04T00:00:00-05:00</published>
-  <updated>2015-01-04T00:00:00-05:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;I recently ran into an issue with &lt;a href=&quot;http://www.literate-minuteman.com/&quot;&gt;Literate Minuteman&lt;/a&gt; that reminded me of the value of keeping your Rails background jobs as small as you can.&lt;/p&gt;
-
-&lt;p&gt;In Minuteman, looking up the state of a book at a particular library is a relatively slow operation, and so is done periodically outside the HTTP request/response, using &lt;a href=&quot;https://github.com/resque/resque&quot;&gt;Resque&lt;/a&gt;. For each book we want to update, we enqueue an &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateBook&lt;/code&gt; worker with the book’s id, which fetches the book and then delegates to &lt;code class=&quot;highlighter-rouge&quot;&gt;Book&lt;/code&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;sync_copies&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/workers/update_book.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The book’s &lt;code class=&quot;highlighter-rouge&quot;&gt;sync_copies&lt;/code&gt; method then loops through all the available &lt;code class=&quot;highlighter-rouge&quot;&gt;LibrarySystem&lt;/code&gt;s and asks the system in question for the current status of that book’s copies:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/book.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;LibrarySystem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;copies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# book updating work happens here&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The problem with this design is that each &lt;code class=&quot;highlighter-rouge&quot;&gt;LibrarySystem&lt;/code&gt;’s lookup is run in serial as a part of the same job. If an exception is raised by any system’s &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt; call, subsequent system book lookups won’t happen at all. That’s what I found was happening this weekend-a change in the Boston Public Library’s site had caused the very first system lookup to fail, and now no books were being updated at all!&lt;/p&gt;
-
-&lt;p&gt;To fix this, I split the jobs out into more specific tasks-looking up the status of a book in a particular library system, instead of the status of a book in &lt;em&gt;all&lt;/em&gt; library systems. &lt;code class=&quot;highlighter-rouge&quot;&gt;UpdateBook&lt;/code&gt; simply took the library system id as a parameter and passed it to a &lt;code class=&quot;highlighter-rouge&quot;&gt;Book#sync_copies&lt;/code&gt; method that just looked up copies in that system:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/workers/update_book.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;library_system_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;LibrarySystem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library_system_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/book.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sync_copies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library_system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;copies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# book updating work happens here&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Now, the BPL system lookups were still failing, but the other system lookups could run independently and I was free to fix the BPL lookup system in isolation.&lt;/p&gt;
-
-&lt;p&gt;I’ve simplified the code in these examples slightly to make my point more clear; you can check out the full changes &lt;a href=&quot;https://github.com/thegreatape/literate-minuteman/commit/5dbfe7a5629b88170cf65801b4c9a8ec37b44574&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2015/01/04/small-background-jobs/&quot;&gt;Make your Rails background jobs as small as possible&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 04, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>

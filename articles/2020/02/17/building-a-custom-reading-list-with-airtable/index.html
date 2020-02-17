@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'><meta charset='utf-8'><meta content='width=device-width, initial-scale=1' name='viewport'><title>Building A Custom Reading List With Airtable - Thomas Mayfield</title><meta content='Thomas Mayfield' name='author'><meta content='Building A Custom Reading List With Airtable - Thomas Mayfield' name='description'><meta content='' name='keywords'><!-- Twitter Cards --><meta content='summary' name='twitter:card'><meta content='/images/birds.jpg' name='twitter:image'><meta content='Building A Custom Reading List With Airtable - Thomas Mayfield' name='twitter:title'><meta content='@thegreatape' name='twitter:creator'><!-- Open Graph --><meta content='en_US' property='og:locale'><meta content='article' property='og:type'><meta content='Building A Custom Reading List With Airtable - Thomas Mayfield' property='og:title'><meta content='/' property='og:url'><meta content='Thomas Mayfield' property='og:site_name'><link href='/assets/css/styles.css' rel='stylesheet'><script src='/assets/js/bundle.js'></script><script src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'></script><link href='/feed.xml' rel='alternate' title='Thomas Mayfield' type='application/atom+xml'></head>
+<body class='post '>
+<nav aria-label='main navigation' class='navbar has-shadow is-primary' role='navigation'><div class='container'><div class='navbar-brand'><div class='navbar-item'><div class='title is-2'>Thomas Mayfield</div></div><a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='navbar-menu' role='button'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div class='navbar-menu' id='navbar-menu'><div class='navbar-start'><a class='navbar-item' href='/'>Home</a><a class='navbar-item' href='/reading'>Reading</a><a class='navbar-item' href='/code'>Code</a><a class='navbar-item' href='/about'>About Me</a></div></div></div></nav>
+<section class='section'>
+<div class='container'>
+<h2 class='title is-2'>Building A Custom Reading List With Airtable</h2>
+
+<div class='date subtitle is-5'>February 17, 2020</div>
+
+<div class='content'><p>I built a custom <a href="https://airtable.com/shrklkcdOzAPEO7S5/tbldD4SKQaINX1gxw/viwWA7YHSRBL7AxL8?blocks=hide">book tracker</a> and <a href="https://thegreata.pe/reading/">reading history page</a>, and now I’m kind of in love with <a href="https://airtable.com/">Airtable</a>.</p>
+
+<h2 id="airtable">Airtable</h2>
+<p>Airtable is an online spreadsheet app with a relational database’s heart and wonderful first-class API support. You can build a huge array of useful stuff using their tools: <a href="https://airtable.com/product">their product page</a> and <a href="https://airtable.com/universe">example universe</a> are a good showcase of what Airtable can do. They’ve got an incredibly generous free plan, too: everything detailed here fits in a free account!</p>
+
+<p>For hobby-stage products, I think Airtable is a lift in productivity on par with hosting platforms like Heroku. It’s a huge force multiplier for prototyping or <a href="https://www.robinsloan.com/notes/home-cooked-app/">building home-cooked apps</a> tightly fitted to your own workflows. The first stage of this reading list was up and running on its own in a couple minutes after just setting up the fields in my Airtable base: a spreadsheet-like interface to my data that was powerful and visually pleasing.  More importantly, it <em>was already useful and useable</em>. I used this first stage of the project as-is for a week, to track my read books and note ones I’d like to read in the future. I got a sense of what working with the modeling was like, and could remove and alter fields with no ceremony. Before I imported my full reading history or wrote a single line of code, I knew the structure was well set up for my personal use.</p>
+
+<p>This is all heavily inspired by Simon Hørup Eskildsen’s work, both <a href="https://sirupsen.com/minimum-viable-airtable/">Minimum Viable Airtable</a> and his excellent <a href="https://github.com/sirupsen/airrecord">airrecord</a> Ruby gem. Big thanks to him for the spark that made me start all this.</p>
+
+<h2 id="book-tracking">Book Tracking</h2>
+<p>Why build my own reading tracker, after a decade or so on Goodreads? I wanted:</p>
+
+<ul>
+  <li>An easier way to filter my to-read list by author background. Specifically, reading a lot of authors with diverse backgrounds is important to me, so I wanted my to read list to be able to show me a single page of all the books that aren’t by straight white dudes.</li>
+  <li>The flexibility to show reading history and stats on my personal site exactly how I wanted them.  I do a summary of author backgrounds among the year’s books in my yearly review posts. This was a somewhat manual process, and I wanted to have the breakdowns automatically tracked and summarized for current and past years.</li>
+</ul>
+
+<p>I only wrote code here for the second part: the reading history page. Just building a <a href="https://airtable.com/shrklkcdOzAPEO7S5/tbldD4SKQaINX1gxw/viwavLuE5fkC10RCp?blocks=hide">filtered Airtable view</a> was good enough for the to-read list by author background, and I didn’t need to go any further than that!</p>
+
+<p>For the reading history page, a little context: this site is written in <a href="https://jekyllrb.com/">Jekyll</a> and hosted on Github Pages. There’s a limited set of plugins you can use with Pages’ basic Jekyll integration, so I use two repos: a <a href="https://github.com/thegreatape/thegreata.pe-source">source repo</a> with the Jekyll code and markdown for blog posts, and a <a href="https://github.com/thegreatape/thegreatape.github.io">built files repo</a> with the compiled HTML to be served. I use a simple <a href="https://github.com/thegreatape/thegreata.pe-source/blob/master/publish.sh">publish script</a> to sync content between them.</p>
+
+<p>The reading page is built with a relatively small amount of code. I have <a href="https://github.com/thegreatape/thegreata.pe-source/blob/master/sync_reading.rb">a Ruby script</a> to query my Airtable’s API for my reading history, to which it does some light processing and dumps the results out to a single JSON file. The <a href="https://github.com/thegreatape/thegreata.pe-source/blob/master/_layouts/reading.haml">template for the reading page</a> simply loads that file and renders the page with some straightforward Haml. This process is run on my laptop right now—maybe someday I’ll automate it, but at a couple books a month, remembering to run a single shell script after updating my Airtable reading records isn’t exactly a huge burden.</p>
+</div>
+</div>
+</section>
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28952322-1', 'thegreata.pe');
+  ga('send', 'pageview');
+
+</script>
+
+</html>
