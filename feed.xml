@@ -5,13 +5,45 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2020-04-08T07:22:37-04:00</updated>
+<updated>2020-04-20T14:23:57-04:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Bootstrapping a Rails app with Nix]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2020/04/20/bootstrap-a-rails-app-with-nix/" />
+  <id>/articles/2020/04/20/bootstrap-a-rails-app-with-nix</id>
+  <published>2020-04-20T00:00:00-04:00</published>
+  <updated>2020-04-20T00:00:00-04:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;We’ve started using &lt;a href=&quot;https://nixos.org/nix/&quot;&gt;Nix&lt;/a&gt; at work for our development environments, and I wanted to spend some time learning how to use it for my own projects. So I set up a &lt;a href=&quot;https://github.com/thegreatape/nix-rails-template&quot;&gt;minimal template for a new Rails app&lt;/a&gt; to help me learn.&lt;/p&gt;
+
+&lt;p&gt;I’m not going to go into depth about how Nix works: I’d rather highlight why I think it’s cool and worth learning with a template to get running and experiment on. Jean-Philippe Cugnet wrote &lt;a href=&quot;https://ejpcmac.net/blog/about-using-nix-in-my-development-workflow/&quot;&gt;a great in-depth article here&lt;/a&gt; about how Nix works and how to use it as a general-purpose development environment manager, so check out his writing if you want to dive in deep.&lt;/p&gt;
+
+&lt;p&gt;To me, Nix is interesting for development environments because of two things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Dependency Isolation&lt;/strong&gt;: Nix allows multiple versions of a package to co-exist on the same computer. Ever tried running multiple apps on your laptop? Maybe one requires an older version of libxml2, another a specific revision of postgres. Huge pain to deal with, and what can be a huge time sink to manage by hand is removed entirely by Nix’s dependency resolution. Think of it like &lt;code class=&quot;highlighter-rouge&quot;&gt;chroot&lt;/code&gt; with package management superpowers.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Runs Natively&lt;/strong&gt;: Lots of people use Docker to solve the dependecy isolation issue. But I work on a Mac, so Docker means running a linux VM and having to deal with slower filesystem performance between the native host and the containers running on the VM. Nix involves no virtualization, so there’s no speed penalty and all my native tools are available.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I use Rails by default for most of my web project work, so I made a &lt;a href=&quot;https://github.com/thegreatape/nix-rails-template&quot;&gt;small Rails app generation template that uses Nix&lt;/a&gt;. The specific instructions are on the &lt;a href=&quot;https://github.com/thegreatape/nix-rails-template/blob/master/README.md&quot;&gt;README&lt;/a&gt;, but in short: it sets up an isolated Ruby and Postgres install, configures a Rails app to use them, then gives you a shell with those dependencies available. From there, you can run the database (using &lt;a href=&quot;https://github.com/DarthSim/overmind&quot;&gt;overmind&lt;/a&gt; for process management) and all your normal Rails commands inside that shell. Enjoy!&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2020/04/20/bootstrap-a-rails-app-with-nix/&quot;&gt;Bootstrapping a Rails app with Nix&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 20, 2020.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -2030,71 +2062,6 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 &lt;p&gt;I have so much more to learn about Clojure, but I’m really happy with how it’s going so far. I’m looking forward to being able to cringe at all the amateur mistakes I’m sure I’ve made here.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2015/03/01/lyeberry/&quot;&gt;Lyeberry: a new search backend for Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 01, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Emacs and Evil-mode: Field Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2015/01/18/emacs-and-evil-mode-field-notes/" />
-  <id>/articles/2015/01/18/emacs-and-evil-mode-field-notes</id>
-  <published>2015-01-18T00:00:00-05:00</published>
-  <updated>2015-01-18T00:00:00-05:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Back in December, I started experimenting with getting Emacs set up to use Vim-style modal editing. I’d begun studying Clojure more deeply and Emacs’s &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; is the most popular editing environment for Clojure, so I felt like I at least owed it a look. I’d also found myself thinking about and agreeing with a central tenant of Emacs philosophy: that your tools should evolve with you and become deeply customized over time.&lt;/p&gt;
-
-&lt;p&gt;But—and this is a big but—I couldn’t imagine leaving modal editing behind. Some background on my editing history: I used Emacs when I learned to program in college, writing Java, C++, Python with Emacs. It was what we used in the computer science lab, so it was what I adopted. Ironically, I barely customized my setup at all beyond cargo-culting a few different keybindings, tweaks and major modes. It wasn’t until about five years ago that some colleagues of mine convinced me to try out Vim instead. The idea that Vim’s &lt;a href=&quot;http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118&quot;&gt;modal editing is a language&lt;/a&gt; clicked with me and sounded a lot easier on the wrists than Emacs key-chords. I spent a weekend getting up to speed, researching plugins and I’ve been a modal-editing weenie ever since.&lt;/p&gt;
-
-&lt;p&gt;Fast-forward five years and articles on &lt;a href=&quot;https://gitorious.org/evil/pages/Home&quot;&gt;evil-mode&lt;/a&gt; started to make the rounds. Despite some skepticism, I began to wonder if I could get the best of both worlds: a deeply customizable editing environment &lt;em&gt;and&lt;/em&gt; modal editing. The Clojure community’s preference for CIDER was a great excuse to try things out.&lt;/p&gt;
-
-&lt;p&gt;I used a couple blog posts as tutorials to start from and went from there:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://bling.github.io/blog/2013/10/27/emacs-as-my-leader-vim-survival-guide/&quot;&gt;Emacs as my leader&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nathantypanski.com/blog/2014-08-03-a-vim-like-emacs-config.html&quot;&gt;Towards a Vim-like Emacs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://juanjoalvarez.net/es/detail/2014/sep/19/vim-emacsevil-chaotic-migration-guide/&quot;&gt;From Vim to Emacs+Evil chaotic migration guide&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;what-i-learned-the-highlights&quot;&gt;What I Learned: The Highlights&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Evil mode is actually that good:&lt;/strong&gt; Any Vim user who’s tried to use a Vim-emulation plugin in other editors knows that they always fall jarringly short. Evil-mode… doesn’t. Text objects? Check. Visual block mode? Check. Registers? Check. Macros? Check. You really can sit down with Emacs, run &lt;code class=&quot;highlighter-rouge&quot;&gt;(evil-mode t)&lt;/code&gt; and edit text in a completely unsurprising way. This is impressive as hell.&lt;/p&gt;
-
-&lt;p&gt;What’s more, evil-mode doesn’t lock you into the default Vim keybindings; in fact, it makes customizing pretty easy. I was able to define custom normal-mode evil keys for various language modes after just a few quick tutorials.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Plugin management is much better than I remember&lt;/strong&gt;: The Emacs package manager &lt;code class=&quot;highlighter-rouge&quot;&gt;package.el&lt;/code&gt; wasn’t a default part of Emacs until 24.0, well after I switched to Vim. Being able to install a plugin with a single command was great, but I wanted something a bit closer to &lt;a href=&quot;https://github.com/gmarik/Vundle.vim&quot;&gt;Vundle&lt;/a&gt; that would help me keep my plugins synced across two laptops.&lt;/p&gt;
-
-&lt;p&gt;Behold: &lt;a href=&quot;https://github.com/jwiegley/use-package&quot;&gt;use-package&lt;/a&gt; works like Vundle with the &lt;code class=&quot;highlighter-rouge&quot;&gt;:ensure t&lt;/code&gt; argument. It also allows you to make sure the package is required before executing your plugin-specific configuration code. One gotcha: I needed to install one package with “M-x install &lt;whatever&gt;&quot; before the `(use-package &lt;whatever&gt; :ensure t)` would install things automatically on boot. Thereafter, I could just write the use-package expression in my config file and eval it with `C-x C-e` to install and initialize things. Pretty nice.&lt;/whatever&gt;&lt;/whatever&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Elisp isn’t awful&lt;/strong&gt;: Emacs isn’t so much configured by Elisp as it is a giant Elisp REPL. Everything, from keypresses on up, is handled by calling Elisp functions, and you can customize how Emacs works by writing further Elisp. I found it a lot easier to pick up and start writing customization code in Elisp than I did in Vimscript. Most would agree that’s a low bar, but there it is.&lt;/p&gt;
-
-&lt;p&gt;The degree to which Emacs is self-documenting was unexpectedly nice. &lt;code class=&quot;highlighter-rouge&quot;&gt;M-x describe-function&lt;/code&gt; over an Elisp symbol will bring up its documentation. I bound this to &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; in evil-normal-mode as suggested by one of the above tutorials, and it’s a really great way to pick apart sample code and figure out how it works. Similarly, &lt;code class=&quot;highlighter-rouge&quot;&gt;M-x describe-key&lt;/code&gt; is super useful for figuring out what function a particular Emacs-style key shortcut is calling. After you have the function name, you can easily bind it to your own evil-flavored keys.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Nothing is quite as good as Ctrl-P&lt;/strong&gt;: A fast fuzzy file matcher is something I can’t live without, and I struggled to find something to replace &lt;a href=&quot;https://github.com/kien/ctrlp.vim&quot;&gt;Ctrl-P&lt;/a&gt;. The &lt;a href=&quot;https://github.com/bbatsov/projectile&quot;&gt;projectile&lt;/a&gt; project management plugin can be configured to use various file matching plugins, but none of them were without issues:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/lewang/flx&quot;&gt;ido-flx&lt;/a&gt; was just straight-up too slow for matching on a large project (just under 7k files). I tried setting a higher garbage collection threshold and lowering the number of completion candidates needed before the fuzzy matching would kick in, per the flx &lt;a href=&quot;https://github.com/lewang/flx/blob/master/README.md&quot;&gt;README&lt;/a&gt;, but it still was too laggy to use at work.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/grizzl/grizzl&quot;&gt;grizzl&lt;/a&gt; I couldn’t get working at all. I ran into &lt;a href=&quot;https://github.com/bbatsov/projectile/issues/200&quot;&gt;this issue&lt;/a&gt; with a &lt;code class=&quot;highlighter-rouge&quot;&gt;Symbol's function definition is void: exitfun&lt;/code&gt; error being thrown and didn’t find a solution.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/emacs-helm/helm&quot;&gt;helm&lt;/a&gt; came the closest. It was acceptably fast on a large project, though still noticeably slower than Ctrl-P. The completion algorithm was a bit different than what I’m used to; it used spaces to break up tokens instead of an implicit &lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; after each character—so if you were searching for &lt;code class=&quot;highlighter-rouge&quot;&gt;app/models/file.rb&lt;/code&gt; you’d use &lt;code class=&quot;highlighter-rouge&quot;&gt;ap mo fil&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;apmofil&lt;/code&gt;. I wound up actually liking that better after a few days. Unfortunately, it would occasionally &lt;a href=&quot;https://github.com/bbatsov/projectile/issues/600&quot;&gt;crash the vanilla OS X build of Emacs&lt;/a&gt;. This is apparently an Emacs bug and is purported to be fixed in the &lt;a href=&quot;https://github.com/railwaycat/emacs-mac-port&quot;&gt;emacs-mac-port build&lt;/a&gt; but I haven’t stress-tested to be sure.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Evil-matchit just didn’t work with Ruby&lt;/strong&gt;: I write Ruby by day, and Vim’s &lt;a href=&quot;https://github.com/tmhedberg/matchit&quot;&gt;matchit&lt;/a&gt; lets me use &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; to hop between &lt;code class=&quot;highlighter-rouge&quot;&gt;do&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;end&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;def&lt;/code&gt;/&lt;code class=&quot;highlighter-rouge&quot;&gt;end&lt;/code&gt; blocks in Ruby as well parentheses, curly braces and so on. It’s really amazing useful for code navigation, especially if the code you’re working with doesn’t exactly hew to the idea of small methods. I was delighted that the Emacs &lt;a href=&quot;https://github.com/redguardtoo/evil-matchit&quot;&gt;evil-matchit&lt;/a&gt; had Ruby support; unfortunately, it doesn’t seem to work. Hitting &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; on a block inside a method would take me to the block before the selected block, or to the top of the method, or to the beginning of the line I was on—essentially anywhere but where it should have gone.&lt;/p&gt;
-
-&lt;h3 id=&quot;two-months-later&quot;&gt;Two Months Later&lt;/h3&gt;
-
-&lt;p&gt;For now, I’m putting my Emacs configuration aside for a bit. I’m impressed with Evil, but feel a bit low on energy and like there’s too much &lt;a href=&quot;http://www.hanselman.com/blog/YakShavingDefinedIllGetThatDoneAsSoonAsIShaveThisYak.aspx&quot;&gt;yak-shaving&lt;/a&gt; ahead before I’m really comfortable back in Emacs. I also want to focus on just learning Clojure and its idioms without having to wrestle with learning and customizing a new editing environment at the same time. I started using Tim Pope’s &lt;a href=&quot;https://github.com/tpope/vim-fireplace&quot;&gt;vim-fireplace&lt;/a&gt; for working with Clojure, which works well enough, even if it’s not quite a real embedded REPL.&lt;/p&gt;
-
-&lt;p&gt;I do want to come back to this experiment someday. I feel like the issues I ran into should be tractable with more time and focus, and there are some plugins like &lt;a href=&quot;http://orgmode.org/&quot;&gt;org-mode&lt;/a&gt; that I really want to explore. The work I put in to get as far as I did is &lt;a href=&quot;https://github.com/thegreatape/dot-files&quot;&gt;versioned on GitHub along with the rest of my dot-files&lt;/a&gt;, so hopefully the next time around I can just pick up where I left off.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2015/01/18/emacs-and-evil-mode-field-notes/&quot;&gt;Emacs and Evil-mode: Field Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 18, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>
