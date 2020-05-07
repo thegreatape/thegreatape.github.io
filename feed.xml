@@ -5,13 +5,55 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2020-05-06T15:45:16-04:00</updated>
+<updated>2020-05-07T11:08:24-04:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Attentional Homesteading]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2020/05/07/attentional-homesteading/" />
+  <id>/articles/2020/05/07/attentional-homesteading</id>
+  <published>2020-05-07T00:00:00-04:00</published>
+  <updated>2020-05-07T00:00:00-04:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;It’s funny. When people talk about how technology distracts us or hijacks our attention, the first thing that comes up is smartphones. Which, sure: they’re a hotbed of dings for your attention and apps with weaponized endless scrolling competing for a slice of your eyeballs’ time. But for me, my phone isn’t attention span enemy number one. I have push notifications nearly globally disabled and it’s pretty easy for me to leave it out of sight and reach when I want to sit down and focus. My nemesis is a little different.&lt;/p&gt;
+
+&lt;p&gt;It’s that damn desktop web browser url autocomplete.&lt;/p&gt;
+
+&lt;p&gt;I can’t do large swathes of my work without the internet; forget looking up APIs, it’s where my email client, Github, Trello etc all live. With all that necessarily happening in a browser, all the worst distractions for me are just a keystroke away. The autocomplete in most browsers sorts by most visited, so if I hit &lt;code class=&quot;highlighter-rouge&quot;&gt;Option-l t&lt;/code&gt; and bam—there’s Twitter one &lt;code class=&quot;highlighter-rouge&quot;&gt;Enter&lt;/code&gt; away at the top of the list.&lt;/p&gt;
+
+&lt;p&gt;There’s a plethora of site blocking/limiting apps out there, of course. Or just the &lt;a href=&quot;https://lifehacker.com/how-to-really-block-distracting-websites-with-your-ho-1831493194&quot;&gt;good old /etc/hosts trick&lt;/a&gt;. I’ve tried them, and they usually have a backfiring effect: I don’t even like cake all that much, but if you told me I could &lt;em&gt;never&lt;/em&gt; have it again, I’m gonna start wanting some cake.&lt;/p&gt;
+
+&lt;p&gt;So, I tried a different strategy. Instead of outright blocking, I wrote a &lt;a href=&quot;https://github.com/thegreatape/homestead&quot;&gt;small Firefox extension&lt;/a&gt; to automatically prune a list of distracting domains from my history.  Now when I focus that browser address bar, hitting a single letter doesn’t pull up a list of distractions. I can still visit them anytime I want; I just have to type out the full url, every time. That little bit of friction goes a long way towards making visiting a particular site into a decision rather than a reflex.&lt;/p&gt;
+
+&lt;p&gt;Why’d I write my own? There’s a plethora of extensions that purport to do the same history scrubbing. But there’s always a risk with a third-party extension that it’ll do something malicious, like harvesting your info for sale.&lt;/p&gt;
+
+&lt;p&gt;It wasn’t hard. Most of the code here was readily adaptable from the tutorials, and I know Javascript moderately well. And now I’ve got a simple thing that makes the information environment that I spend a great deal of time in a bit more habitable. To me, this is software at its best: something uniquely fitted to an individual, amplifying a positive or toning down a negative. A humble Jobsian bicycle for the mind. I love the idea of individualized fleets of this kind of thing: small, personalized bits of code to help each of us live our digital lives a little more deliberately.&lt;/p&gt;
+
+&lt;p&gt;And this is where that ideal runs into the reality of modern platforms.&lt;/p&gt;
+
+&lt;p&gt;I think about the essay &lt;a href=&quot;https://www.robinsloan.com/notes/home-cooked-app/&quot;&gt;An App Can Be A Home-Cooked Meal&lt;/a&gt; a lot. I love the idea of little purpose-built mobile apps for myself or my friends and family. But Apple can remove an app at any time: certainly by removing it from the store or tools like Testflight, and potentially by yanking it from running devices (&lt;a href=&quot;https://techcrunch.com/2019/07/10/apple-silent-update-zoom-app/&quot;&gt;they did it on the Mac platform when Zoom was misbehaving&lt;/a&gt;). Android is a little more open, but anything using Google Play has to cede a similar level of control. I just can’t get excited about working in an environment where someone else can just say “nope, you don’t get to do that- even just for yourself.”&lt;/p&gt;
+
+&lt;p&gt;The same is true for my new browser extension. If I want to not have to manually load my extension every time I open Firefox anew, I have to get it signed by Mozilla, which does have an approval process. They can revoke it at any time, and the extension will stop working. This is for security. I get it: I literally wrote my own because of the risk of someone else’s extension doing something bad. Being able to blacklist bad actors is pretty important in the modern day and age. And Mozilla has zero reason to blacklist my little one-person extension.&lt;/p&gt;
+
+&lt;p&gt;But still, someone else has ultimate control over the tools I’m using to carve out better headspace for myself.&lt;/p&gt;
+
+&lt;p&gt;And yes: Firefox is open source, so I could in theory fork it, patch it and build a version of it just for me without these limitations. But the effort involved in doing so, let alone the ongoing effort to maintain those patches against upstream releases (which, again, security) is absolutely not worth it.&lt;/p&gt;
+
+&lt;p&gt;I’m acutely aware of the tradeoffs here. But it still makes a part of me sad.&lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2020/05/07/attentional-homesteading/&quot;&gt;Attentional Homesteading&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 07, 2020.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -2009,59 +2051,6 @@ React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&l
 &lt;p&gt;I get separating business logic from presentational logic, but I’m not convinced that Angular’s approach is better. Maybe it’s the LISPer in me.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2015/03/28/reusable-javascript-components/&quot;&gt;Composable Components: Comparing Angular and React&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 28, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lyeberry: a new search backend for Literate Minuteman]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2015/03/01/lyeberry/" />
-  <id>/articles/2015/03/01/lyeberry</id>
-  <published>2015-03-01T00:00:00-05:00</published>
-  <updated>2015-03-01T00:00:00-05:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Over the last week, I rolled out some big improvements to the way &lt;a href=&quot;http://www.literate-minuteman.com/&quot;&gt;Literate Minuteman&lt;/a&gt; searches for books behind the scenes. I want to share some of the ideas behind the new architecture and some thoughts on my first experience with building a web app in Clojure.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-old-way-capybara-and-poltergeist&quot;&gt;The Old Way: Capybara and Poltergeist&lt;/h3&gt;
-
-&lt;p&gt;In Literate Minuteman, looking up a book’s availability is done in the background, as part of a set of nightly background jobs run under Resque. Each job would fire up a headless PhantomJS browser via &lt;a href=&quot;https://github.com/teampoltergeist/poltergeist&quot;&gt;Poltergeist&lt;/a&gt;, visit the library’s search pages, and retreive the books as a real user would. It made for nice &lt;a href=&quot;http://martinfowler.com/bliki/PageObject.html&quot;&gt;page object&lt;/a&gt; style classes: the old &lt;a href=&quot;https://github.com/thegreatape/literate-minuteman/blob/c03183fbfe613b78b2672ca6426c6f711806597a/app/models/lookup_strategies/overdrive.rb&quot;&gt;Overdrive lookup strategy&lt;/a&gt; is a good example.&lt;/p&gt;
-
-&lt;p&gt;While it was easy to create these scrapers, this approach had a couple of big disadvantages.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Hard To Debug&lt;/em&gt;: Even though the code was easy to read, it was often hard to debug why something wasn’t working. PhantomJS uses Webkit to load and render web pages just like Chrome or Firefox would, Javascript execution and all. This introduced timing issues that made a search work correctly sometimes and fail others. The Poltergeist API helped by retrying certain commands until a timeout is reached, but this required me to remember which calls would retry and which wouldn’t—for example, &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt; waits for a matching element to appear, while &lt;code class=&quot;highlighter-rouge&quot;&gt;all&lt;/code&gt; returns immediately.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Mysterious Crashes&lt;/em&gt;: Even worse, PhantomJS was run by Poltergeist as a separate process and would sometimes outright crash, leaving little information behind as to the cause. I hit a dead end trying to consistently reproduce these crashes, let alone fix them.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Slow&lt;/em&gt;: The nail in the coffin for the Poltergeist-based approach was how slow it was. Each book search would take between 10-20 seconds, due to the overhead of firing up a PhantomJS process and loading each page’s entire set of images, styles and Javascript. Switching to Sidekiq to run more instances of PhantomJS under a single Heroku worker was a bust—I’d get mysterious resource contention issues that only went away when I dialed the Sidekiq concurrency down to a single thread. With about 8000 books in the system, it was getting to the point where the nightly book lookup jobs wouldn’t have completed by the next night’s scheduled run. I had to change something.&lt;/p&gt;
-
-&lt;h3 id=&quot;independent-services-to-the-rescue&quot;&gt;Independent Services To The Rescue&lt;/h3&gt;
-
-&lt;p&gt;To fix this, I built a new independent application purely for book lookup, called &lt;a href=&quot;http://github.com/thegreatape/lyeberry&quot;&gt;Lyeberry&lt;/a&gt;. It exposes each library system as a RESTful endpoint that talks JSON over HTTP. Retrieving all the copies of a book is just a simple GET request; for example, you could find all the copies of Kafka’s _Metamorphosis_in the Boston system by hitting:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;GET http://lyeberry.herokuapp.com/systems/boston/books?author&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Franz+Kafka&amp;amp;title&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Metamorphosis&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;On the Rails side, Minuteman’s nightly background jobs now just issue simple HTTP requests to Lyeberry to get an array of available copies of each book.&lt;/p&gt;
-
-&lt;p&gt;Instead of firing up a browser as an independent process to interact with the library’s site, Lyeberry uses a more traditional scraping approach in just directly fetching and parsing the HTML of the pages it needs. The resulting code wound up being about the same size and complexity as the Poltergeist scrapers; see the &lt;a href=&quot;https://github.com/thegreatape/lyeberry/blob/master/src/lyeberry/minuteman.clj&quot;&gt;new Minuteman system scraper&lt;/a&gt; for an example.&lt;/p&gt;
-
-&lt;p&gt;And yes, it’s much faster. While still bound by the speed of an external HTTP lookup or two, each query now typically takes 1-2 seconds—an order of magnitude improvement over the old system. It should scale better as well; without the constraint of one PhantomJS process at a time, I switched Minuteman’s background job processer over to Sidekiq. Since Sidekiq’s concurrency mechanism is thread-based instead of process-based, I can dial up the concurrency from the Minuteman side without having to pay for more Heroku workers. Win, win.&lt;/p&gt;
-
-&lt;h3 id=&quot;3-clojure&quot;&gt;&amp;lt;3 Clojure&lt;/h3&gt;
-
-&lt;p&gt;Lyeberry is my first real Clojure project and I’ve got to say I’m loving it so far. I’m using &lt;a href=&quot;https://github.com/cgrand/enlive&quot;&gt;Enlive&lt;/a&gt; and &lt;a href=&quot;https://github.com/dakrone/clj-http&quot;&gt;clj-http&lt;/a&gt; for the scraping parts and serving the results up with &lt;a href=&quot;https://github.com/weavejester/compojure&quot;&gt;Compojure&lt;/a&gt; and &lt;a href=&quot;https://github.com/ring-clojure/ring&quot;&gt;Ring&lt;/a&gt;. I’m still getting used to having a more powerful REPL available, but when I remember to use it, the &lt;a href=&quot;https://github.com/tpope/vim-fireplace&quot;&gt;vim-fireplace&lt;/a&gt; integration is great.&lt;/p&gt;
-
-&lt;p&gt;I wound up spinning off my first independent Clojure library while building Lyeberry: &lt;a href=&quot;http://github.com/thegreatape/ring-raygun&quot;&gt;ring-raygun&lt;/a&gt; sends uncaught exceptions to the &lt;a href=&quot;http://raygun.io&quot;&gt;Raygun&lt;/a&gt; error monitoring service. I felt like this was my first time experiencing how Clojure’s favoring primitive data structures over custom objects worked to encourage extension. Requests in Ring are just hashes and middleware handlers are just a functions that can wrap another function—structures that if you know Clojure, you already know how to use. It was easy enough to understand that even a Clojure newbie like myself was able to build a useful extension without learning a totally new set of APIs.&lt;/p&gt;
-
-&lt;p&gt;The testing story in Clojure has also been superb so far. I’m using &lt;a href=&quot;https://github.com/marick/Midje&quot;&gt;Midje&lt;/a&gt; to write my specs with an example-like syntax. It’s got a great Guard-like autotesting feature that you can run independently or right in your REPL session. When you save a file, &lt;code class=&quot;highlighter-rouge&quot;&gt;autotest&lt;/code&gt; automatically runs the specs of that namespace—and it’s extremely fast. Discounting the initial startup time, the whole app’s tests run in less than a second. That’s a seriously great feedback loop, especially when it doubles as an interactive REPL session.&lt;/p&gt;
-
-&lt;p&gt;Unsurprisingly, Clojure’s emphasis on immutable data structures and functional programming make tests pretty easy to write. Separating most of the business logic out into pure functions with no I/O or side effects seems to be a helpful pattern. For example, the &lt;a href=&quot;https://github.com/thegreatape/lyeberry/blob/master/test/lyeberry/minuteman_test.clj&quot;&gt;Minuteman scraper tests&lt;/a&gt; mostly concern themselves with making sure an HTML string is correctly parsed into copies of books. This lets me feed those functions HTML from a fixture file during the tests and from a live HTTP request in production or development. This is a pattern I’ve had a lot of success with in other languages, and it makes me very happy to see Clojure’s path of least resistance push one towards using pure functions for the sake of testability.&lt;/p&gt;
-
-&lt;p&gt;I have so much more to learn about Clojure, but I’m really happy with how it’s going so far. I’m looking forward to being able to cringe at all the amateur mistakes I’m sure I’ve made here.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2015/03/01/lyeberry/&quot;&gt;Lyeberry: a new search backend for Literate Minuteman&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 01, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>
