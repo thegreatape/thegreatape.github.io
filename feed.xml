@@ -5,13 +5,50 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2020-07-08T20:06:51-04:00</updated>
+<updated>2020-07-11T13:00:04-04:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Vim syntax highlighting for SQL strings inside Python code]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code/" />
+  <id>/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code</id>
+  <published>2020-07-11T00:00:00-04:00</published>
+  <updated>2020-07-11T00:00:00-04:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;A few years ago, I shared a bit of Vimscript for &lt;a href=&quot;https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;highlighting SQL strings inside Ruby code&lt;/a&gt;. Fast forward to today: I’ve been doing a bunch of ETL work recently using &lt;a href=&quot;https://airflow.apache.org/&quot;&gt;Apache Airflow&lt;/a&gt;, which is written in Python. That means a bunch of SQL queries embedded in Python strings, and I wanted to see about getting some highlighting on them for easier visual parsing.&lt;/p&gt;
+
+&lt;p&gt;In the Ruby version, I relied on the convention of using &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;lt;-SQL&lt;/code&gt; heredoc strings to differentiate  between regular strings and ones containing SQL queries. In Python, I had to get slightly more clever: this will treat any triple quotes-delimited string as SQL if it starts with a valid SQL keyword (e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;alter&lt;/code&gt;, etc). That might not always be true in your case, but it works pretty well for the very SQL-heavy Python work I’ve been doing.&lt;/p&gt;
+
+&lt;p&gt;Drop this in &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.vim/after/syntax/python.vim&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;unlet &lt;span class=&quot;nv&quot;&gt;b:current_syntax&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;syn&lt;/span&gt; include @SQL syntax/sql&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt;
+syntax region sqlPythonString 
+&lt;span class=&quot;se&quot;&gt;      \&lt;/span&gt; matchgroup&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;SpecialComment 
+&lt;span class=&quot;se&quot;&gt;      \&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=~&lt;/span&gt;\z&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;'\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&quot;\&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;\_s*\&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ALTER\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;BEGIN\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;CALL\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;COMMENT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;COMMIT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;CONNECT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;CREATE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;DELETE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;DROP\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;END\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;EXPLAIN\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;EXPORT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;GRANT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;IMPORT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;INSERT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;LOAD\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;LOCK\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;MERGE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;REFRESH\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;RENAME\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;REPLACE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;REVOKE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;ROLLBACK\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;SELECT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;SET\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;TRUNCATE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;UNLOAD\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;UNSET\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;UPDATE\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;UPSERT\&lt;span class=&quot;p&quot;&gt;|&lt;/span&gt;WITH\&lt;span class=&quot;p&quot;&gt;)~&lt;/span&gt; 
+&lt;span class=&quot;se&quot;&gt;      \&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=+&lt;/span&gt;\z1&lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; 
+&lt;span class=&quot;se&quot;&gt;      \&lt;/span&gt; contains&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;@SQL
+
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;b:current_syntax&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'python'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Results:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/sql-python-screenshot.png&quot; alt=&quot;Python string with SQL syntax highlighting applied&quot; /&gt;&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Python code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 11, 2020.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1962,95 +1999,6 @@ AuthorSearchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;The code we wound up at the end of this refactoring isn’t perfect, but that’s not the point. What’s most important is that we’ve established a beachhead of tests to watch our backs while we keep improving it. All by just applying some of the simple object oriented design principals we already knew!&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2015/06/03/extracting-testable-javascript-from-jquery-soup/&quot;&gt;Extracting Testable Javascript From jQuery Soup&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on June 03, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Composable Components: Comparing Angular and React]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2015/03/28/reusable-javascript-components/" />
-  <id>/articles/2015/03/28/reusable-javascript-components</id>
-  <published>2015-03-28T00:00:00-04:00</published>
-  <updated>2015-03-28T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Both Angular and React think you should be building client-side apps by baking new behavior into the structure of the DOM. They take very different approaches to this, with what I think are some interesting consequences.&lt;/p&gt;
-
-&lt;p&gt;Angular does this by teaching the old DOM new tricks: you add functionality to existing elements and create new ones entirely by defining &lt;em&gt;directives&lt;/em&gt;. A directive is Javascript that defines a custom HTML element or attribute with attached behavior. This behavior is declared as a function within Angular’s module system and then instantiated by adding the new element or attribute to the page’s HTML.&lt;/p&gt;
-
-&lt;p&gt;React, instead, defines both your markup structure and behavior &lt;em&gt;as&lt;/em&gt; Javascript code, in one place.&lt;/p&gt;
-
-&lt;p&gt;Let’s contrast these approaches with an example. Say you’re a horrible person running a Twitter-esque social network. Let’s further say that anywhere that there’s a list of tweets, you want to wrap it up in a way that puts a big promoted ad at the top. Because, again, you’re an awful person.&lt;/p&gt;
-
-&lt;p&gt;So we want to create a reusable component that can wrap whatever lists we pass to it and inject an ad at the top. Both our examples below will create the following markup when run—a pair of tweets from the user with a prepended ad from our corporate sponsors—but the important point is that both components can be re-used to wrap arbitrary lists.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;Promoted Tweet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;angular&quot;&gt;Angular&lt;/h3&gt;
-
-&lt;p&gt;In Angular, you can create directives that wrap arbitrary content using a mechanism called &lt;em&gt;transclusion&lt;/em&gt;. The official Angular documentation doesn’t make what this does very clear: &lt;em&gt;“transclude makes the contents of a directive with this option have access to the scope outside of the directive rather than inside.”&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The way to explain transclusion that makes the most sense to me is that it works like yielding to a block in Ruby or passing a function callback to another function in Javascript. It’s another way to add customizable behavior to a general-use component. The &lt;code class=&quot;highlighter-rouge&quot;&gt;ng-transclude&lt;/code&gt; attribute on the directive’s template below is like the &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; call or callback invocation; it’s where the child elements of the directive are inserted into the template and processed by Angular as though they were defined in the scope outside it.&lt;/p&gt;
-
-&lt;p&gt;Let’s see our promoted-ad-first list as an Angular directive (&lt;a href=&quot;http://jsfiddle.net/92uz99f4/2/&quot;&gt;JSFiddle&lt;/a&gt;) :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ng-app=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transcludeExample&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;promoted-list&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet One&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;My Tweet Two&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;angular&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'transcludeExample'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt;
-   &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;directive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'promotedList'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;restrict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'A'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;transclude&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;lt;ul&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-                    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;li&amp;gt;Promoted Content&amp;lt;/li&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-                    &lt;span class=&quot;s1&quot;&gt;'&amp;lt;li ng-transclude&amp;gt;&amp;lt;/li&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-                  &lt;span class=&quot;s1&quot;&gt;'&amp;lt;/ul&amp;gt;'&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;react&quot;&gt;React&lt;/h3&gt;
-
-&lt;p&gt;React views are also built by defining trees of elements that use and extend the browser’s DOM, but instead of splitting the definition and use of them between HTML and Javascript, everything is done in Javascript. You can use the &lt;a href=&quot;http://facebook.github.io/react/docs/jsx-in-depth.html&quot;&gt;JSX processor&lt;/a&gt; with React to define your element trees in what looks like markup inline in Javascript. It’s just optional syntatic sugar, and though it takes a little getting used to visually, I think it’s an overall win and have used it in the example below. Just keep in mind that each piece of markup is directly translated to a function call; e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Nav color=&quot;blue&quot; /&amp;gt;&lt;/code&gt; just becomes &lt;code class=&quot;highlighter-rouge&quot;&gt;React.createElement(Nav, {color:&quot;blue&quot;})&lt;/code&gt; before it hits the browser.&lt;/p&gt;
-
-&lt;p&gt;To achieve the same thing as the Angular example above, in React we just pass our tweets into the promoted list component as arguments in a Javascript function call. It looks like this &lt;a href=&quot;http://jsfiddle.net/2qydq9gs/2/&quot;&gt;JSFiddle&lt;/a&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;var PromotedList = React.createClass({
-    render: function() {
-        return &amp;lt;ul&amp;gt;
-                  &amp;lt;li&amp;gt;Promoted Tweet&amp;lt;/li&amp;gt;
-                  {this.props.tweets}
-               &amp;lt;/ul&amp;gt;
-    }
-});
-
-var myTweets = [
-  &amp;lt;li&amp;gt;My Tweet One&amp;lt;/li&amp;gt;,
-  &amp;lt;li&amp;gt;My Tweet Two&amp;lt;/li&amp;gt;
-]
-React.render(&amp;lt;PromotedList tweets={myTweets} /&amp;gt;, document.body);&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;why-make-html-turing-complete&quot;&gt;Why make HTML Turing-complete?&lt;/h3&gt;
-
-&lt;p&gt;What’s interesting to me here is that React doesn’t require a special mechanism to pass dynamic content to a reusable component. Since both our behavior and markup structure are all defined in Javascript, our PromotedList’s dynamic content is just another argument to a function call. It’s… just Javascript.&lt;/p&gt;
-
-&lt;p&gt;The need in Angular for an explicit API to accomplish this—&lt;code class=&quot;highlighter-rouge&quot;&gt;ng-transclude&lt;/code&gt;— is a consequence of Angular’s choice to push so much of an app’s behavior definition into HTML. In order to create flexible APIs, it feels like they’re having to reinvent in HTML what programming languages can already do.&lt;/p&gt;
-
-&lt;p&gt;I get separating business logic from presentational logic, but I’m not convinced that Angular’s approach is better. Maybe it’s the LISPer in me.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2015/03/28/reusable-javascript-components/&quot;&gt;Composable Components: Comparing Angular and React&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on March 28, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>

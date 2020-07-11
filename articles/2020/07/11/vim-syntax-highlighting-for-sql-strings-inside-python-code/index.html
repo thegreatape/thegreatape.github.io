@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'><meta charset='utf-8'><meta content='width=device-width, initial-scale=1' name='viewport'><title>Vim syntax highlighting for SQL strings inside Python code - Thomas Mayfield</title><meta content='Thomas Mayfield' name='author'><meta content='Vim syntax highlighting for SQL strings inside Python code - Thomas Mayfield' name='description'><meta content='' name='keywords'><!-- Twitter Cards --><meta content='summary' name='twitter:card'><meta content='/images/birds.jpg' name='twitter:image'><meta content='Vim syntax highlighting for SQL strings inside Python code - Thomas Mayfield' name='twitter:title'><meta content='@thegreatape' name='twitter:creator'><!-- Open Graph --><meta content='en_US' property='og:locale'><meta content='article' property='og:type'><meta content='Vim syntax highlighting for SQL strings inside Python code - Thomas Mayfield' property='og:title'><meta content='/' property='og:url'><meta content='Thomas Mayfield' property='og:site_name'><link href='/assets/css/styles.css' rel='stylesheet'><script src='/assets/js/bundle.js'></script><script src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'></script><link href='/feed.xml' rel='alternate' title='Thomas Mayfield' type='application/atom+xml'></head>
+<body class='post '>
+<nav aria-label='main navigation' class='navbar has-shadow is-primary' role='navigation'><div class='container'><div class='navbar-brand'><div class='navbar-item'><div class='title is-2'>Thomas Mayfield</div></div><a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='navbar-menu' role='button'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div class='navbar-menu' id='navbar-menu'><div class='navbar-start'><a class='navbar-item' href='/'>Home</a><a class='navbar-item' href='/reading'>Reading</a><a class='navbar-item' href='/code'>Code</a><a class='navbar-item' href='/about'>About Me</a></div></div></div></nav>
+<section class='section'>
+<div class='container'>
+<h2 class='title is-2'>Vim syntax highlighting for SQL strings inside Python code</h2>
+
+<div class='date subtitle is-5'>July 11, 2020</div>
+
+<div class='content'><p>A few years ago, I shared a bit of Vimscript for <a href="https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/">highlighting SQL strings inside Ruby code</a>. Fast forward to today: I’ve been doing a bunch of ETL work recently using <a href="https://airflow.apache.org/">Apache Airflow</a>, which is written in Python. That means a bunch of SQL queries embedded in Python strings, and I wanted to see about getting some highlighting on them for easier visual parsing.</p>
+
+<p>In the Ruby version, I relied on the convention of using <code class="highlighter-rouge">&lt;&lt;-SQL</code> heredoc strings to differentiate  between regular strings and ones containing SQL queries. In Python, I had to get slightly more clever: this will treat any triple quotes-delimited string as SQL if it starts with a valid SQL keyword (e.g. <code class="highlighter-rouge">select</code>, <code class="highlighter-rouge">alter</code>, etc). That might not always be true in your case, but it works pretty well for the very SQL-heavy Python work I’ve been doing.</p>
+
+<p>Drop this in <code class="highlighter-rouge">~/.vim/after/syntax/python.vim</code>:</p>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unlet <span class="nv">b:current_syntax</span>
+
+<span class="k">syn</span> include @SQL syntax/sql<span class="p">.</span><span class="k">vim</span>
+syntax region sqlPythonString 
+<span class="se">      \</span> matchgroup<span class="p">=</span>SpecialComment 
+<span class="se">      \</span> <span class="k">start</span><span class="p">=~</span>\z<span class="p">(</span><span class="s1">''</span>'\<span class="p">|</span><span class="s2">""</span>"\<span class="p">)</span>\_s*\<span class="p">(</span>ALTER\<span class="p">|</span>BEGIN\<span class="p">|</span>CALL\<span class="p">|</span>COMMENT\<span class="p">|</span>COMMIT\<span class="p">|</span>CONNECT\<span class="p">|</span>CREATE\<span class="p">|</span>DELETE\<span class="p">|</span>DROP\<span class="p">|</span>END\<span class="p">|</span>EXPLAIN\<span class="p">|</span>EXPORT\<span class="p">|</span>GRANT\<span class="p">|</span>IMPORT\<span class="p">|</span>INSERT\<span class="p">|</span>LOAD\<span class="p">|</span>LOCK\<span class="p">|</span>MERGE\<span class="p">|</span>REFRESH\<span class="p">|</span>RENAME\<span class="p">|</span>REPLACE\<span class="p">|</span>REVOKE\<span class="p">|</span>ROLLBACK\<span class="p">|</span>SELECT\<span class="p">|</span>SET\<span class="p">|</span>TRUNCATE\<span class="p">|</span>UNLOAD\<span class="p">|</span>UNSET\<span class="p">|</span>UPDATE\<span class="p">|</span>UPSERT\<span class="p">|</span>WITH\<span class="p">)~</span> 
+<span class="se">      \</span> <span class="k">end</span><span class="p">=+</span>\z1<span class="p">+</span> 
+<span class="se">      \</span> contains<span class="p">=</span>@SQL
+
+<span class="k">let</span> <span class="nv">b:current_syntax</span> <span class="p">=</span> <span class="s1">'python'</span>
+</code></pre></div></div>
+
+<p>Results:</p>
+
+<p><img src="/images/sql-python-screenshot.png" alt="Python string with SQL syntax highlighting applied" /></p>
+</div>
+</div>
+</section>
+</body>
+<script data-goatcounter="https://thegreatape.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</html>
