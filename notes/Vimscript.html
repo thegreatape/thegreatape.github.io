@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vimscript</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="bear-note-unique-identifier" content="E3B58F83-6155-485C-A351-0CBA5AF0AEBB-46583-0004CF37B10E9F72"
+        <meta name="created" content="2020-08-02T18:23:37-0400"/>
+        <meta name="modified" content="2020-08-16T11:43:10-0400"/>
+        <meta name="tags" content=""/>
+        <meta name="last device" content="Rocinante"/>
+    </head>
+    <body>
+        <div class="note-wrapper">
+            <h1 id="Vimscript">Vimscript</h1>
+<h2 id="Echoing Messages">Echoing Messages</h2>
+<p><code class='code-inline'>:echo</code> will print output, <code class='code-inline'>:echom</code> will print output and have it appear in message history, accessible via <code class='code-inline'>:messages</code>. The messages command holds the last 200 messages.</p>
+<br>
+<h2 id="Setting Options">Setting Options</h2>
+<p>Boolean options work by <code class='code-inline'>:set &lt;option&gt;</code> for on, <code class='code-inline'>:set no&lt;option&gt;</code> for off,  and <code class='code-inline'>:set &lt;option&gt;!</code> to toggle.</p>
+<br>
+<p>Options with values are set with <code class='code-inline'>:set &lt;option&gt;=&lt;value&gt;</code>.</p>
+<br>
+<p>Check if an option is set with <code class='code-inline'>:set &lt;option&gt;?</code>. Will print <code class='code-inline'>&lt;option&gt;</code> if enabled, <code class='code-inline'>no&lt;option&gt;</code> if not. For options with values, prints <code class='code-inline'>&lt;option&gt;=&lt;value&gt;</code>.</p>
+<br>
+<p>Can set multiple options in a single line, e.g. <code class='code-inline'>:set &lt;option&gt; &lt;option2&gt;=&lt;value&gt;</code>.</p>
+<br>
+<p>Settings can be made local to a buffer by using <code class='code-inline'>setlocal</code> instead of <code class='code-inline'>set</code> - however, if the option doesn’t have a local version, it’ll set the global one.</p>
+<br>
+<h2 id="Mapping">Mapping</h2>
+<p>How to make pressing some keys do something other than what they normally would.</p>
+<br>
+<p><code class='code-inline'>:map &lt;src&gt; &lt;target&gt;</code> changes behavior in normal mode.  Map special characters like <code class='code-inline'>:map &lt;space&gt; viw</code>. Or modifiers, <code class='code-inline'>:map &lt;c-d&gt; dd</code>.</p>
+<br>
+<p><code class='code-inline'>nmap</code>, <code class='code-inline'>vmap</code>, <code class='code-inline'>imap</code> to make mappings in normal / visual / insert mode.</p>
+<br>
+<p>Remember that these mappings are like macros: <code class='code-inline'>imap &lt;c-d&gt; dd</code> doesn’t delete a line when control-D is pressed in normal mode, it enters “dd”—because this means “map pressing Control+d to pressing d and d in insert mode”.</p>
+<br>
+<p><code class='code-inline'>map</code>, <code class='code-inline'>nmap</code>, <code class='code-inline'>vmap</code>, <code class='code-inline'>imap</code> are all recursive - they take other mappings into account. This is never a good idea. Instead, you should <b>always use the nonrecusive mappings variant</b>, starting with <code class='code-inline'>nore</code>- : <code class='code-inline'>noremap</code>,  <code class='code-inline'>nnoremap</code>, <code class='code-inline'>vnoremap</code>, and<code class='code-inline'> inoremap</code>.</p>
+<br>
+<p>You can make mappings local to a buffer by adding <code class='code-inline'>&lt;buffer&gt;</code> after the command and before the other args- e.g. <code class='code-inline'>:nnoremap &lt;buffer&gt; &lt;leader&gt;x dd</code>. These can shadow global mappings — the more specific mapping wins.</p>
+<br>
+<p><code class='code-inline'>:setlocal all</code> to show all local options. Just <code class='code-inline'>:setlocal</code> with no args to show ones different than the defaults.</p>
+<br>
+<h2 id="Leaders">Leaders</h2>
+<p>Defining a leader key gives you a new namespace of bindings, where you won’t interfere with preexisting bindings. You can use it as prefix on mappings, though mappings can also be sequences themselves without using the leader.</p>
+<br>
+<p>There’s also the local leader — a prefix for use only in certain kinds of files. It’s conventional to use this <code class='code-inline'>&lt;localleader&gt;</code> for local mappings, so you don’t clobber someone else’s bindings in your plugin. leader and localleader can be set to the same thing, but that’s up to the individual.</p>
+<br>
+<h2 id="Abbreviations">Abbreviations</h2>
+<p>You can use <code class='code-inline'>:iabbrev src target</code> to change any time you type “src” in insert mode to “target”.  Typo correction or mini-snippets! They are triggered when you type any ‘non-keyword character’ after the sequence. What’s a keyword character is controlled by the <code class='code-inline'>iskeyword</code> setting, whose default value is complicated, but or less expands to anything that’s a letter, number, or underscore.</p>
+<br>
+<p>You can do this with mappings, too, but abbreviations pay attention to the characters before and after the sequence. You probably don’t want letters in the middle of another word to trigger an expansion.</p>
+<br>
+<h2 id="Autocommands">Autocommands</h2>
+<p>Autocommands are a way to run commands automatically when events happen. They look like: <code class='code-inline'>:autocmd &lt;events&gt; &lt;filter&gt; &lt;command&gt;</code>.  For example: <code class='code-inline'>:autocmd BufNewFile *.txt :write</code> would write out a new file when opened as long as the name begins with <code class='code-inline'>*.txt</code>.</p>
+<br>
+<p>You can specific multiple events in the same autocmd call, separated by commas. A common thing is to use both <code class='code-inline'>BufNewFile</code> and <code class='code-inline'>BufRead</code> together, so the commands are run whether or not it exists. <code class='code-inline'>FileType</code> is also very commonly used, fired whenever vim sets a buffer’s filetype.</p>
+<br>
+<p>There are <b>lots</b> of events built into Vim. <code class='code-inline'>:help autocmd-events</code> for a list.</p>
+<br>
+<p>Creating an autocommand isn’t indempotent. If you run it multiple times (like you might if you were reloading your vimrc). To solve this, you combine two things: <code class='code-inline'>augroup</code> to put your autocommands in named thematic groups and <code class='code-inline'>autocmd!</code> to clear all the autocommands from that group.</p>
+<br>
+<p>This looks something like:</p>
+<pre><code class='code-multiline' lang='vim'>augroup airfline
+  <span class="sf_code_builtin">autocmd</span><span class="sf_code_operator">!</span>
+  <span class="sf_code_builtin">autocmd</span> User AirlineToggledOn <span class="sf_code_keyword">call</span> <span class="sf_code_function">AirlineInit</span><span class="sf_code_punctuation">()</span>
+augroup end</code></pre>
+<p><br></p>
+<h2 id="Operator-Pending Mappings">Operator-Pending Mappings</h2>
+<br>
+<p>An <b>operator</b> is a command that waits for you to enter a movement command, then does its thing on the text between your current cursor position and where the movement command would land it.</p>
+<br>
+<p>You can remap existing and create new movements with <code class='code-inline'>:onoremap</code>. Think about the mapping keys (the second arg) as whatever you want to be moving the cursor to. </p>
+<br>
+<p>To move around, you might want to use normal mode operations. You can use <code class='code-inline'>:normal!</code> inside the mapping for this, with <code class='code-inline'>&lt;c-u&gt;</code> to clear the range that vim might insert. For example, “inside last parenthesis”:</p>
+<br>
+<p><code class='code-inline'>:onoremap il( :&lt;c-u&gt;normal! F)vi(&lt;cr&gt;</code></p>
+<br>
+<h2 id="Normal and Execute">Normal and Execute</h2>
+<br>
+<p><code class='code-inline'>:normal!</code> takes a set of characters and does whatever they’d do if you typed them in normal mode. With the <code class='code-inline'>!</code>, mappings are used, without it, they are not.</p>
+<br>
+<p><code class='code-inline'>:execute</code> takes a Vimscript string and runs it as a command.</p>
+<br>
+<p>You want to combine them because <code class='code-inline'>:normal</code> doesn’t recognize the special characters like “<cr>” for carriage return. But execute will substitute in special characters before running it — so you could pass execute a string containing a :normal command with “\r” and it’ll sub in an actual carriage return before evaluation. <code class='code-inline'>:help expr-quote</code> has all the escape sequences you can use in a string.</p>
+<br>
+<p>Neat: so that’s how you can substitute in a newline without remembering how to actually enter one: <code class='code-inline'>:execute ":s/ /\r/g"</code></p>
+<br>
+<h2 id="Variables">Variables</h2>
+<p>Set a variable using <code class='code-inline'>let</code>—  <code class='code-inline'>:let foo = “bar”</code>.  Show it with <code class='code-inline'>echo</code>; <code class='code-inline'>:echo foo</code>. </p>
+<br>
+<p>You can read + write options with variables by using the <code class='code-inline'>&</code>- prefix syntax: <code class='code-inline'>:echo &nameofoption</code> and <code class='code-inline'>let &nameofoption = value</code>. This can be useful if you want to refer to the value of the option when setting it — e.g. <code class='code-inline'>:let &textwidth = &textwidth + 10</code>.  These are globally set options — if you want to set an option this way in just one window, prefix it with <code class='code-inline'>&l:</code> — e.g. <code class='code-inline'>:let &l:number = 0</code> (any non-zero int is truthy in Vimscript).</p>
+<br>
+<p>You can also read and write registers as variables, prefixing their names with <code class='code-inline'>@</code>: <code class='code-inline'>let @a = “hello”!</code> / <code class='code-inline'>:echo @a</code>. If you write to them (especialy commonly used stuff like the <code class='code-inline'>@@</code> unnamed register), it’s a good idea to try and restore them after use, to avoid surprises for others.</p>
+<br>
+<p>There are a bunch of specific registers that you might want to modify: like <code class='code-inline'>”</code> is where yanked text gets dropped and <code class='code-inline'>/</code> has the search pattern. You can read and modify these.</p>
+<br>
+<p>A variable can be scoped by prefixing it — for example, putting <code class='code-inline'>b:</code> in front of a variable’s name makes it buffer local. There are a few of these: <code class='code-inline'>:help internal-variables</code>.</p>
+<br>
+<h2 id="Conditionals">Conditionals</h2>
+<p>Sidenote: you can separate multiline statements with <code class='code-inline'>|</code> pipes instead of actually entering newlines.</p>
+<br>
+<p><code class='code-inline'>0</code> is falsey, anything else number-wise is truthy. As for strings… Vim will try to coerce variables and literals. Don’t use strings in conditionals without doing something explicit to make them into numbers yourself!</p>
+<br>
+<p>Otherwise, unsurprising syntax:</p>
+<br>
+<pre><code class='code-multiline' lang='vim'><span class="sf_code_keyword">if</span> <span class="sf_code_number">0</span>
+    <span class="sf_code_keyword">echom</span> <span class="sf_code_string">"if"</span>
+<span class="sf_code_keyword">elseif</span> <span class="sf_code_string">"nope!"</span>
+    <span class="sf_code_keyword">echom</span> <span class="sf_code_string">"elseif"</span>
+<span class="sf_code_keyword">else</span>
+    <span class="sf_code_keyword">echom</span> <span class="sf_code_string">"finally!"</span>
+<span class="sf_code_keyword">endif</span></code></pre>
+<p><br></p>
+<p>Comparisons between numbers are unsurprising, but <code class='code-inline'>==</code> to compare two strings <b>depends on user settings</b> (particularly, the <code class='code-inline'>ignorecase</code> option). Wew lad. So, never use <code class='code-inline'>==</code> and instead always use <code class='code-inline'>==?</code>, which is case-insensitive or <code class='code-inline'>==#</code> is always case-sensitive — regardless of user settings. <code class='code-inline'>:help expr4</code> to see all the different comparison operators.</p>
+<br>
+<h2 id="Functions">Functions</h2>
+<p>Function names must start with a capital letter if they are unscoped. Most do it anyway, even if scoped, by convention.</p>
+<br>
+<pre><code class='code-multiline' lang='vim'><span class="sf_code_keyword">function</span> <span class="sf_code_function">Meow</span><span class="sf_code_punctuation">()</span>
+  <span class="sf_code_keyword">echom</span> “Meow<span class="sf_code_operator">!</span>”
+<span class="sf_code_keyword">endfunction</span></code></pre>
+<p><br></p>
+<p>And are then run with <code class='code-inline'>:call</code>, e.g. <code class='code-inline'>:call Meow()</code>. Values are returned with <code class='code-inline'>return</code>. Or, you can use a function call in an expression, like <code class='code-inline'>:echom Meow()</code> If a function doesn’t explicitly return something, it’ll implicitly return <code class='code-inline'>0</code>. </p>
+<br>
+<p>Functions can take arguments — passed like <code class='code-inline'>FunctionName(argname)</code> and referred to with argument scope like <code class='code-inline'>a:argname</code> in the function body. You can also pass varargs with <code class='code-inline'>...</code> and refer to them with <code class='code-inline'>a:0</code> , <code class='code-inline'>a:1</code> … and <code class='code-inline'>a:000</code> for a list of all the extra args passed beyond the named ones. You cannot reassign argument-scoped variables.</p>
+<br>
+<p>For reasons, only up to 20 arguments can be given.</p>
+<br>
+<p>It’s a good idea to scope functions to be script-scoped, by prefixing their names with <code class='code-inline'>s:</code>. If you do this, calls to them in the script must be prefixed with <code class='code-inline'>&lt;SID&gt;</code> (which expands to the unique id of the current script)— otherwise, Vim will look in the global namespace for the function.</p>
+<br>
+<h2 id="Numbers">Numbers</h2>
+<p>Vim has both ints and floats — hex and octal notation can be used for the former. Combining them in an expression with cast the int to a float before evaluation.</p>
+<br>
+<h2 id="Strings">Strings</h2>
+<p>Use <code class='code-inline'>.</code> to concat strings together— <code class='code-inline'>+</code> is for numbers (and having Vim try to coerce your strings to numbers is unlikely to be what you want). So, <code class='code-inline'>”hello” . “ world”</code>. </p>
+<br>
+<p>Escape special characters inside strings with <code class='code-inline'>\</code> — e.g. <code class='code-inline'>”the so-called \”monkeys\””</code>.  <code class='code-inline'>:help expr-quote</code> for a list of these.</p>
+<br>
+<p>If you use single quotes instead of double quotes, you create a literal string — no special characters are replaced, with the exception of <code class='code-inline'>''</code> denoting a single <code class='code-inline'>'</code>.</p>
+<br>
+<p>Some useful functions:</p>
+<ul><li><code class='code-inline'>strlen(“string”)</code> for length of a string.
+</li><li><code class='code-inline'>split(“bar baz foo”)</code> to return an array split into split on whitespace (or pass a seperator as a second arg).
+</li><li><code class='code-inline'>join([‘foo’, ‘bar’], ‘, ‘)</code> does what it says on the tin
+</li><li><code class='code-inline'>tolower</code> and <code class='code-inline'>toupper</code> exist
+</li></ul>
+<br>
+<p><code class='code-inline'>:help functions</code> for a list of built-in functions. To look up a function with <code class='code-inline'>:help</code>, use parens — so that <code class='code-inline'>:help split()</code> goes to the entry for the function, not the window-splitting command <code class='code-inline'>split()</code>.</p>
+<br>
+<h2 id="Regular Expressions">Regular Expressions</h2>
+<p>If you start your regexes with <code class='code-inline'>\v</code>, that puts the regex parsing mode into “very magic”, which mostly means “like you’d expect to see in modern programming languges”.  Always do this.</p>
+<br>
+<p>When composing regexes in strings — regex that <code class='code-inline'>'</code> denotes a raw string, so is great for not needing to escape backslashes — but use <code class='code-inline'>"</code> if you want escape sequences evaluated. You can combine the two types of strings (with <code class='code-inline'>.</code> ) if you need both!</p>
+<br>
+<h2 id="The Quickfix Window">The Quickfix Window</h2>
+<p>The quickfix window is a special window that can be opened to display a list. Open or highlight an open one with <code class='code-inline'>:copen</code>. Height can be passed as an argument. Used by (for example) <code class='code-inline'>:grep</code></p>
+<br>
+<p><code class='code-inline'>:cnext</code> and <code class='code-inline'>:cprevious</code> to open the next/prev file and matching line in the list.</p>
+<br>
+<h2 id="<cword> / <cWORD>"><cword> / <cWORD></h2>
+<p><code class='code-inline'>&lt;cword&gt;</code> is a special sequence you can use to get the current word (like the <code class='code-inline'>*</code>  key matches) under the cursor, in command-line mode. <code class='code-inline'>&lt;cWORD&gt;</code>  for the WORD version (which is all non-blank characters separated by spaces).</p>
+<br>
+<h2 id="Calling Out To Shell Commands">Calling Out To Shell Commands</h2>
+<p>Use <code class='code-inline'>shellescape</code> on Vimscript string that’ll be passed to external commands (escaping <code class='code-inline'>;</code>, <code class='code-inline'>&</code>, etc).</p>
+<br>
+<p><code class='code-inline'>:silent</code> can be useful for supressing output — if the command produces warnings or stuff on stderr. <code class='code-inline'>:silent</code> runs the Vimscript comand it’s given while hiding any messages it’d normally display. Like: <code class='code-inline'>:silent execute “grep …”</code>. With a bang <code class='code-inline'>:silent!</code> will also skip error messages.</p>
+<br>
+<h2 id="Plugin Directory">Plugin Directory</h2>
+<p>For Neovim, this is under <code class='code-inline'>~/.local/share/nvim/site/plugin</code></p>
+<br>
+<h2 id="Visual Mode">Visual Mode</h2>
+<p>When you open a command line while in visual mode (by pressing <code class='code-inline'>:</code>), vim adds that <code class='code-inline'>’&lt;,’&gt;</code> at the beginning of the range—this represents the currently selected range. You can delete it by pressing <code class='code-inline'>&lt;c-u&gt;</code>. That’s why you’ll often see stuff like <code class='code-inline'>:&lt;c-u&gt;call ...</code> in visual mode mappings — if you don’t want the mapping to be operating on the current visual range, you mapping will need to clear it.</p>
+<br>
+<p><code class='code-inline'>visualmode()</code> returns a string representing what kind of visual mode we’re in (“v” for characterwise, “V” for linewise, <c-v> for blockwise, “char” if called from normal mode using a character-wise motion).</p>
+<br>
+<h2 id="Custom Operators">Custom Operators</h2>
+<p>An operator is a command given before a motion. For example, in <code class='code-inline'>dt(</code> (“delete to open paren”), the <code class='code-inline'>d</code> is the operator and <code class='code-inline'>t(</code> is the motion.</p>
+<br>
+<p>To define one’s own custom operator, you definite the actual operator itself as a function which takes the visual mode as an argument. Then you define mappings that call it:</p>
+<br>
+<ul><li>In normal mode, you must <code class='code-inline'>set opfunc=&lt;your function&gt;</code> and then call <code class='code-inline'>g@</code> to run it.
+</li><li>In visual mode, you’d clear the current selection and <code class='code-inline'>call</code> the function, passing <code class='code-inline'>visualmode()</code> by hand.
+</li></ul>
+<br>
+<p><code class='code-inline'>:help map-operator</code> has an example:</p>
+<br>
+<pre><code class='code-multiline' lang='vim'>	nmap <span class="sf_code_operator">&lt;</span><span class="sf_code_keyword">silent</span><span class="sf_code_operator">&gt;</span> <span class="sf_code_operator">&lt;</span>F4<span class="sf_code_operator">&gt;</span> <span class="sf_code_punctuation">:</span><span class="sf_code_keyword">set</span> <span class="sf_code_builtin">opfunc</span><span class="sf_code_operator">=</span>CountSpaces<span class="sf_code_operator">&lt;</span>CR<span class="sf_code_operator">&gt;</span>g@
+	vmap <span class="sf_code_operator">&lt;</span><span class="sf_code_keyword">silent</span><span class="sf_code_operator">&gt;</span> <span class="sf_code_operator">&lt;</span>F4<span class="sf_code_operator">&gt;</span> <span class="sf_code_punctuation">:</span><span class="sf_code_operator">&lt;</span>C<span class="sf_code_operator">-</span>U<span class="sf_code_operator">&gt;</span><span class="sf_code_keyword">call</span> <span class="sf_code_function">CountSpaces</span><span class="sf_code_punctuation">(</span><span class="sf_code_function">visualmode</span><span class="sf_code_punctuation">(),</span> <span class="sf_code_number">1</span><span class="sf_code_punctuation">)</span><span class="sf_code_operator">&lt;</span>CR<span class="sf_code_operator">&gt;</span></code></pre>
+<p><br></p>
+<h2 id="Lists">Lists </h2>
+<p>… exist, with surprisingly few suprises from other dynamic languages. Can take slices with python-style notation (<code class='code-inline'>[1, 2, 3, 4, 5][0:2]</code>). Concat with <code class='code-inline'>+</code>. Bunch of built-in functions (<code class='code-inline'>add</code>, <code class='code-inline'>list</code>, <code class='code-inline'>reverse</code> etc) to work on them. <code class='code-inline'>:help List</code> for lots of details.</p>
+<br>
+<h2 id="Loops">Loops</h2>
+<p>Vimscript has both a python-style <code class='code-inline'>for i in list</code> for loop and a <code class='code-inline'>while expression</code> loop. </p>
+<br>
+<h2 id="Dictionaries">Dictionaries</h2>
+<p>Similar to other dynamic language associative arrays, but while values can be any expression, <b>keys are always coerced to strings</b>. Values can be accessed with dot or bracket notation, like JS. Dictionaries are not guaranteed to be ordered.</p>
+<br>
+<h2 id="Paths">Paths </h2>
+<p>You can get this via some string that are passed to <code class='code-inline'>expand</code> — <code class='code-inline'>"%"</code> is relative path of current file, <code class='code-inline'>"%:p"</code> is absolute path.</p>
+<br>
+<p><code class='code-inline'>fnamemodify</code> takes a file name and a path, joins them whether or not the file exists.</p>
+<br>
+<p><code class='code-inline'>globpath</code> can do a whole bunch of powerful globbing stuff. Returns a string, so will need to split on newlines.</p>
+        </div>
+        <script type="text/javascript">
+            (function() {
+
+    var doc_ols = document.getElementsByTagName("ol");
+
+    for ( i=0; i<doc_ols.length; i++) {
+
+        var ol_start = doc_ols[i].getAttribute("start") - 1;
+        doc_ols[i].setAttribute("style", "counter-reset:ol_counter " + ol_start + ";");
+
+    }
+
+})();
+
+        </script>
+        <style>
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:87.5%;line-height:1.57143em}html{font-size:14px;line-height:1.6em;-webkit-text-size-adjust:100%}body{background:#fcfcfc;color:#545454;text-rendering:optimizeLegibility;font-family:"AvenirNext-Regular"}a{color:#de4c4f;text-decoration:none}h1{font-family:"AvenirNext-Medium";color:#333;font-size:1.6em;line-height:1.3em;margin-bottom:.78571em}h2{font-family:"AvenirNext-Medium";color:#333;font-size:1.3em;line-height:1em;margin-bottom:.62857em}h3{font-family:"AvenirNext-Medium";color:#333;font-size:1.15em;line-height:1em;margin-bottom:.47143em}p{margin-bottom:1.57143em;hyphens:auto}hr{height:1px;border:0;background-color:#dedede;margin:-1px auto 1.57143em auto}ul,ol{margin-bottom:.31429em}ul ul,ul ol,ol ul,ol ol{margin-bottom:0px}ol{counter-reset:ol_counter}ol li:before{content:counter(ol_counter) ".";counter-increment:ol_counter;color:#e06e73;text-align:right;display:inline-block;min-width:1em;margin-right:0.5em}b,strong{font-family:"AvenirNext-Bold"}i,em{font-family:"AvenirNext-Italic"}code{font-family:"Menlo-Regular"}.text-overflow-ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sf_code_string,.sf_code_selector,.sf_code_attr-name,.sf_code_char,.sf_code_builtin,.sf_code_inserted{color:#D33905}.sf_code_comment,.sf_code_prolog,.sf_code_doctype,.sf_code_cdata{color:#838383}.sf_code_number,.sf_code_boolean{color:#0E73A2}.sf_code_keyword,.sf_code_atrule,.sf_code_rule,.sf_code_attr-value,.sf_code_function,.sf_code_class-name,.sf_code_class,.sf_code_regex,.sf_code_important,.sf_code_variable,.sf_code_interpolation{color:#0E73A2}.sf_code_property,.sf_code_tag,.sf_code_constant,.sf_code_symbol,.sf_code_deleted{color:#1B00CE}.sf_code_macro,.sf_code_entity,.sf_code_operator,.sf_code_url{color:#920448}.note-wrapper{max-width:46em;margin:0px auto;padding:1.57143em 3.14286em}.note-wrapper.spotlight-preview{overflow-x:hidden}u{text-decoration:none;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#e06e73 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}s{color:#878787}p{margin-bottom:0.1em}hr{margin-bottom:0.7em;margin-top:0.7em}ul li{text-indent:-0.35em}ul li:before{content:"•";color:#e06e73;display:inline-block;margin-right:0.3em}ul ul{margin-left:1.25714em}ol li{text-indent:-1.45em}ol ol{margin-left:1.25714em}blockquote{display:block;margin-left:-1em;padding-left:0.8em;border-left:0.2em solid #e06e73}.todo-list ul{margin-left:1.88571em}.todo-list li{text-indent:-1.75em}.todo-list li:before{content:"";display:static;margin-right:0px}.todo-checkbox{text-indent:-1.7em}.todo-checkbox svg{margin-right:0.3em;position:relative;top:0.2em}.todo-checkbox svg #check{display:none}.todo-checkbox.todo-checked #check{display:inline}.todo-checkbox.todo-checked+.todo-text{text-decoration:line-through;color:#878787}.code-inline{display:inline;background:white;border:solid 1px #dedede;padding:0.2em 0.5em;font-size:0.9em}.code-multiline{display:block;background:white;border:solid 1px #dedede;padding:0.7em 1em;font-size:0.9em;overflow-x:auto}.hashtag{display:inline-block;color:white;background:#b8bfc2;padding:0.0em 0.5em;border-radius:1em;text-indent:0}.hashtag a{color:#fff}.address a{color:#545454;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#0da35e 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}.address svg{position:relative;top:0.2em;display:inline-block;margin-right:0.2em}.color-preview{display:inline-block;width:1em;height:1em;border:solid 1px rgba(0,0,0,0.3);border-radius:50%;margin-right:0.1em;position:relative;top:0.2em;white-space:nowrap}.color-code{margin-right:0.2em;font-family:"Menlo-Regular";font-size:0.9em}.color-hash{opacity:0.4}.ordered-list-number{color:#e06e73;text-align:right;display:inline-block;min-width:1em}.arrow svg{position:relative;top:0.08em;display:inline-block;margin-right:0.15em;margin-left:0.15em}.arrow svg #rod{stroke:#545454}.arrow svg #point{fill:#545454}mark{color:inherit;display:inline;padding:0.2em 0.5em;background-color:#fcffc0}img{max-width:100%;height:auto}
+
+        </style>
+    </body>
+</html>
