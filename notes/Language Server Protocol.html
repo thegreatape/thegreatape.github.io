@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Language Server Protocol</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="bear-note-unique-identifier" content="296B968E-3E15-43AB-957B-01F855051E56-1076-000092C65C03E212"
+        <meta name="created" content="2020-08-18T07:33:40-0400"/>
+        <meta name="modified" content="2020-08-30T17:05:35-0400"/>
+        <meta name="tags" content=""/>
+        <meta name="last device" content="Rocinante"/>
+    </head>
+    <body>
+        <div class="note-wrapper">
+            <h1 id="Language Server Protocol">Language Server Protocol</h1>
+<p>LSP Spec: <a href="https://microsoft.github.io/language-server-protocol/specification">https://microsoft.github.io/language-server-protocol/specification</a></p>
+<br>
+<h2 id="Protocol">Protocol</h2>
+<p>Looks almost like a subset of HTTP — each message is a set of headers and a content body, separated by <code class='code-inline'>\r\n</code>. Only two headers are supported presently: <code class='code-inline'>Content-Length</code> and <code class='code-inline'>Content-Type</code>.</p>
+<br>
+<p>The content part of the message is utf8-encoded JSON, according to the JSON-RPC standard: <a href="https://www.jsonrpc.org/specification">https://www.jsonrpc.org/specification</a> — this dicates standard fields for requests and responses. </p>
+<br>
+<p>Requests have a unique id and a method to be invoked, along with optional params.</p>
+<br>
+<p>Responses have a unique id, a result (present only on success) and an error (present only on failure). The error has its own set of codes/messages specified.</p>
+<br>
+<p>Also seems to define a request batching via array standard - does LSP support this?</p>
+<br>
+<h2 id="Base JSON Structures">Base JSON Structures</h2>
+<p>The doc here’s interfaces are in Typescript.</p>
+<br>
+<p>There are requests and responses, but also notifications, which must not send back responses upon processing. They “work like events”.</p>
+<br>
+<p>Any notification or request with a method starting with <code class='code-inline'>$</code> is protocol implementation specific, so not all servers or clients might know what to do with it.</p>
+<br>
+<p>As of 3.15, you can send cancellation requests for methods and progress notifications for async work. These are the <code class='code-inline'>$/cancelRequest</code> and <code class='code-inline'>$/progress</code> methods, respectively.</p>
+<br>
+<p>The protocol says that all payloads should be objects, but “does not disallow” passing arrays for custom messages.</p>
+<br>
+<h2 id="Data Structures">Data Structures</h2>
+<p><b>Position</b> in a document is an object with <code class='code-inline'>line</code> and <code class='code-inline'>character</code> ints, both 0-based.</p>
+<br>
+<p><b>Range</b> has a <code class='code-inline'>start</code> and <code class='code-inline'>end</code> that are both positions.</p>
+<br>
+<p><b>Location</b> has a <code class='code-inline'>uri</code> for the resource it represents, and a <code class='code-inline'>range</code> for the item it describes.</p>
+<br>
+<p><b>LocationLink</b> links to two locations, so has an optional <code class='code-inline'>originalSeletionRange</code> (used for mouse interaction) and a target uri, range, and selection range (e.g. the full function if a function’s call was linked to a function body).</p>
+<br>
+<p><b>Diagnostic</b> is something like a compiler message or warning. Has a range and message, along with optional fields like severity, code, tags and other metadata. All the other metadata have enums defined for them in the protocol spec.</p>
+<br>
+<p><b>Command</b> is a reference to a command  — has a title and string refernce to the command handler. This is sort of up to the client and server pair to work out via capabilities — there are no common commands defined in the protocol itself.</p>
+<br>
+<p><b>TextEdit</b> has a range and text to be inserted at that range (empty string for delete). Can be passed as arrays to move a document through a series of edits. These are composed in a <b>TextDocumentEdit</b>, which has a versioned reference to a document, and an array of TextEdits to be run sequentially. Edits must be non-overlapping.</p>
+<br>
+<p>There are number of commands that allow the server to change file resources — <b>CreateFile</b>, <b>RenameFile</b>, <b>DeleteFile</b>.</p>
+<br>
+<p>A <b>WorkspaceEdit</b> represents changes to multiple resources. It has two fields, used depending on the client’s capabilities: <code class='code-inline'>changes</code>, a object of DocumentUris => TextEdits for non-version-capable clients, and <code class='code-inline'>documentChanges</code>, an array of TextDocumentEdits or file resource changes (CreateFile et al).</p>
+<br>
+<p><b>WorkspaceEditClientCapabilities</b> are a way for the client to express what support they have for resource edits and failure handling (like, undo-level, transaction-level).</p>
+<br>
+<p><b>TextDocumentIdentifier</b> is a uri to a document. There’s also a versioned <b>VersionedTextDocumentIdentifier</b> with… a version number. A <b>TextDocumentPositionParams</b> combines a text document identifier with a Postion.</p>
+<br>
+<p><b>TextDocumentItem</b> is an item to “transfer a a text document from client to server” — it’s got the uri, language, version, and full text of the document. There’s a standard list of ids/names for languages that should be used. </p>
+<br>
+<p>A <b>DocumentFilter</b> describes a document’s language by either a file pattern (globbing) or scheme (as in part of the uri). A <b>DocumentSelector</b> is an array of these filters. These are composed in <b>TextDocumentRegistrationOptions</b> — which is apparently used to register what language a set of documents will match?</p>
+<br>
+<p><b>StaticRegistrationOptions</b> return an id so the request can be un-registered later. Not sure yet where this is used.</p>
+<br>
+<p><b>MarkupContent</b> is a string which can be in different formats: plaintext or markdown. Often used in results that contain documention fields.</p>
+<br>
+<p>There are a couple data structures used by work progress notifications. <b>WorkDoneProgressBegin</b> signals work has begun (with title / message / percentage and whether it is cancellable), alongside <b>WorkDoneProgressReport</b> and <b>WorkDoneProgressEnd</b>. One initiates a work done progress by either (client) sending a request with a workDoneToken as part of the params or (server) sending a request to the client to <code class='code-inline'>window/workDoneProgressCreate</code> (but only if the client has signaled that it has the <code class='code-inline'>window.workDoneProgress</code> capability). There is also a system for “partial” progress results via the notfiications system. Not super clear how it’s different than above, but maybe notifications vs request/response? Is new in 3.15.</p>
+<br>
+<h2 id="Actual Protocol">Actual Protocol</h2>
+<p>In order:</p>
+<ul><li>header
+</li><li>optional client capabilities section
+</li><li>optional server capabilties section
+</li><li>request section - method and params, along with whether the request supports work done progress and partial result progress
+</li><li>response section - returned data or error or partial result notification
+</li></ul>
+<br>
+<p>Responses to requests should be in “roughly” the order the requests appear (e.g. if your doing concurrent processing of reqs, you need to send them back in an order that makes sense).</p>
+<br>
+<p>It is up to the client to decide when to start and stop a server. When started, the client sends an <b>Initialize</b> request (this… extends WorkDoneProgressParams???). That can contain:</p>
+<ul><li>parent process id
+</li><li>root uri of workspace
+</li><li>client capabilities
+</li><li>optionally: 
+<ul><li>	client name/version, client init options, trace enable / disable, workspace folders
+</li></ul>
+</li></ul>
+<br>
+<p><b>ClientCapabilities</b> describe what the client can do.</p>
+<ul><li>workspace capabilities
+<ul><li>	applying batch edits
+</li><li>	whether files or configuration changed
+</li><li>	workspace symbols (??)
+</li><li>	executing a command
+</li><li>	supporting workspace folders
+</li><li>	configuration requests (??)
+</li></ul></li><li>text document capabilties
+<ul><li>	synchronization (undocumented what this means inline?)
+</li><li>	completion
+</li><li>	hover
+</li><li>	signature help
+</li><li>	declaration
+</li><li>	definition
+</li><li>	type definition
+</li><li>	implementation
+</li><li>	references
+</li><li>	document highlighting
+</li><li>	document symbol (??)
+</li><li>	code action (??)
+</li><li>	code lens (??)
+</li><li>	document link
+</li><li>	color provider
+</li><li>	formating
+</li><li>	range formatting
+</li><li>	on type formatting
+</li><li>	rename
+</li><li>	publish diagnostics
+</li><li>	folding range
+</li><li>	selection range
+</li></ul></li><li>window capabilities
+<ul><li>	just whether it supports workDoneProgress
+</li></ul></li><li>experimental capabilities
+</li></ul>
+<br>
+<p><b>ServerCapabilities</b> define what the server can do.</p>
+<ul><li>how text documents are synced
+</li><li>completion
+</li><li>hover
+</li><li>signature help
+</li><li>go to declaration
+</li><li>go to definition
+</li><li>go to type definition
+</li><li>go to implementation
+</li><li>document highlight
+</li><li>code actions (??)
+</li><li>code lens (??)
+</li><li>color provider
+</li><li>document formatting
+</li><li>document range formatting
+</li><li>on type formatting
+</li><li>renaming
+</li><li>folding range
+</li><li>execute command
+</li><li>selection range
+</li><li>workspace folders
+</li><li>experimental capabilities
+</li></ul>
+<br>
+<h2 id="Window Methods">Window Methods</h2>
+<p>A <b>shutdown</b> message can be sent from the client as a server to stop serving requests, but not exit the process. An <b>exit notification</b> asks it to actually exit.</p>
+<br>
+<p>A <b>ShowMessage</b> notification asks the server to send a message to the client to display. Can be Error, Warning, Info, Log. Can also be sent as a request - can pass actions and wait for a response (actions are strings, might be something like “Retry”. guesing the client can click / select to send a response back?).</p>
+<br>
+<p>There’s also a <b>LogMessage</b> notification for the server to ask the client to log a message.</p>
+<br>
+<h2 id="Telemetry Methods">Telemetry Methods</h2>
+<p>A <b>TelemetryNotification</b> is sent to the client to log a telemetry event (whatever that is).</p>
+<br>
+<h2 id="Client Methods">Client Methods</h2>
+<p><b>registerCapability</b> and <b>unregisterCapability</b> are requests sent from the server to the client to “register a new capability” - a string and a method / handler name. Can pass options, including things like document selectors to only register for a certain language, for example.</p>
+<br>
+<h2 id="Workspace Methods">Workspace Methods</h2>
+<p>Workspace folders are for multi-root projects (so, like a native C / Rust part of a Python / Ruby project, I think). Client and server both a capabilities to express they support this - the server’s optionally can support change notifications, for when folders are added or removed. A <b>WorkspaceFolder</b> itself is an array of DocumentURIs / name pairs.</p>
+<br>
+<p><b>DidChangeConfiguration</b> is a notfications from cleint to server to say “hey, I’ve change some configuration settings”. The server then can make a <b>Configuration</b> request to fetch them - each requested setting has a optional scopeUri and section.</p>
+<br>
+<p>The server should be kept appraised of file changes via <b>DidChangeWatchedFiles</b> notifications from the client. It’s recommended that uservers use this instead of watching the files on their own (because it’s hard cross-platform, not free, client might start > 1 server, and there are more servers than clients out there). The server registers what pattern it watches, using a glob pattern and what kind of events it wants (create, change, delete).</p>
+<br>
+<p>A <b>WorkspaceSymbol</b> method is a client => server request to list all the symbols in a workspace that match a provided query string. </p>
+<br>
+<p><b>ExecuteCommand</b> is the client asking the server to… execute a command, provided as an array of strings. TYpicaly, this means the server will execute the command, then send back a WorkspaceEdit structure to apply it to the client.</p>
+<br>
+<p><b>WorkspaceEdit</b> is a request from server to client to modify some client-side resource. Basically a label string and a composed WorkspaceEdit.</p>
+<br>
+<h2 id="Text Synchronization Methods">Text Synchronization Methods</h2>
+<p>Clients must support <b>textDocumentdidOpen</b>, <b>textDocumentdidChange</b> and <b>textDocumentdidClose</b>. didChange has both full and incremental syncronization, both of which must be supported. Servers must implement all three, or none.</p>
+<br>
+<p>When a <b>didOpen</b> is sent client => server, it signals that the client is now managing the document, so the server should not be trying to read it from the uri (as the client might have in-memory changes not yet committed to disk/wherever). open / close requests must be balanced (like, one open and close per resource over time).</p>
+<br>
+<p>A resource must be claimed by the client with a didOpen before it can sent a <b>didChange</b> to the server. The didChange includes the type of sync (full or incremental), the document version, and the changes. The changes are either the full text, or an array of range<i>length</i>text changeset. </p>
+<br>
+<p>There’s also a <b>willSaveTextDocument</b> notification fired before the client actually does a write (includes why the save was triggered, e.g. manual<i>periodic</i>was unfocused). Additionally, the client can make a <b>willSaveWaitUntilTextDocument</b> request to the server, to allow the server to optionally return a set of TextEdits to apply before save (so, for autoformatting). Client is allowed to drop the results if the server takes too dang long. And finally, there’s a <b>didSaveTextDocument</b> notification for “yeah, I saved it”. It can include the text of the document.</p>
+<br>
+<p>The <b>didClose</b> means that the source of truth for the doc is now no longer in client’s memory, but can be pulled from the document’s uri.</p>
+<br>
+<h2 id="Diagnotistics Methods">Diagnotistics Methods</h2>
+<p>Diagnotistics are owned by the server (which must own clearing them when needed). When a resource changes and diagnostics are regenerated by the server, the client is notified via <b>PublishDiagnosticsNotifications</b>, composing a document uri, a version number of the document, and an array of Diagnostics</p>
+<br>
+<h2 id="Language Features">Language Features</h2>
+<h3 id="Completion">Completion</h3>
+<p>The client sends the server a completion request with a document and a cursor position to get back a list of completion candidates. This can be expensive, so the server may elect to provide a resolve callback instead returning the complete results in the response.</p>
+<br>
+<p>The <b>CompletionClientCapabilities</b> struct declares what kind of completion the client supports:</p>
+<ul><li>	snippet support — can the server return a snippet with info about placeholders and different sections to be tabbed between (“tab stops”)
+</li><li>	commit character support. can be both: 
+<ul><li>		what characters trigger completion without manual prompting
+</li><li>		what character will select and commit the selected candidate when typed
+</li></ul></li><li>	documentation format - what kind of markup does the client support for documentation strings
+</li><li>	deprecated support - support for making a candidate as deprecated (I think)
+</li><li>	preselection of a candidate support
+</li><li>	tag support - does the client support the tag property on candidates? (… what are tags?)
+</li><li>	what kind of completion items it supports - e.g. text, methods, class names, etc.
+</li><li>	support for sending additional context along with the completion request.
+</li></ul>
+<br>
+<p>The server can also pass back an array of additional TextEdits to apply when a candidate is selected.</p>
+<br>
+<h3 id="Snippets">Snippets</h3>
+<p>A snippet body can have tab stops (denoted by <code class='code-inline'>$1</code>, <code class='code-inline'>$2</code> etc) to control cursor movement through the snippet. These can have choices embedded in them as well, including variables representing surrounding context or transforms of its data. There’s a whole BNF grammar definining what these things can do.</p>
+<br>
+<h3 id="Hover">Hover</h3>
+<p>A hover request simply asks the server for hover info given a document and cursor position. The server returns (potentially markup-containing) doc string and optionally a range that it applies to.</p>
+<br>
+<h3 id="Signature Help">Signature Help</h3>
+<br>
+<p>Like completion, supports different kinds of trigger settings. A response might return multiple possible signatures, along with the active signature and parameter (what’s selected and… cursor position? not sure.) Each signature has a label, optional docstring, and optional parameters, each of which can have its own label, position (either a string or index, depending on the sig’s label format) and docstring.</p>
+<br>
+<h3 id="Goto Declaration">Goto Declaration</h3>
+<p>Client => server request to find where a symbol is declared. The server will send back 0 <span class='arrow'><svg width="11px" height="10px" viewBox="0 0 11 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >    <g id="right-arrow" >        <path d="M1.77635684e-14,5 L9,5" id="rod" stroke="#000000" stroke-width="2" ></path>        <path d="M11,5 L6,0.5 L6,9.5 L11,5 Z" id="point" fill="#000000"></path>    </g></svg></span> many Locations or LocationLinks.</p>
+<br>
+<h3 id="Goto Definition">Goto Definition</h3>
+<p>Same req/resp parameters as Goto Declaration - is this supported to jump to (say) a class definition instead of an instance declaration? But that sounds more like the next item, Goto Type Definition. Maybe this matters in languages like C with header files.</p>
+<br>
+<h3 id="Goto Type Definition / Type Implementation">Goto Type Definition / Type Implementation</h3>
+<p>Same as previous gotos — need to figure out the differences between these latter three.</p>
+<br>
+<h3 id="Document Highlights">Document Highlights</h3>
+<p>Client sends a request to the server with the current cursor position, to return a set of document ranges to highlight (like hitting <code class='code-inline'>*</code> in Vim-ish, only no search). Can return different kinds of highlight: text, reading a variable or writing to a variable.</p>
+<br>
+<h3 id="Document Symbols">Document Symbols</h3>
+<p>Server returns either a flat list or hierachical list of symbols and their ranges found in a document. These can be files, modules, classes, methods… etc (down to fields and constructors). If hierachical, each symbol has zero or more children.</p>
+<br>
+<h3 id="Code Actions">Code Actions</h3>
+<p>Client => server request to run some action on a document and range, generally to do stuff like refactor, beautify, or fix a problem in code. The server returns a list of commands to be shown by the client, after which one can be selected for the server to apply. There are a set of predefined code action kinds that can be used to group the actions (stuff like “refactor, quick fix, organize imports, etc).</p>
+<br>
+<h3 id="Code Lens">Code Lens</h3>
+<p>A lens is a command shown alongside text - like a reference count, how to run a test. These are requested by the client at a document level, and returned with their ranges and optional commands to be run by the server.</p>
+<br>
+<h3 id="Document Links">Document Links</h3>
+<p>Client asks the server for a list of link locations in a document - either to other resources or external urls - and their ranges. Can have tooltips and other displayed data.</p>
+<br>
+<h3 id="Document Color">Document Color</h3>
+<p>Client asks the server for how to color a doument — server returns ranges with rgba values.</p>
+<br>
+<h3 id="Color Presentation">Color Presentation</h3>
+<p>Client asks the server list of “presentations” for a color at a given range in a document. Client passes the color, range, and doc - server returns a label and optional edits? I’m not sure what this is used for.</p>
+<br>
+<h3 id="Formatting">Formatting</h3>
+<p>Client can ask server to format an entire document - specifying options like spaces vs tabs, final newlines, tab size, and trimming trailing whitespace. Can also ask for a range to be formated instead of the whole document.</p>
+<br>
+<p>There’s also a request to format as the user is typing - you can specify what characters trigger the formatting.</p>
+<br>
+<h3 id="Renaming">Renaming</h3>
+<p>What is says on the tin: the client requests the server rename a symbol workspace-wide. There’s optional support for the server testing whether the change is valid before applying.</p>
+<br>
+<h3 id="Folding Ranges">Folding Ranges</h3>
+<p>Server returns a list of all the folding ranges in a document. If you’re into that. Can differentiate comments, imports, and regions. Can also fold character-wise, not just line-wise.</p>
+<br>
+<h3 id="Selection Ranges">Selection Ranges</h3>
+<p>A selection range is “a range around the cursor that the user might be interested in selecting”.  Apparently typically correspond to nodes of the syntax tree. Not sure what this is used for.</p>
+<br>
+<h2 id="General Implementation Considerations">General Implementation Considerations</h2>
+<ul><li>If the client state changes before the result of a request returns in a way that would invalidate said request, the client can cancel/ignore the request.
+</li><li>Similarly, the server can return a <code class='code-inline'>ContentModified</code>  error if it detects a change that’d invalidate a client request.
+</li><li>If the server gets in an inconsistent state, use logMessage to warn the client.
+</li><li>Client may restart the server if it detects that it has crashed, but should not overly enthusiastic about trying if it’s crashing endlessly.</li></ul>
+
+        </div>
+        <script type="text/javascript">
+            (function() {
+
+    var doc_ols = document.getElementsByTagName("ol");
+
+    for ( i=0; i<doc_ols.length; i++) {
+
+        var ol_start = doc_ols[i].getAttribute("start") - 1;
+        doc_ols[i].setAttribute("style", "counter-reset:ol_counter " + ol_start + ";");
+
+    }
+
+})();
+
+        </script>
+        <style>
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font:inherit;font-size:100%;vertical-align:baseline}html{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}*{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}html{font-size:87.5%;line-height:1.57143em}html{font-size:14px;line-height:1.6em;-webkit-text-size-adjust:100%}body{background:#fcfcfc;color:#545454;text-rendering:optimizeLegibility;font-family:"AvenirNext-Regular"}a{color:#de4c4f;text-decoration:none}h1{font-family:"AvenirNext-Medium";color:#333;font-size:1.6em;line-height:1.3em;margin-bottom:.78571em}h2{font-family:"AvenirNext-Medium";color:#333;font-size:1.3em;line-height:1em;margin-bottom:.62857em}h3{font-family:"AvenirNext-Medium";color:#333;font-size:1.15em;line-height:1em;margin-bottom:.47143em}p{margin-bottom:1.57143em;hyphens:auto}hr{height:1px;border:0;background-color:#dedede;margin:-1px auto 1.57143em auto}ul,ol{margin-bottom:.31429em}ul ul,ul ol,ol ul,ol ol{margin-bottom:0px}ol{counter-reset:ol_counter}ol li:before{content:counter(ol_counter) ".";counter-increment:ol_counter;color:#e06e73;text-align:right;display:inline-block;min-width:1em;margin-right:0.5em}b,strong{font-family:"AvenirNext-Bold"}i,em{font-family:"AvenirNext-Italic"}code{font-family:"Menlo-Regular"}.text-overflow-ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sf_code_string,.sf_code_selector,.sf_code_attr-name,.sf_code_char,.sf_code_builtin,.sf_code_inserted{color:#D33905}.sf_code_comment,.sf_code_prolog,.sf_code_doctype,.sf_code_cdata{color:#838383}.sf_code_number,.sf_code_boolean{color:#0E73A2}.sf_code_keyword,.sf_code_atrule,.sf_code_rule,.sf_code_attr-value,.sf_code_function,.sf_code_class-name,.sf_code_class,.sf_code_regex,.sf_code_important,.sf_code_variable,.sf_code_interpolation{color:#0E73A2}.sf_code_property,.sf_code_tag,.sf_code_constant,.sf_code_symbol,.sf_code_deleted{color:#1B00CE}.sf_code_macro,.sf_code_entity,.sf_code_operator,.sf_code_url{color:#920448}.note-wrapper{max-width:46em;margin:0px auto;padding:1.57143em 3.14286em}.note-wrapper.spotlight-preview{overflow-x:hidden}u{text-decoration:none;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#e06e73 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}s{color:#878787}p{margin-bottom:0.1em}hr{margin-bottom:0.7em;margin-top:0.7em}ul li{text-indent:-0.35em}ul li:before{content:"•";color:#e06e73;display:inline-block;margin-right:0.3em}ul ul{margin-left:1.25714em}ol li{text-indent:-1.45em}ol ol{margin-left:1.25714em}blockquote{display:block;margin-left:-1em;padding-left:0.8em;border-left:0.2em solid #e06e73}.todo-list ul{margin-left:1.88571em}.todo-list li{text-indent:-1.75em}.todo-list li:before{content:"";display:static;margin-right:0px}.todo-checkbox{text-indent:-1.7em}.todo-checkbox svg{margin-right:0.3em;position:relative;top:0.2em}.todo-checkbox svg #check{display:none}.todo-checkbox.todo-checked #check{display:inline}.todo-checkbox.todo-checked+.todo-text{text-decoration:line-through;color:#878787}.code-inline{display:inline;background:white;border:solid 1px #dedede;padding:0.2em 0.5em;font-size:0.9em}.code-multiline{display:block;background:white;border:solid 1px #dedede;padding:0.7em 1em;font-size:0.9em;overflow-x:auto}.hashtag{display:inline-block;color:white;background:#b8bfc2;padding:0.0em 0.5em;border-radius:1em;text-indent:0}.hashtag a{color:#fff}.address a{color:#545454;background-image:linear-gradient(to bottom, rgba(0,0,0,0) 50%,#0da35e 50%);background-repeat:repeat-x;background-size:2px 2px;background-position:0 1.05em}.address svg{position:relative;top:0.2em;display:inline-block;margin-right:0.2em}.color-preview{display:inline-block;width:1em;height:1em;border:solid 1px rgba(0,0,0,0.3);border-radius:50%;margin-right:0.1em;position:relative;top:0.2em;white-space:nowrap}.color-code{margin-right:0.2em;font-family:"Menlo-Regular";font-size:0.9em}.color-hash{opacity:0.4}.ordered-list-number{color:#e06e73;text-align:right;display:inline-block;min-width:1em}.arrow svg{position:relative;top:0.08em;display:inline-block;margin-right:0.15em;margin-left:0.15em}.arrow svg #rod{stroke:#545454}.arrow svg #point{fill:#545454}mark{color:inherit;display:inline;padding:0.2em 0.5em;background-color:#fcffc0}img{max-width:100%;height:auto}
+
+        </style>
+    </body>
+</html>
