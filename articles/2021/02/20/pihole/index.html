@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head><meta content='text/html; charset=UTF-8' http-equiv='Content-Type'><meta charset='utf-8'><meta content='width=device-width, initial-scale=1' name='viewport'><title>Using pihole for time of day based per-client site blocking - Thomas Mayfield</title><meta content='Thomas Mayfield' name='author'><meta content='Using pihole for time of day based per-client site blocking - Thomas Mayfield' name='description'><meta content='' name='keywords'><!-- Twitter Cards --><meta content='summary' name='twitter:card'><meta content='/images/birds.jpg' name='twitter:image'><meta content='Using pihole for time of day based per-client site blocking - Thomas Mayfield' name='twitter:title'><meta content='@thegreatape' name='twitter:creator'><!-- Open Graph --><meta content='en_US' property='og:locale'><meta content='article' property='og:type'><meta content='Using pihole for time of day based per-client site blocking - Thomas Mayfield' property='og:title'><meta content='/' property='og:url'><meta content='Thomas Mayfield' property='og:site_name'><link href='/assets/css/styles.css' rel='stylesheet'><script src='/assets/js/bundle.js'></script><script src='https://use.fontawesome.com/releases/v5.3.1/js/all.js'></script><link href='/feed.xml' rel='alternate' title='Thomas Mayfield' type='application/atom+xml'></head>
+<body class='post '>
+<nav aria-label='main navigation' class='navbar has-shadow is-primary' role='navigation'><div class='container'><div class='navbar-brand'><div class='navbar-item'><div class='title is-2'>Thomas Mayfield</div></div><a aria-expanded='false' aria-label='menu' class='navbar-burger burger' data-target='navbar-menu' role='button'><span aria-hidden='true'></span><span aria-hidden='true'></span><span aria-hidden='true'></span></a></div><div class='navbar-menu' id='navbar-menu'><div class='navbar-start'><a class='navbar-item' href='/'>Home</a><a class='navbar-item' href='/reading'>Reading</a><a class='navbar-item' href='/code'>Code</a><a class='navbar-item' href='/about'>About Me</a></div></div></div></nav>
+<section class='section'>
+<div class='container'>
+<h2 class='title is-2'>Using pihole for time of day based per-client site blocking</h2>
+
+<div class='date subtitle is-5'>February 20, 2021</div>
+
+<div class='content'><p>Ideal scenario I wanted: distration blocking across all the devices I own, allowing a window for checking distracting sites in the morning and early evening. Needed to not interfere with wife’s devices—instagram is a distaction for me, but a part of business for her.</p>
+
+<p>What is pihole? DNS sinkhole, designed for ad blocking and to run on low-power hardware.</p>
+
+<p>How I did it: Setup raspberry pi with pihole. Set pihole as DNS server and DHCP server (important for pihole to be able to distinguish clients). Add each client connecting to the pi into a new group — mine and wife’s (as well as the default group for ad blocking).</p>
+
+<p>Set up two new adlists—these are a pair of files hosted on GitHub with list of domains to sinkhole to 0.0.0.0. These are divided:</p>
+
+<ol>
+  <li><a href="https://raw.githubusercontent.com/thegreatape/pihole-blocklists/main/thomas/always-blocked.hosts">Always Blocked</a>: one with sites that just never have a positive signal to noise ratio</li>
+  <li><a href="https://raw.githubusercontent.com/thegreatape/pihole-blocklists/main/thomas/always-blocked.hosts">Distracting</a>: sites I get some utility out of, but will be timesucks if I let them</li>
+</ol>
+
+<p>Each of these new adlists are assigned to the Thomas’s Computers group, but <em>not</em> the default group, so it won’t affect my wife’s devices. When I update the files to add or remove domains, run Update Gravity through the pihole web server UI (or <code class="highlighter-rouge">pihole -g</code> via an ssh session).</p>
+
+<p>To block and unblock the Distracting lists at various times of day: while pihole doesn’t have a cli command to enable or disable adlists dynamically, they do have <a href="https://docs.pi-hole.net/database/gravity/">documentation on how its internal SQLite db is laid out</a>. You can connect to it by running <code class="highlighter-rouge">sqlite3 /etc/pihole/gravity.db</code>. I grabbed the id of each adlist with <code class="highlighter-rouge">select * from adlist</code>, which let me toggle the adlist on and off with the query <code class="highlighter-rouge">update adlist set enabled = false where id = &lt;adlistid&gt;;</code>  To make this happen automatically at the right times of day, I added the following cron commands (using <code class="highlighter-rouge">sudo crontab -e</code>) to run a simple block and unblock script:</p>
+
+<figure class="highlight"><pre><code class="language-crontab" data-lang="crontab"># m h  dom mon dow   command
+0 17 * * * bash -lc home/pi/unblock-distractions.sh
+0 19 * * * bash -lc /home/pi/block-distractions.sh
+0 6 * * *  bash -lc /home/pi/unblock-distractions.sh
+0 9 * * *  bash -lc /home/pi/block-distractions.sh</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c"># block-distractions.sh</span>
+<span class="c">#</span>
+<span class="nb">echo</span> <span class="s1">'blocking distractions...'</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:/usr/sbin:/usr/local/bin/"</span>
+sqlite3 /etc/pihole/gravity.db <span class="s2">"update adlist set enabled = true where id = 5;"</span>
+pihole restartdns</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash</span>
+<span class="c">#</span>
+<span class="c"># unblock-distractions.sh</span>
+<span class="c">#</span>
+<span class="nb">echo</span> <span class="s1">'unblocking distractions...'</span>
+<span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$PATH</span><span class="s2">:/usr/sbin:/usr/local/bin/"</span>
+sqlite3 /etc/pihole/gravity.db <span class="s2">"update adlist set enabled = false where id = 5;"</span>
+pihole restartdns</code></pre></figure>
+
+<p>And that’s it! This unblocks sites in my distractions list from 6-9am and again from 5-7pm; outside of that, they’re blocked on all the computers I own.</p>
+</div>
+</div>
+</section>
+</body>
+<script data-goatcounter="https://thegreatape.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</html>

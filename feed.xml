@@ -5,13 +5,71 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2021-02-11T19:46:02-05:00</updated>
+<updated>2021-02-28T10:56:13-05:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Using pihole for time of day based per-client site blocking]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2021/02/20/pihole/" />
+  <id>/articles/2021/02/20/pihole</id>
+  <published>2021-02-20T00:00:00-05:00</published>
+  <updated>2021-02-20T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;Ideal scenario I wanted: distration blocking across all the devices I own, allowing a window for checking distracting sites in the morning and early evening. Needed to not interfere with wife’s devices—instagram is a distaction for me, but a part of business for her.&lt;/p&gt;
+
+&lt;p&gt;What is pihole? DNS sinkhole, designed for ad blocking and to run on low-power hardware.&lt;/p&gt;
+
+&lt;p&gt;How I did it: Setup raspberry pi with pihole. Set pihole as DNS server and DHCP server (important for pihole to be able to distinguish clients). Add each client connecting to the pi into a new group — mine and wife’s (as well as the default group for ad blocking).&lt;/p&gt;
+
+&lt;p&gt;Set up two new adlists—these are a pair of files hosted on GitHub with list of domains to sinkhole to 0.0.0.0. These are divided:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://raw.githubusercontent.com/thegreatape/pihole-blocklists/main/thomas/always-blocked.hosts&quot;&gt;Always Blocked&lt;/a&gt;: one with sites that just never have a positive signal to noise ratio&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://raw.githubusercontent.com/thegreatape/pihole-blocklists/main/thomas/always-blocked.hosts&quot;&gt;Distracting&lt;/a&gt;: sites I get some utility out of, but will be timesucks if I let them&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Each of these new adlists are assigned to the Thomas’s Computers group, but &lt;em&gt;not&lt;/em&gt; the default group, so it won’t affect my wife’s devices. When I update the files to add or remove domains, run Update Gravity through the pihole web server UI (or &lt;code class=&quot;highlighter-rouge&quot;&gt;pihole -g&lt;/code&gt; via an ssh session).&lt;/p&gt;
+
+&lt;p&gt;To block and unblock the Distracting lists at various times of day: while pihole doesn’t have a cli command to enable or disable adlists dynamically, they do have &lt;a href=&quot;https://docs.pi-hole.net/database/gravity/&quot;&gt;documentation on how its internal SQLite db is laid out&lt;/a&gt;. You can connect to it by running &lt;code class=&quot;highlighter-rouge&quot;&gt;sqlite3 /etc/pihole/gravity.db&lt;/code&gt;. I grabbed the id of each adlist with &lt;code class=&quot;highlighter-rouge&quot;&gt;select * from adlist&lt;/code&gt;, which let me toggle the adlist on and off with the query &lt;code class=&quot;highlighter-rouge&quot;&gt;update adlist set enabled = false where id = &amp;lt;adlistid&amp;gt;;&lt;/code&gt;  To make this happen automatically at the right times of day, I added the following cron commands (using &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo crontab -e&lt;/code&gt;) to run a simple block and unblock script:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crontab&quot; data-lang=&quot;crontab&quot;&gt;# m h  dom mon dow   command
+0 17 * * * bash -lc home/pi/unblock-distractions.sh
+0 19 * * * bash -lc /home/pi/block-distractions.sh
+0 6 * * *  bash -lc /home/pi/unblock-distractions.sh
+0 9 * * *  bash -lc /home/pi/block-distractions.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# block-distractions.sh&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'blocking distractions...'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:/usr/sbin:/usr/local/bin/&quot;&lt;/span&gt;
+sqlite3 /etc/pihole/gravity.db &lt;span class=&quot;s2&quot;&gt;&quot;update adlist set enabled = true where id = 5;&quot;&lt;/span&gt;
+pihole restartdns&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# unblock-distractions.sh&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'unblocking distractions...'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:/usr/sbin:/usr/local/bin/&quot;&lt;/span&gt;
+sqlite3 /etc/pihole/gravity.db &lt;span class=&quot;s2&quot;&gt;&quot;update adlist set enabled = false where id = 5;&quot;&lt;/span&gt;
+pihole restartdns&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And that’s it! This unblocks sites in my distractions list from 6-9am and again from 5-7pm; outside of that, they’re blocked on all the computers I own.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2021/02/20/pihole/&quot;&gt;Using pihole for time of day based per-client site blocking&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 20, 2021.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1819,98 +1877,6 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 &lt;/ul&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2015/12/27/2015-year-end-notes/&quot;&gt;2015 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 27, 2015.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Setting Up Evil-Mode Friendly Ctags in Emacs]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/" />
-  <id>/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs</id>
-  <published>2015-10-24T00:00:00-04:00</published>
-  <updated>2015-10-24T00:00:00-04:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Despite my &lt;a href=&quot;/emacs-and-evil-mode-field-notes/&quot;&gt;failed experiment&lt;/a&gt; with evil-mode back in January, I wound up switching over to evil-powered Emacs full time earlier this summer. I love having modal editing combined with truly deep extensibility, and I’ve been focusing my tweaking on changes that let Emacs help me explore and understand code faster.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://ctags.sourceforge.net/&quot;&gt;Ctags&lt;/a&gt; is a program that can parse code in many different language and generate an index of defined symbols—stuff like class names, method names, constants and so on. Text editors can be configured to use this index to do things like jump to where a particular symbol is defined (instead of just grepping for where the symbol occurs).&lt;/p&gt;
-
-&lt;p&gt;Here’s how I set up Ctags in Emacs.&lt;/p&gt;
-
-&lt;h2 id=&quot;install-ctags&quot;&gt;Install Ctags&lt;/h2&gt;
-
-&lt;p&gt;OS X ships with an older version of Ctags that can’t generate a tags index in the format that Emacs expects. I installed the latest version via Homebrew:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;brew install ctags&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;tag-generation&quot;&gt;Tag Generation&lt;/h2&gt;
-
-&lt;p&gt;Tags can be generated on the command line pretty easily—&lt;code class=&quot;highlighter-rouge&quot;&gt;ctags -Re&lt;/code&gt; will recursively parse and index all files below the current directory, in Emacs format. However, it’s handy to be able to regenerate them from within Emacs, especially if you’re switching git branches and want to quickly purge stale tags. The following lets me that do for the current &lt;a href=&quot;http://batsov.com/projectile/&quot;&gt;projectile&lt;/a&gt; project with &lt;code class=&quot;highlighter-rouge&quot;&gt;M-x regenerate-tags&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-emacs-lisp&quot; data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;regenerate-tags&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;tags-directory&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;directory-file-name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;projectile-project-root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;shell-command&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ctags -f %s -e -R %s&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;tags-file-name&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;tags-directory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Rather than re-running this on the entire project whenever a file changes, I used the &lt;code class=&quot;highlighter-rouge&quot;&gt;ctags-update&lt;/code&gt; package to do so incrementally on save. I’m just enabling it for when I’m in &lt;code class=&quot;highlighter-rouge&quot;&gt;enhanced-ruby-mode&lt;/code&gt; right now.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-emacs-lisp&quot; data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;use-package&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ctags-update&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;:ensure&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;t&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;:config&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;progn&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;add-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'enh-ruby-mode-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'turn-on-ctags-auto-update-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;tag-navigation&quot;&gt;Tag Navigation&lt;/h2&gt;
-
-&lt;p&gt;Now that we can generate and update a tags file, we can start using it to explore our code faster. I’ve found the following keys in normal mode:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gf&lt;/code&gt; goes to the first match for the tag under the cursor. If I’ve got the symbol &lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt; under the cursor, I can hit &lt;code class=&quot;highlighter-rouge&quot;&gt;gf&lt;/code&gt; and go to where the &lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt; class or module is defined.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gn&lt;/code&gt; goes to the next match—if there are multiple matching tags (e.g. I’ve got multiple &lt;code class=&quot;highlighter-rouge&quot;&gt;User&lt;/code&gt; classes in the same project), this cycles to the next one.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gb&lt;/code&gt; pops me back to where I was before jumping.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-emacs-lisp&quot; data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;define-key&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;evil-normal-state-map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;kbd&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;gf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;find-tag&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;find-tag-default-as-regexp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;define-key&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;evil-normal-state-map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;kbd&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;gb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'pop-tag-mark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;define-key&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;evil-normal-state-map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;kbd&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;gn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;interactive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;find-tag&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;last-tag&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;tag-search&quot;&gt;Tag Search&lt;/h2&gt;
-
-&lt;p&gt;Using a fuzzy matcher to search through the tags index is a great way to zip around a codebase. I use &lt;a href=&quot;https://emacs-helm.github.io/helm/&quot;&gt;Helm&lt;/a&gt; for as-you-type filtering for all sorts of things—emacs functions, project files, and now, tags! I bound Helm’s built-in tag filter to &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;leader&amp;gt;y&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-emacs-lisp&quot; data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;evil-leader/set-key&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;y&quot;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'helm-etags-select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The default behavior of the filtering left something to be desired, however. Matching tag candidate were sorted alphabetically, which mean that if I was looking for the module Searchable, the results would look like this (with the top item selected):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;AuthorSearchable&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-BookSearchable
-Searchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;What I really wanted was the closest item to my search to be on top. As it turns out, the shortest string that still matches the filtering text winds up being a decent hueristic for this. I did a bit of poking around in the helm-etags source, and found an empty function that’s meant to allow users to define their own custom behavior for Helm sources. Perfect!&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-emacs-lisp&quot; data-lang=&quot;emacs-lisp&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;defun&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;my-etags-sort-function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;candidates&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;candidates&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))))&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;defmethod&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;helm-setup-user-source&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;helm-source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;equal&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;oref&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Etags&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;oset&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:filtered-candidate-transformer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'my-etags-sort-function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Now, when I run the above search, the module I was looking for is on top and selected by default:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;Searchable&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-BookSearchable
-AuthorSearchable&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;There’s still more to tweak—the Emacs motto, I think—but I’m pretty pleased with my tags setup so far.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2015/10/24/setting-up-evil-mode-friendly-ctags-in-emacs/&quot;&gt;Setting Up Evil-Mode Friendly Ctags in Emacs&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on October 24, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>
