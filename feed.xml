@@ -5,7 +5,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2021-11-05T06:23:41-04:00</updated>
+<updated>2021-11-06T19:13:02-04:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
@@ -1436,7 +1436,7 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLB67wXqPqtMcNVA-UndNUy7bahGJzLQbT&quot;&gt;MobilityWOD videos&lt;/a&gt;&lt;/strong&gt; — Kelly Starrett is a mad scientist of mobility, and the amount of content he has out there is pretty overwhelming. He also has a book out that’s a little more organized, called (sigh) &lt;a href=&quot;http://www.amazon.com/Becoming-Supple-Leopard-2nd-Performance/dp/1628600837&quot;&gt;Becoming A Supple Leopard&lt;/a&gt;, but I’d honestly just recommend hitting up that YouTube channel, doing one video a day and see what you learn about how your body reacts to each session.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLB67wXqPqtMcNVA-UndNUy7bahGJzLQbT&quot;&gt;MobilityWOD videos&lt;/a&gt;&lt;/strong&gt; — Kelly Starrett is one of those folks I have to recommend with caveats. He’s got a bunch of inventive stretches and massage techniques that’ve helped me out a ton. But be aware: some of his techniques aren’t very evidence-backed (“voodoo flossing”) and he’s got some weird early-aughts Crossfit dogma in his nutritional advice and lifting technique stuff. Still worth sifting through for the helpful parts. He has a book out that’s a little more organized, called (sigh) &lt;a href=&quot;http://www.amazon.com/Becoming-Supple-Leopard-2nd-Performance/dp/1628600837&quot;&gt;Becoming A Supple Leopard&lt;/a&gt;, but I’d honestly just recommend hitting up that YouTube channel, doing one video a day and see what you learn about how your body reacts to each session.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.amazon.com/Trigger-Point-Therapy-Workbook-Self-Treatment/dp/1608824942&quot;&gt;The Trigger Point Therapy Workbook&lt;/a&gt;&lt;/strong&gt; — Picked up an earlier edition of this one to help me with an RSI scare almost a decade ago, and it’s been helping me debug my aches and pains ever since. Incredibly valuable just for the referred pain maps.&lt;/p&gt;
@@ -1474,13 +1474,16 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.sbspod.com/&quot;&gt;Stronger By Science&lt;/a&gt; Greg and Eric from SBS do research reviews, practical coaching/training/nutrition tips, and more dry, mildly nilhilist humor than you might expect.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://ironculture.libsyn.com/&quot;&gt;Iron Culture&lt;/a&gt; Big range of lifting topics and great guests.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;http://revivestronger.com/podcast/&quot;&gt;Revive Stronger&lt;/a&gt; Powerlifting and bodybuilding podcast that does a lot of good interviews with coaches and sports scientists. The Q&amp;amp;A sessions with regular guests (Mike Israetel in particular) are great.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;http://3dmusclejourney.com/podcast/&quot;&gt;3D Muscle Journey&lt;/a&gt; Weekly roundtables from the coaches at 3DMJ, mostly bodybuilding focused.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://thejugglife.com/&quot;&gt;The Jugg Life&lt;/a&gt; Powerlifting and Olympic weightlifting, more focused on the competitive side of the sports.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1554,6 +1557,12 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;changelog&quot;&gt;&lt;a name=&quot;changelog&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#changelog&quot;&gt;Changelog&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;2021-11-06&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Update podcasts: remove Jugglife, add Iron Culture and SBS.&lt;/li&gt;
+  &lt;li&gt;Add nuance to Kelly Starrett rec.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;p&gt;&lt;strong&gt;2018-10-14&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Replace &lt;em&gt;Fit&lt;/em&gt; with &lt;em&gt;The Muscle and Strength Pyramids&lt;/em&gt;.&lt;/li&gt;
