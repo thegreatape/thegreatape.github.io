@@ -5,13 +5,89 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2022-12-28T19:48:19-05:00</updated>
+<updated>2022-12-29T13:50:02-05:00</updated>
 <id>/</id>
 <author>
   <name>Thomas Mayfield</name>
   <uri>/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[2022 Year End Notes]]></title>
+  <link rel="alternate" type="text/html" href="/articles/2022/12/29/2022-year-end-notes/" />
+  <id>/articles/2022/12/29/2022-year-end-notes</id>
+  <published>2022-12-29T00:00:00-05:00</published>
+  <updated>2022-12-29T00:00:00-05:00</updated>
+  <author>
+    <name>Thomas Mayfield</name>
+    <uri></uri>
+    <email>Thomas.Mayfield@gmail.com</email>
+  </author>
+  <content type="html">&lt;p&gt;I didn’t write any year end notes last year, because I didn’t have the heart: for my personal life, 2021 managed to be much worse than 2020 somehow. But I like this tradition of reflection in a year-end writeup, so here we go again for 2022.&lt;/p&gt;
+
+&lt;h2 id=&quot;pixel&quot;&gt;Pixel!&lt;/h2&gt;
+
+&lt;p&gt;In September, my wife and I adopted a 7-month old puppy we named Pixel. She’s a lovely girl and has made herself right at home in our household.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/pixel_1.jpeg&quot; alt=&quot;pixel_2.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;She’s been getting along with our older dog Ripley very well, though they are complete opposites personality-wise.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/pixel_2.jpeg&quot; alt=&quot;pixel_2.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Did I order a label maker just so I can emblazon my fur-wrangling hand vac with “Property of Sisyphus”? Maybe!&lt;/p&gt;
+
+&lt;h2 id=&quot;work&quot;&gt;Work&lt;/h2&gt;
+
+&lt;p&gt;I’m more than two years into doing mobile development full-time, and it’s been interesting. Some observations from that time:&lt;/p&gt;
+
+&lt;p&gt;Kotlin and Swift are great languages. Well-designed modern type systems are really a breath of fresh air when it comes to reasoning about changes in an application. It’s starting to change now, but I feel like I used to run into a lot of people whose last experience with static typing was early 2000s Java. I can’t blame people for taking away “it’s all yelling at the compiler for no benefit” from that era, but I hope people are beginning to be more open to sampling new ideas on that front.&lt;/p&gt;
+
+&lt;p&gt;Mobile development has really scrambled a lot of my instincts how to go about building and releasing software. The calculus changes a &lt;em&gt;lot&lt;/em&gt; when you don’t own all the computers your code runs on and when deploying a new version is gated by an often opaque and unpredictable app review process. Even stuff like observability and debugging production issues is different, in mostly harder ways.&lt;/p&gt;
+
+&lt;p&gt;It’s a strange feeling to realize that I’m &lt;em&gt;years&lt;/em&gt; removed from doing full time web development at this point—prior to this stint on a mobile team, I was on a data engineering team for around two years.  It’s been an interesting time to watch the web frontend landscape go by without any real skin in that game, and I’m pretty interested in where &lt;a href=&quot;https://turbo.hotwired.dev/&quot;&gt;Turbo&lt;/a&gt; is going. It seems like a great way to return to some of what I loved about Rails in the beginning. If I manage to sit out the browser React era entirely, I’m not going to cry too hard about it.&lt;/p&gt;
+
+&lt;h2 id=&quot;lifting&quot;&gt;Lifting&lt;/h2&gt;
+
+&lt;p&gt;Lifting remains a very meaningful hobby to me, and I am grateful for my homegym. Progress has been slow and incremental this year, but that’s to be expected after doing this for a while—I’m still hitting rep PRs here and there, which means improvement is happening. I’m in the process of moving from my hand-maintained spreadsheet for tracking those PRs to a new web app. It’s a nice thing to write software that’s Just For You sometimes.&lt;/p&gt;
+
+&lt;p&gt;I’ve been incorporating more and more specialty bars in my training (and am again grateful I have the resources to get them for my home gym). The only main lift done with a straight bar in my current training block is the bench press. Otherwise, I’m using a &lt;a href=&quot;https://www.roguefitness.com/sb-1-rogue-safety-squat-bar&quot;&gt;safety squat bar&lt;/a&gt; for squats, a &lt;a href=&quot;https://www.titan.fitness/strength/barbells/specialty/rackable-hex-trap-bar-v3/430144.html&quot;&gt;trap bar &lt;/a&gt;for deadlifts, and &lt;a href=&quot;https://www.titan.fitness/strongman/grip-training/log-bars/rackable-strongman-log-bars/RCKLOG.html&quot;&gt;a strongman log&lt;/a&gt; for overhead pressing. I think the SSB is likely to be my main squatting bar more or less forever—I just haven’t found a way to make my elbows happy with a straight bar on my back. I’ll probably return to conventional deadlifts and overhead pressing at some point, though.&lt;/p&gt;
+
+&lt;p&gt;The plan for next year is to finish cutting down to “actually lean”, with as many maintenance phases as it takes—probably ending sometime in early spring.  Then I’m hoping to do a slow bulk for a &lt;em&gt;long&lt;/em&gt; time (like, 20+ months) and mostly stay on hypertrophy-oriented programming. I’ve had a lot of success in the last year with programming from Alex Bromley’s &lt;a href=&quot;https://www.amazon.com/Base-Strength-Program-Design-Blueprint-ebook/dp/B08R5J58F8/&quot;&gt;Base Strength book&lt;/a&gt;, so I’ll probably continue pulling from there.&lt;/p&gt;
+
+&lt;h2 id=&quot;reading&quot;&gt;Reading&lt;/h2&gt;
+
+&lt;p&gt;I didn’t quite make &lt;a href=&quot;https://thegreata.pe/reading/&quot;&gt;my reading goal this year&lt;/a&gt;. I’m not beating myself up over that, but it’s a trend I’d like to change in the next year—if for no other reason than I know that my mental health is better when I spend more time reading.&lt;/p&gt;
+
+&lt;p&gt;An interesting sidebar from looking at my reading logs: I seem to go through a late-spring reading slump most years. I have no idea why.&lt;/p&gt;
+
+&lt;p&gt;Some notable books/series from 2022:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/There-No-Antimemetics-Division-qntm-ebook/dp/B08FHHQRM2&quot;&gt;There Is No Antimemetics Division&lt;/a&gt; by qntm— It’s been a while since I read sci-fi I’d describe as mind-bending, and this finally hit the spot.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bookshop.org/p/books/the-dragon-s-path-daniel-abraham/109387?ean=9780316080682&quot;&gt;The Dagger and the Coin&lt;/a&gt; by Daniel Abraham — A character-centered slow burn fantasy epic I really enjoyed. Takes a bit to get going, but just so well done.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bookshop.org/p/books/shards-of-earth-adrian-tchaikovsky/17089652?ean=9780316705844&quot;&gt;The Final Architecture&lt;/a&gt; by Adrian Tchaikovsky— Best space opera I’ve read in years. Final book is out in April 2023 and I can’t wait. I really want to read more of Tchaikovsky’s backlist soon.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bookshop.org/p/books/the-staff-engineer-s-path-a-guide-for-individual-contributors-navigating-growth-and-change-tanya-reilly/18369968?ean=9781098118730&quot;&gt;The Staff Engineer’s Path&lt;/a&gt; by Tanya Reilly — A book I wish I’d had 4-5 years ago—finally something I can shove into the hands of developers who want to grow without moving into management. Tech friends and colleagues are probably already sick of me asking “oh, did I recommend this to you yet?”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;misc-notables&quot;&gt;Misc Notables&lt;/h2&gt;
+
+&lt;p&gt;A short list of stuff I’ve liked this year:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.craft.do/&quot;&gt;Craft&lt;/a&gt; — I’m writing this in Craft right now, and I’ve moved all my note-taking and writing to it this year. It feels like what Notion could have been if they’d prioritized speed and the offline experience. I &lt;em&gt;really&lt;/em&gt; like their sharing features; I can get a url to share notes with my team in two clicks, with optional expiry and auth.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gowod.app/&quot;&gt;GOWOD&lt;/a&gt; — This app hits the 80/20 sweet spot of actually getting me to do my stretching and mobility work. It’s got periodic assessments to track progress, helps focus on your problem areas and most of all is perfect for just following along for 10-15 min before bed without having to think.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mailbrew.com/&quot;&gt;Mailbrew&lt;/a&gt; — I’ve been using Mailbrew for just under two years now and I love it. I originally started using it to keep up with a handful of friends on the birdsite, and now use it as a daily RSS feed aggregator as well.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mastodon.social/@thegreatape&quot;&gt;Mastodon&lt;/a&gt; — It’s the only public social media I’ve regularly posted on in years. To be honest, I don’t know if that will last: it’s Not Twitter, but there are a lot of people who still want it to combine the watercooler with the street corner megaphone. Nothing wrong with either, but I don’t want to mix the two. I guess we’ll see.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cyberghostvpn.com/en_US/privacyhub/remove-safari/&quot;&gt;Disabling Safari on my phone&lt;/a&gt; — A rare attention-span reclamation tactic that seems to be sticking. No more times when I find myself standing with my phone in my hand, reading some anxiety-spiking bit of news… with no conscious memory of pulling out my phone, let alone &lt;em&gt;deciding&lt;/em&gt; to read the news.&lt;/li&gt;
+  &lt;li&gt;Tapering down caffeine — I cut my coffee intake in half this year, and it had an embarrassingly good impact on my mental health.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/articles/2022/12/29/2022-year-end-notes/&quot;&gt;2022 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 29, 2022.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -1697,205 +1773,6 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 &lt;p&gt;Complaining is easy and product design is hard. But I’d still like to see more decisions that move Slack towards being a tool that focuses time and attention instead of tending to consume them.&lt;/p&gt;
 
   &lt;p&gt;&lt;a href=&quot;/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[2015 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2015/12/27/2015-year-end-notes/" />
-  <id>/articles/2015/12/27/2015-year-end-notes</id>
-  <published>2015-12-27T00:00:00-05:00</published>
-  <updated>2015-12-27T00:00:00-05:00</updated>
-  <author>
-    <name>Thomas Mayfield</name>
-    <uri></uri>
-    <email>Thomas.Mayfield@gmail.com</email>
-  </author>
-  <content type="html">&lt;p&gt;Even if New Year’s resolutions are a terrible way to make lasting habit changes, I like using the end of the year as a reminder to take stock of how I did with respect to &lt;a href=&quot;http://thegreata.pe/2014-year-end-notes/&quot;&gt;last year’s goals&lt;/a&gt; and see what I want to change.&lt;/p&gt;
-
-&lt;h2 id=&quot;reading&quot;&gt;Reading&lt;/h2&gt;
-
-&lt;p&gt;This was the first year in four years that I missed my &lt;a href=&quot;https://www.goodreads.com/challenges/3082-2015-reading-challenge&quot;&gt;50 book reading challenge&lt;/a&gt;, having only read 44 books in 2015.&lt;/p&gt;
-
-&lt;p&gt;What happened? Mostly, life. My wife and I bought a house in August and for those that haven’t gone through that process, house-buying will happily hoover up all your free time and then some. I also changed jobs in April, resulting in a shorter commute from then until August, when we moved into the new place. I do a significant chunk of my reading on the bus and subway, and even a commute just three stops shorter made a difference in my reading time when compounded twice a day, five times a week.&lt;/p&gt;
-
-&lt;p&gt;That’s not to say that 44 books in a year isn’t respectable; I’m still pleased by how I’ve maintained my rebuilt reading habit. I just need to make sure I stay on track at this point.&lt;/p&gt;
-
-&lt;p&gt;The breakdown of what I read by genre:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Genre / Subject&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Count&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Fantasy&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;19&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Science Fiction&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Technical/Business&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Fitness&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Other Non-Fiction&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;6&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;I also set two specific reading goals last year:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Read more books by women&lt;/em&gt;: Last year, only 5 out of the 53 books I read were by women. This year, it was 14 out of 44—from 9% to 30% is a improvement, but this is still something I need to pay more attention to.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Read 8 technical books&lt;/em&gt;: This was an outright fail: I read 4 technical books, of which 3 could be more accurately described as books on tech cultural/business/careers.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Favorite Books This Year&lt;/em&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/0765325535&quot;&gt;The Half-Made World&lt;/a&gt; by Felix Gilman&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Nemesis-Games-Expanse-James-Corey/dp/0316217581&quot;&gt;Nemesis Games&lt;/a&gt; by James S.A. Corey&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Traitor-Baru-Cormorant-Seth-Dickinson/dp/0765380722&quot;&gt;The Traitor Baru Cormorant&lt;/a&gt; by Seth Dickison&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Cinder-Spires-Aeronauts-Windlass/dp/0451466802&quot;&gt;The Aeronaut’s Windlass&lt;/a&gt; by Jim Butcher&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Internet-Garbage-Sarah-Jeong-ebook/dp/B011JAV030/&quot;&gt;The Internet of Garbage&lt;/a&gt; by Sarah Jeong&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;2016-plans&quot;&gt;2016 Plans&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Try for 50 books / year again. Commute reading from the new place seems to put me roughly on track for this by itself, so I don’t think I’ll be stretching for this one.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Do better in terms of reading non-fiction more broadly. This is important for creative work and being a well-rounded person. I’ve noticed that my non-fiction / fiction ratio skews towards fiction in direct correlation with my chronic stress levels, so hopefully not changing jobs and buying a house will help push me in the right direction.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;lifting&quot;&gt;Lifting&lt;/h2&gt;
-
-&lt;p&gt;After having failed to hit any of my lifting goals for 2014, I set what I thought were a set of more conversative and balanced goals for 2015.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Last Year’s Goals&lt;/em&gt;:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Lift&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Goal 1RM&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Deadlift&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;405 lbs&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Overhead Press&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;170 lbs&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Kettlebell Swing&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;200 x 53 lbs in 10 minutes&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;How’d I do?&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Deadlift&lt;/em&gt;: Nailed it. Hit a 415lbs pull in October. Might have had more in the tank—that was at the tail end of a workout, after the regular working sets.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Overhead Press&lt;/em&gt;: Remember how I moved? Now I’ve got a squat rack and bar in my basement! It’s wonderful—except that the ceilings are too low for me to overhead press a loaded barbell. I didn’t beat my OHP PR (160lbs) before I moved, and I’m now focusing on rebuilding my bench press instead (which I’d neglected to focus on overhead. sigh.)&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Kettlebell Swing&lt;/em&gt;: In retrospect, this was a misguided goal. I wanted a goal that’d encourage me to improve my cardiovascular conditioning, but this proved very challenging to try and improve at the same time as improving my deadlift. Both are the same kind of fundamental human movement (hip hinge) and both are super taxing to the same parts of the body. I’d consistently feel beat up and under-recovered when trying to improve the swing and the deadlift concurrently. I got to 150 swings in 7:30 sometime in early November, but have since decided to back off pushing the swings. More on this in next year’s goals.&lt;/p&gt;
-
-&lt;p&gt;But!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Bringing Back Squatting Back&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;An unexpected bit of awesome this year is that I’ve resumed back squatting, pain-free! A couple things contributed to this:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Consistent mobility work on my hips and ankles have slowly had lasting effects.&lt;/li&gt;
-  &lt;li&gt;I got a pair of Olympic lifting shoes: the stable, raised heel helps compensate for some of the missing dorsiflexion in my ankles.&lt;/li&gt;
-  &lt;li&gt;Getting a lifting belt helped teach me to brace my core correctly.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;2016-goals&quot;&gt;2016 Goals&lt;/h4&gt;
-
-&lt;p&gt;Strength is my main focus, and I’m going to set my 2016 goals accordingly. Here’s what my powerlifting total looks like right now:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Lift&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Current 1RM&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Deadlift&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;415 lbs&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Squat&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;300 lbs (est)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Bench Press&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;230 lbs (est)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;Total&lt;/em&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;&lt;em&gt;945 lbs (est)&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;By next year, I want to total over 1000 lbs. That’s 20 lbs on each lift, on average. I think that’s doable if I’m focused on strength and avoid getting hurt.&lt;/p&gt;
-
-&lt;p&gt;I don’t want to neglect conditioning while doing this, but I want to train it in a way that’s more complimentary to my strength training. I want to be in good shape cardio-wise for general health, improved recovery, and to avoid going completely bearmode in the winter. So I’m just going to shoot for consistency: I want to average 2 cardio-centric workouts a week. If I’m feeling great, this can be HIIT-style swings, complexes, burpees, whatever. If I’m beat up or low on recovery budget, it’ll be LISS-style running or stationary bike. Hopefully the freedom to adjust the style and intensity of my conditioning will make this easier to run along a serious strength training program.&lt;/p&gt;
-
-&lt;h2 id=&quot;programming&quot;&gt;Programming&lt;/h2&gt;
-
-&lt;p&gt;In terms of my outside-work projects, this year was almost exclusively devoted to mucking about in functional languages.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;I &lt;a href=&quot;https://github.com/thegreatape/lyeberry&quot;&gt;rewrote the library scraping backend&lt;/a&gt; of Literate Minuteman in Clojure and wound up building a &lt;a href=&quot;https://github.com/thegreatape/ring-raygun&quot;&gt;Ring middleware error-tracking wrapper&lt;/a&gt; for &lt;a href=&quot;raygun.io&quot;&gt;Raygun.io&lt;/a&gt;. I haven’t done much with Clojure since, but I’ve love a chance to try out ClojureScript at some point.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I wrote a &lt;a href=&quot;https://github.com/thegreatape/conway&quot;&gt;multiplayer Conway’s Game of Life&lt;/a&gt; implementation in Elixir using the Phoenix framework. Elixir is a really delightful language with great tooling. I love the idea of building in primitive-level features for what happens when things crash at the language and VM level.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;I experimented with using Emacs (using modal editing via &lt;a href=&quot;https://bitbucket.org/lyro/evil/wiki/Home&quot;&gt;evil&lt;/a&gt; as my editor full-time from August to November. Ultimately, I learned that I do want to be able to deeply customize my editor, I found that the Emacs ideal seems to be trying to integration all of your tools into Emacs itself, binding them together with lisp. I found that for me, I wanted instead to compose my tools using the shell. For example, &lt;a href=&quot;http://magit.vc/&quot;&gt;Magit&lt;/a&gt; is a pretty amazing interface to Git for Emacs, but while using it I missed the history and easy composition with other basic unix tools that command-line git offered. I’m now back to tmux and vim, but I could see pulling emacs out again if I started working on a project where Emacs has superior IDE-like tooling, though—&lt;a href=&quot;http://www.alchemist-elixir.org/&quot;&gt;Alchemist&lt;/a&gt; for Elixir and &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; for Clojure come to mind. I’m glad I’ve got a ready-to-go evil config set up if that happens.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;2016-plans-1&quot;&gt;2016 Plans&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Dive deeper into Elixir / OTP and learn enough Erlang to read libraries written in it.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Try out &lt;a href=&quot;http://elm-lang.org/&quot;&gt;Elm&lt;/a&gt;. I’m fascinated by the idea of a type system that helps you instead of fights you. Plus, any project whose goals is to have the best compiler error messages of any language has their priorities straight. And it has a time-traveling debugger. This I’ve got to see.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Up my relational database game. What I know about SQL and relational database use has always been picked up just-in-time to solve whatever issues were in front of me. I want to go deeper into theory and best practices to get ahead of the curve here, as my job right now regularly involves writing, tuning and debugging queries against medium-large tables (tens of millions of rows). I’m going to start by reading &lt;a href=&quot;http://www.amazon.com/Art-SQL-Stephane-Faroult/dp/0596008945&quot;&gt;The Art of SQL&lt;/a&gt; early in the new year.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/articles/2015/12/27/2015-year-end-notes/&quot;&gt;2015 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 27, 2015.&lt;/p&gt;</content>
 </entry>
 
 </feed>
