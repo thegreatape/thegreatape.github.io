@@ -3,26 +3,26 @@
 <title type="text">Duct Tape and Turing Machines</title>
 <subtitle type="text"></subtitle>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="/feed.xml" />
-<link rel="alternate" type="text/html" href="" />
-<updated>2023-01-02T08:13:25-05:00</updated>
-<id>/</id>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2023-01-03T18:28:40-05:00</updated>
+<id>http://localhost:4000/</id>
 <author>
   <name>Thomas Mayfield</name>
-  <uri>/</uri>
+  <uri>http://localhost:4000/</uri>
   <email>Thomas.Mayfield@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[2022 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2022/12/29/2022-year-end-notes/" />
-  <id>/articles/2022/12/29/2022-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2022/12/29/2022-year-end-notes/" />
+  <id>http://localhost:4000/articles/2022/12/29/2022-year-end-notes</id>
   <published>2022-12-29T00:00:00-05:00</published>
   <updated>2022-12-29T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I didn’t write any year end notes last year, because I didn’t have the heart: for my personal life, 2021 managed to be much worse than 2020 somehow. But I like this tradition of reflection in a year-end writeup, so here we go again for 2022.&lt;/p&gt;
@@ -86,19 +86,19 @@
 &lt;/ul&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2022/12/29/2022-year-end-notes/&quot;&gt;2022 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 29, 2022.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2022/12/29/2022-year-end-notes/&quot;&gt;2022 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 29, 2022.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Using pihole for time of day based per-client site blocking]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2021/02/28/pihole/" />
-  <id>/articles/2021/02/28/pihole</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2021/02/28/pihole/" />
+  <id>http://localhost:4000/articles/2021/02/28/pihole</id>
   <published>2021-02-28T00:00:00-05:00</published>
   <updated>2021-02-28T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I’ve recently been trying a new tactic to reform my relationship with news and social media, and it’s been going pretty well. Specially, I’m using &lt;a href=&quot;https://pi-hole.net/&quot;&gt;pihole&lt;/a&gt; to block distracting sites and apps at certain times of day on my wifi network. This allows for a limited window of time to engage with the ones I still get some value out of, but keeps them blocked while I’m trying to work or unwind. The blocking is limited to a list of my personal devices on the network—while Instagram might be a distraction for me, it’s a part of business for my wife, and this allows me to have a separate set of blocking rules.&lt;/p&gt;
@@ -154,19 +154,19 @@ pihole restartdns&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;And that’s it! This unblocks sites in my distractions list from 6-9am and again from 5-7pm; outside of that, they’re blocked on all the computers I own. I’ve been running this setup for about two weeks now, and it’s nice: no third party programs to install on my devices and works across laptop, phone and tablet with no extra work.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2021/02/28/pihole/&quot;&gt;Using pihole for time of day based per-client site blocking&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 28, 2021.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2021/02/28/pihole/&quot;&gt;Using pihole for time of day based per-client site blocking&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 28, 2021.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2020 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2020/12/31/2020-year-end-notes/" />
-  <id>/articles/2020/12/31/2020-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2020/12/31/2020-year-end-notes/" />
+  <id>http://localhost:4000/articles/2020/12/31/2020-year-end-notes</id>
   <published>2020-12-31T00:00:00-05:00</published>
   <updated>2020-12-31T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;This was another year I waffled on writing this review. 2020 has been a shitshow for everyone, myself included, but I’ve had some tremendous privilege and luck in how I’ve weathered the worst of it. It feels ungrateful to be writing very inward-looking reflections at the year’s close, but I think I’ll be glad I did later on.&lt;/p&gt;
@@ -286,19 +286,19 @@ books of a 35 book goal.
 
 &lt;p&gt;I will say I’m currently experimenting with &lt;a href=&quot;https://mailbrew.com/&quot;&gt;Mailbrew&lt;/a&gt; as a way to keep up with news and some folks on Twitter on a once-a-day cadence. We’ll see if it turns into something helpful or another failed experiment.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2020/12/31/2020-year-end-notes/&quot;&gt;2020 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2020/12/31/2020-year-end-notes/&quot;&gt;2020 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Vim syntax highlighting for SQL strings inside Python code]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code/" />
-  <id>/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code/" />
+  <id>http://localhost:4000/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code</id>
   <published>2020-07-11T00:00:00-04:00</published>
   <updated>2020-07-11T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;A few years ago, I shared a bit of Vimscript for &lt;a href=&quot;https://thegreata.pe/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;highlighting SQL strings inside Ruby code&lt;/a&gt;. Fast forward to today: I’ve been doing a bunch of ETL work recently using &lt;a href=&quot;https://airflow.apache.org/&quot;&gt;Apache Airflow&lt;/a&gt;, which is written in Python. That means a bunch of SQL queries embedded in Python strings, and I wanted to see about getting some highlighting on them for easier visual parsing.&lt;/p&gt;
@@ -323,19 +323,19 @@ syntax region sqlPythonString
 
 &lt;p&gt;&lt;img src=&quot;/images/sql-python-screenshot.png&quot; alt=&quot;Python string with SQL syntax highlighting applied&quot; /&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Python code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 11, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2020/07/11/vim-syntax-highlighting-for-sql-strings-inside-python-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Python code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on July 11, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Attentional Homesteading]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2020/05/07/attentional-homesteading/" />
-  <id>/articles/2020/05/07/attentional-homesteading</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2020/05/07/attentional-homesteading/" />
+  <id>http://localhost:4000/articles/2020/05/07/attentional-homesteading</id>
   <published>2020-05-07T00:00:00-04:00</published>
   <updated>2020-05-07T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;It’s funny. When people talk about how technology distracts us or hijacks our attention, the first thing that comes up is smartphones. Which, sure: they’re a hotbed of dings for your attention and apps with weaponized endless scrolling competing for a slice of your eyeballs’ time. But for me, my phone isn’t attention span enemy number one. I have push notifications nearly globally disabled and it’s pretty easy for me to leave it out of sight and reach when I want to sit down and focus. My nemesis is a little different.&lt;/p&gt;
@@ -365,19 +365,19 @@ syntax region sqlPythonString
 &lt;p&gt;I’m acutely aware of the tradeoffs here. But it still makes a part of me sad.&lt;/p&gt;
 
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2020/05/07/attentional-homesteading/&quot;&gt;Attentional Homesteading&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 07, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2020/05/07/attentional-homesteading/&quot;&gt;Attentional Homesteading&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 07, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Bootstrapping a Rails app with Nix]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2020/04/20/bootstrap-a-rails-app-with-nix/" />
-  <id>/articles/2020/04/20/bootstrap-a-rails-app-with-nix</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2020/04/20/bootstrap-a-rails-app-with-nix/" />
+  <id>http://localhost:4000/articles/2020/04/20/bootstrap-a-rails-app-with-nix</id>
   <published>2020-04-20T00:00:00-04:00</published>
   <updated>2020-04-20T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;We’ve started using &lt;a href=&quot;https://nixos.org/nix/&quot;&gt;Nix&lt;/a&gt; at work for our development environments, and I wanted to spend some time learning how to use it for my own projects. So I set up a &lt;a href=&quot;https://github.com/thegreatape/nix-rails-template&quot;&gt;minimal template for a new Rails app&lt;/a&gt; to help me learn.&lt;/p&gt;
@@ -397,19 +397,19 @@ syntax region sqlPythonString
 
 &lt;p&gt;I use Rails by default for most of my web project work, so I made a &lt;a href=&quot;https://github.com/thegreatape/nix-rails-template&quot;&gt;small Rails app generation template that uses Nix&lt;/a&gt;. The specific instructions are on the &lt;a href=&quot;https://github.com/thegreatape/nix-rails-template/blob/master/README.md&quot;&gt;README&lt;/a&gt;, but in short: it sets up an isolated Ruby and Postgres install, configures a Rails app to use them, then gives you a shell with those dependencies available. From there, you can run the database (using &lt;a href=&quot;https://github.com/DarthSim/overmind&quot;&gt;overmind&lt;/a&gt; for process management) and all your normal Rails commands inside that shell. Enjoy!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2020/04/20/bootstrap-a-rails-app-with-nix/&quot;&gt;Bootstrapping a Rails app with Nix&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 20, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2020/04/20/bootstrap-a-rails-app-with-nix/&quot;&gt;Bootstrapping a Rails app with Nix&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 20, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Building A Custom Reading List With Airtable]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2020/02/17/building-a-custom-reading-list-with-airtable/" />
-  <id>/articles/2020/02/17/building-a-custom-reading-list-with-airtable</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2020/02/17/building-a-custom-reading-list-with-airtable/" />
+  <id>http://localhost:4000/articles/2020/02/17/building-a-custom-reading-list-with-airtable</id>
   <published>2020-02-17T00:00:00-05:00</published>
   <updated>2020-02-17T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I built a custom &lt;a href=&quot;https://airtable.com/shrklkcdOzAPEO7S5/tbldD4SKQaINX1gxw/viwWA7YHSRBL7AxL8?blocks=hide&quot;&gt;book tracker&lt;/a&gt; and &lt;a href=&quot;https://thegreata.pe/reading/&quot;&gt;reading history page&lt;/a&gt;, and now I’m kind of in love with &lt;a href=&quot;https://airtable.com/&quot;&gt;Airtable&lt;/a&gt;.&lt;/p&gt;
@@ -435,19 +435,19 @@ syntax region sqlPythonString
 
 &lt;p&gt;The reading page is built with a relatively small amount of code. I have &lt;a href=&quot;https://github.com/thegreatape/thegreata.pe-source/blob/master/sync_reading.rb&quot;&gt;a Ruby script&lt;/a&gt; to query my Airtable’s API for my reading history, to which it does some light processing and dumps the results out to a single JSON file. The &lt;a href=&quot;https://github.com/thegreatape/thegreata.pe-source/blob/master/_layouts/reading.haml&quot;&gt;template for the reading page&lt;/a&gt; simply loads that file and renders the page with some straightforward Haml. This process is run on my laptop right now—maybe someday I’ll automate it, but at a couple books a month, remembering to run a single shell script after updating my Airtable reading records isn’t exactly a huge burden.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2020/02/17/building-a-custom-reading-list-with-airtable/&quot;&gt;Building A Custom Reading List With Airtable&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 17, 2020.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2020/02/17/building-a-custom-reading-list-with-airtable/&quot;&gt;Building A Custom Reading List With Airtable&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 17, 2020.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2019 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2019/12/31/2019-year-end-notes/" />
-  <id>/articles/2019/12/31/2019-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2019/12/31/2019-year-end-notes/" />
+  <id>http://localhost:4000/articles/2019/12/31/2019-year-end-notes</id>
   <published>2019-12-31T00:00:00-05:00</published>
   <updated>2019-12-31T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Another trip around the sun, another time to reflect on the way it went.&lt;/p&gt;
@@ -574,19 +574,19 @@ syntax region sqlPythonString
 
 &lt;p&gt;Results: It’s been huge for me so far. I starting keeping a worklog/diary for my projects, first just to make the weekly email easier to compose, but that as well has turned out to give me some valuable mid-week deliberateness. Especially on days where I don’t work on my chosen project, it’s helped me immensely to write down “taking the evening off to recharge”. And knowing I’ll be sending that to a friend later helps me be honest with myself.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2019/12/31/2019-year-end-notes/&quot;&gt;2019 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2019/12/31/2019-year-end-notes/&quot;&gt;2019 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Quickly publishing notes from Ulysses with Alfred and JXA]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2019/02/23/publishing-ulysses-notes/" />
-  <id>/articles/2019/02/23/publishing-ulysses-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2019/02/23/publishing-ulysses-notes/" />
+  <id>http://localhost:4000/articles/2019/02/23/publishing-ulysses-notes</id>
   <published>2019-02-23T00:00:00-05:00</published>
   <updated>2019-02-23T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;One of the things I’ve been working on for a few months now is taking more notes. Being intentional and systematic about writing down material I’m reading or learning has felt like a nice boost to my ability to make progress on a number of projects.&lt;/p&gt;
@@ -687,19 +687,19 @@ git status | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&
 
 &lt;p&gt;Something broken for you? &lt;a href=&quot;https://github.com/thegreatape/publish-ulysses-notes/issues&quot;&gt;Report a bug&lt;/a&gt; on the project’s Github page!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2019/02/23/publishing-ulysses-notes/&quot;&gt;Quickly publishing notes from Ulysses with Alfred and JXA&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 23, 2019.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2019/02/23/publishing-ulysses-notes/&quot;&gt;Quickly publishing notes from Ulysses with Alfred and JXA&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 23, 2019.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2018 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2018/12/30/2018-year-end-notes/" />
-  <id>/articles/2018/12/30/2018-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/12/30/2018-year-end-notes/" />
+  <id>http://localhost:4000/articles/2018/12/30/2018-year-end-notes</id>
   <published>2018-12-30T00:00:00-05:00</published>
   <updated>2018-12-30T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;At the end of 2018, looking inwards. How did that go?&lt;/p&gt;
@@ -771,19 +771,19 @@ git status | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&
 
 &lt;p&gt;I still need to find a process that works for me. I still think a lot about &lt;a href=&quot;http://calnewport.com/books/deep-work/&quot;&gt;Deep Work&lt;/a&gt; and want to push towards a place where that kind of deep, meaningful focus and work is a regular part of my life. So: for 2018, I’m going to run a bunch of experiments to see what I can get to stick, maybe one a month or so. I might share the results, but probably not until year’s end when I’ve had a long time to see how the successful tests play out.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2018/12/30/2018-year-end-notes/&quot;&gt;2018 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/12/30/2018-year-end-notes/&quot;&gt;2018 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Clojure, vim, and tmux: using your editor as a repl scratchpad]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" />
-  <id>/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/" />
+  <id>http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad</id>
   <published>2018-02-11T00:00:00-05:00</published>
   <updated>2018-02-11T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I use Clojure at work, but the frequency varies—I’ll sometimes go months in between working on a project that uses it. Whenever I come back to using the language after some time away, I try to file a few sharp edges off the tooling I use around it.&lt;/p&gt;
@@ -815,19 +815,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Simple enough to use that hopefully I’ll remember it in between bouts with Clojure projects.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;Clojure, vim, and tmux: using your editor as a repl scratchpad&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 11, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/02/11/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;Clojure, vim, and tmux: using your editor as a repl scratchpad&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 11, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Generating Randomized Color Palettes (That Aren’t Clown Vomit)]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2018/02/04/generating-randomized-color-palettes/" />
-  <id>/articles/2018/02/04/generating-randomized-color-palettes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes/" />
+  <id>http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes</id>
   <published>2018-02-04T00:00:00-05:00</published>
   <updated>2018-02-04T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Before we dive into randomized color palette generation, a little context on what brought me here:&lt;/p&gt;
@@ -893,19 +893,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Another fun bonus to this approach: I could send the link to the page to other people with better artistic eyes than myself and get them to tool around with it and come up with good parameters. You can &lt;a href=&quot;http://littleandoften.club/color_tests?utf8=%E2%9C%93&amp;amp;palette%5Bfirst_angle%5D=0&amp;amp;palette%5Bfirst_range%5D=90&amp;amp;palette%5Bsecond_angle%5D=210&amp;amp;palette%5Bsecond_range%5D=30&amp;amp;palette%5Bthird_angle%5D=&amp;amp;palette%5Bthird_range%5D=&amp;amp;palette%5Blightness_jitter%5D=20&amp;amp;palette%5Bsaturation_jitter%5D=10&amp;amp;palette%5Binitial_lightness%5D=55&amp;amp;palette%5Binitial_saturation%5D=45&amp;amp;palette%5Bminimum_color_distance%5D=15&amp;amp;commit=Save+Palette&quot;&gt;try it for yourself here&lt;/a&gt;!&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2018/02/04/generating-randomized-color-palettes/&quot;&gt;Generating Randomized Color Palettes (That Aren’t Clown Vomit)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 04, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/02/04/generating-randomized-color-palettes/&quot;&gt;Generating Randomized Color Palettes (That Aren’t Clown Vomit)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on February 04, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Vim syntax highlighting for SQL strings inside Ruby code]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" />
-  <id>/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/" />
+  <id>http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code</id>
   <published>2018-01-01T00:00:00-05:00</published>
   <updated>2018-01-01T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Working in Rails, it’s not uncommon to have database queries that are better off expressed without using ActiveRecord. This usually means stuffing the SQL query itself into a string, and then running it against the database using &lt;code class=&quot;highlighter-rouge&quot;&gt;ActiveRecord::Base.connection.execute&lt;/code&gt;. Unfortunately, these queries tend to be on the large and complex side, so having a big blob of un-highlighted SQL in the middle of your Ruby code isn’t the nicest thing.&lt;/p&gt;
@@ -940,19 +940,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
   &lt;li&gt;&lt;a href=&quot;http://vimdoc.sourceforge.net/htmldoc/syntax.html&quot;&gt;Vim syntax documentation&lt;/a&gt; is the comprehensive (if dense) manual on the Vim syntax highlighting commands.&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Ruby code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 01, 2018.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2018/01/01/vim-syntax-highlighting-for-sql-strings-inside-ruby-code/&quot;&gt;Vim syntax highlighting for SQL strings inside Ruby code&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on January 01, 2018.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2017 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2017/12/30/2017-year-end-notes/" />
-  <id>/articles/2017/12/30/2017-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2017/12/30/2017-year-end-notes/" />
+  <id>http://localhost:4000/articles/2017/12/30/2017-year-end-notes</id>
   <published>2017-12-30T00:00:00-05:00</published>
   <updated>2017-12-30T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Another year, another time for personal reflection and course adjustments.&lt;/p&gt;
@@ -1038,19 +1038,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;onwards&quot;&gt;Onwards&lt;/h2&gt;
 &lt;p&gt;Ok, 2018. Let’s do this.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2017/12/30/2017-year-end-notes/&quot;&gt;2017 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2017.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2017/12/30/2017-year-end-notes/&quot;&gt;2017 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 30, 2017.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[2016 Year End Notes]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2016/12/31/2016-year-end-notes/" />
-  <id>/articles/2016/12/31/2016-year-end-notes</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/12/31/2016-year-end-notes/" />
+  <id>http://localhost:4000/articles/2016/12/31/2016-year-end-notes</id>
   <published>2016-12-31T00:00:00-05:00</published>
   <updated>2016-12-31T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;I almost didn’t write this. After this year’s US election and the steady global rise of nationalism, well, my usual inward-looking year end review feels a bit trite. But this is the stuff that helps keep me functional and able to take any action at all, so. Here we go.&lt;/p&gt;
@@ -1192,19 +1192,19 @@ augroup END&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Let’s whoop 2017’s ass.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2016/12/31/2016-year-end-notes/&quot;&gt;2016 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/12/31/2016-year-end-notes/&quot;&gt;2016 Year End Notes&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on December 31, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Notes On Writing Clojure In Vim]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2016/11/25/notes-on-writing-clojure-in-vim/" />
-  <id>/articles/2016/11/25/notes-on-writing-clojure-in-vim</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/" />
+  <id>http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim</id>
   <published>2016-11-25T00:00:00-05:00</published>
   <updated>2016-11-25T00:00:00-05:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;There a lot of things I like about Clojure as a language, but it requires a lot of tooling setup to not have a bad time. There’s a big chunk of the Clojure community that uses Emacs and the admittedly fantastic &lt;a href=&quot;https://github.com/clojure-emacs/cider&quot;&gt;CIDER&lt;/a&gt; environment, but Vim salwarts who don’t want to ditch years of editor customization aren’t left out in the cold. It took a little more digging and research, but I managed to put together a Vim/Clojure setup with the fast feedback loop that’s so important to productive Clojure dev.&lt;/p&gt;
@@ -1304,19 +1304,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;While vim doesn’t have a true integrated REPL-as-subprocess like Emacs’s CIDER does, you can get a pretty nice setup within tmux by binding some keys to send s-expressions to a repl running an adjacent pane. I &lt;a href=&quot;/clojure-vim-and-tmux-using-your-editor-as-a-repl-scratchpad/&quot;&gt;wrote up my notes on that strategy here&lt;/a&gt;.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2016/11/25/notes-on-writing-clojure-in-vim/&quot;&gt;Notes On Writing Clojure In Vim&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on November 25, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/11/25/notes-on-writing-clojure-in-vim/&quot;&gt;Notes On Writing Clojure In Vim&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on November 25, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Defusing Distracting Defaults: An Experiment In Automating Better Habits]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2016/08/28/defusing-distracting-defaults/" />
-  <id>/articles/2016/08/28/defusing-distracting-defaults</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/" />
+  <id>http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults</id>
   <published>2016-08-28T00:00:00-04:00</published>
   <updated>2016-08-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Ever have one of those moments where you’re browsing Instagram/Facebook/Twitter/whatever, realize you’ve burned an hour you meant to use working on something else, close the tab in disgust… then realize you’ve reopened the same site without even thinking about it?&lt;/p&gt;
@@ -1404,19 +1404,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;&lt;em&gt;Updated Feb 26th, 2017: A previous solution here used &lt;a href=&quot;http://www.bernhard-baehr.de/&quot;&gt;sleepwatcher&lt;/a&gt;, but it began starting slowly after upgrading to Sierra. I replaced it with with Hammerspoon.&lt;/em&gt;&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2016/08/28/defusing-distracting-defaults/&quot;&gt;Defusing Distracting Defaults: An Experiment In Automating Better Habits&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on August 28, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/08/28/defusing-distracting-defaults/&quot;&gt;Defusing Distracting Defaults: An Experiment In Automating Better Habits&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on August 28, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Fitness Resources Megapost]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2016/05/28/fitness-resources-megapost/" />
-  <id>/articles/2016/05/28/fitness-resources-megapost</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/05/28/fitness-resources-megapost/" />
+  <id>http://localhost:4000/articles/2016/05/28/fitness-resources-megapost</id>
   <published>2016-05-28T00:00:00-04:00</published>
   <updated>2016-05-28T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;&lt;em&gt;Last updated November 6th, 2021: see &lt;strong&gt;&lt;a href=&quot;#changelog&quot;&gt;changelog&lt;/a&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
@@ -1678,19 +1678,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
   &lt;li&gt;Original Post&lt;/li&gt;
 &lt;/ul&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2016/05/28/fitness-resources-megapost/&quot;&gt;Fitness Resources Megapost&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 28, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/05/28/fitness-resources-megapost/&quot;&gt;Fitness Resources Megapost&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 28, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Customizing The Clojure REPL]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2016/05/01/customizing-the-clojure-repl/" />
-  <id>/articles/2016/05/01/customizing-the-clojure-repl</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/" />
+  <id>http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl</id>
   <published>2016-05-01T00:00:00-04:00</published>
   <updated>2016-05-01T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;One of the things that makes Clojure great is its fantastic REPL. “REPL” stands for “read eval print loop”—it’s a command-line console where you can type in Clojure code and run it. It’s a great way to experiment and learn; I’ll often prototype a piece of code in the REPL before moving it back over to my editor to save in my project.&lt;/p&gt;
@@ -1742,19 +1742,19 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;Now, we can move our &lt;code class=&quot;highlighter-rouge&quot;&gt;user.clj&lt;/code&gt; from above into &lt;code class=&quot;highlighter-rouge&quot;&gt;env/development/clj/user.clj&lt;/code&gt;, and it’ll only be loaded when we start up a REPL session in our development environment.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2016/05/01/customizing-the-clojure-repl/&quot;&gt;Customizing The Clojure REPL&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 01, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/05/01/customizing-the-clojure-repl/&quot;&gt;Customizing The Clojure REPL&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on May 01, 2016.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How Slack Could Respect Your Time And Attention (Better)]]></title>
-  <link rel="alternate" type="text/html" href="/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" />
-  <id>/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/" />
+  <id>http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better</id>
   <published>2016-04-16T00:00:00-04:00</published>
   <updated>2016-04-16T00:00:00-04:00</updated>
   <author>
     <name>Thomas Mayfield</name>
-    <uri></uri>
+    <uri>http://localhost:4000</uri>
     <email>Thomas.Mayfield@gmail.com</email>
   </author>
   <content type="html">&lt;p&gt;Slack, like any communication tool, can function anywhere on a spectrum from “effective medium” to “weapon of mass distraction”. Where your team’s experience falls depends mostly on how deliberately you set up your expectations of each other. But no tool is truly neutral and I think there are changes that Slack could make to help prevent chat fatigue and encourage longer periods of attention and focus.&lt;/p&gt;
@@ -1772,7 +1772,7 @@ autocmd &lt;span class=&quot;nb&quot;&gt;BufLeave&lt;/span&gt; *&lt;span class=&
 
 &lt;p&gt;Complaining is easy and product design is hard. But I’d still like to see more decisions that move Slack towards being a tool that focuses time and attention instead of tending to consume them.&lt;/p&gt;
 
-  &lt;p&gt;&lt;a href=&quot;/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/2016/04/16/how-slack-could-respect-your-time-and-attention-better/&quot;&gt;How Slack Could Respect Your Time And Attention (Better)&lt;/a&gt; was originally published by Thomas Mayfield at &lt;a href=&quot;http://localhost:4000&quot;&gt;Duct Tape and Turing Machines&lt;/a&gt; on April 16, 2016.&lt;/p&gt;</content>
 </entry>
 
 </feed>
