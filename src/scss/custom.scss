@@ -36,6 +36,14 @@
   .content ul {
     list-style: disc inside;
   }
+
+  ul.social-accounts {
+    list-style: none outside none;
+    a {
+      color: #4a4a4a;
+
+    }
+  }
 }
 
 .reading {
